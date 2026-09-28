@@ -5,12 +5,9 @@ import Link from "@components/Link.astro";
 import { RESUME } from "@consts";
 import { PROFILE, SKILLS, STRENGTHS, EXPERIENCES } from "../data/resume";
 
-import { getPosts, getProjects, postsOfProject } from "@lib/projects";
 import { Image } from "astro:assets";
 import profile from "../assets/profile.jpg";
 
-const posts = await getPosts();
-const projects = await getProjects();
 ---
 
 <Layout title={RESUME.TITLE} description={RESUME.DESCRIPTION}>
@@ -155,43 +152,6 @@ const projects = await getProjects();
           </ul>
         </section>
 
-        <section class="animate space-y-4">
-          <div class="flex flex-wrap items-baseline justify-between gap-y-1">
-            <h2 class="text-lg font-semibold text-black dark:text-white">개인 프로젝트</h2>
-            <Link href="/projects">모든 프로젝트 보기</Link>
-          </div>
-          <ul class="space-y-8 text-[15px]">
-            {
-              projects.map((p) => {
-                const count = postsOfProject(posts, p.id).length;
-                return (
-                  <li class="space-y-2">
-                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
-                      <Link href={`/projects/${p.id}`}>
-                        <span class="font-medium text-black dark:text-white">{p.data.title}</span>
-                      </Link>
-                      <span class="text-xs tabular-nums text-neutral-500">{p.data.date.getFullYear()}</span>
-                      {count > 0 && <span class="text-xs text-neutral-500">글 {count}편</span>}
-                    </div>
-                    <p class="leading-6 text-neutral-700 dark:text-neutral-300">{p.data.description}</p>
-                    <p class="flex flex-wrap gap-x-4 text-sm">
-                      {p.data.repoURL && (
-                        <Link href={p.data.repoURL} external>
-                          GitHub
-                        </Link>
-                      )}
-                      {p.data.demoURL && (
-                        <Link href={p.data.demoURL} external>
-                          {new URL(p.data.demoURL).host}
-                        </Link>
-                      )}
-                    </p>
-                  </li>
-                );
-              })
-            }
-          </ul>
-        </section>
       </div>
     </aside>
   </Container>
