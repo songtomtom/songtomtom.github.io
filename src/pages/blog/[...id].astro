@@ -9,6 +9,7 @@ import PostNavigation from "@components/PostNavigation.astro";
 import TableOfContents from "@components/TableOfContents.astro";
 import Giscus from "@components/Giscus.astro";
 import ProjectSeries from "@components/ProjectSeries.astro";
+import Mermaid from "@components/Mermaid.astro";
 import Link from "@components/Link.astro";
 import { getPosts, getProjects, postsOfProject } from "@lib/projects";
 
@@ -106,5 +107,6 @@ const { Content, headings } = await render(post);
         <Giscus />
       </div>
     </article>
+    <Mermaid />
   </Container>
 </Layout>

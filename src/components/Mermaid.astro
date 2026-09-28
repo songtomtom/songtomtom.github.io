@@ -1,0 +1,70 @@
+---
+// 마크다운의 ```mermaid 코드 블록을 브라우저에서 다이어그램으로 바꾼다.
+// 페이지에 mermaid 블록이 없으면 라이브러리를 내려받지 않는다.
+// 테마(html.dark) 가 바뀌면 같은 소스로 다시 그린다.
+---
+
+<script>
+  const SELECTOR = 'pre[data-language="mermaid"]';
+
+  async function renderAll() {
+    const blocks = document.querySelectorAll<HTMLElement>(SELECTOR + ", .mermaid-figure");
+    if (blocks.length === 0) return;
+
+    const { default: mermaid } = await import("https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs");
+    const dark = document.documentElement.classList.contains("dark");
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: dark ? "dark" : "neutral",
+      securityLevel: "strict",
+      fontFamily: "inherit",
+      // 본문 폭에 맞춰 축소하지 않고 원래 크기로 그린다. 넓은 그림은 figure 안에서 가로 스크롤된다.
+      flowchart: { useMaxWidth: false, nodeSpacing: 30, rankSpacing: 36, padding: 8 },
+      sequence: { useMaxWidth: false, actorMargin: 24, width: 130, messageMargin: 28, boxMargin: 6 },
+    });
+
+    let i = 0;
+    for (const el of blocks) {
+      // 첫 렌더링: <pre> 를 <figure> 로 바꾸고 원본 소스를 data 속성에 보관한다.
+      let figure: HTMLElement;
+      let source: string;
+      if (el.tagName === "PRE") {
+        // 코드 복사 버튼이 <pre> 안에 끼어 있으므로 <code> 의 내용만 쓴다.
+        source = (el.querySelector("code") ?? el).textContent ?? "";
+        figure = document.createElement("figure");
+        figure.className = "mermaid-figure not-prose my-6 overflow-x-auto text-center";
+        // 본문 폭(약 40rem)보다 넓은 그림을 위해 좌우로 조금 넓게 잡는다. 화면이 좁으면 화면 폭까지만.
+        figure.style.width = "min(100vw - 2rem, 56rem)";
+        figure.style.marginLeft = "calc(50% - min(100vw - 2rem, 56rem) / 2)";
+        figure.dataset.source = source;
+        el.replaceWith(figure);
+      } else {
+        figure = el;
+        source = figure.dataset.source ?? "";
+      }
+      try {
+        const { svg } = await mermaid.render(`mermaid-${Date.now()}-${i++}`, source);
+        figure.innerHTML = svg;
+        // 전역 스타일이 svg 를 본문 폭으로 줄이지 않게 한다. 넓은 그림은 figure 가 가로 스크롤한다.
+        const el2 = figure.querySelector("svg");
+        if (el2) {
+          const w = el2.getAttribute("width");
+          el2.style.maxWidth = "none";
+          el2.style.height = "auto";
+          el2.style.display = "inline-block";
+          if (w) el2.style.width = w + "px";
+        }
+      } catch (e) {
+        figure.innerHTML = `<pre class="text-sm text-red-500">mermaid: ${String(e)}</pre>`;
+      }
+    }
+  }
+
+  renderAll();
+  document.addEventListener("astro:after-swap", renderAll);
+
+  // 테마 토글 시 다시 그린다.
+  new MutationObserver((muts) => {
+    if (muts.some((m) => m.attributeName === "class")) renderAll();
+  }).observe(document.documentElement, { attributes: true });
+</script>

@@ -5,6 +5,7 @@ import Container from "@components/Container.astro";
 import BackToPrevious from "@components/BackToPrevious.astro";
 import Link from "@components/Link.astro";
 import FormattedDate from "@components/FormattedDate.astro";
+import Mermaid from "@components/Mermaid.astro";
 import { getPosts, getProjects, postsOfProject, type Project } from "@lib/projects";
 
 export async function getStaticPaths() {
@@ -43,6 +44,7 @@ const { title, description, repoURL, demoURL, tech, date } = project.data;
     <article class="animate">
       <Content />
     </article>
+    <Mermaid />
 
     {
       posts.length > 0 && (

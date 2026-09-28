@@ -18,31 +18,24 @@ tags:
 
 다섯 편에 걸쳐 아래 구조를 완성합니다.
 
-<svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="시리즈 전체 구조" style="max-width:640px;width:100%;font-family:inherit;font-size:13px">
-  <g fill="none" stroke="currentColor" stroke-width="1.2">
-    <rect x="20" y="30" width="200" height="90" rx="8"/>
-    <rect x="420" y="30" width="200" height="200" rx="8"/>
-    <rect x="440" y="150" width="160" height="60" rx="6" stroke-dasharray="4 3"/>
-  </g>
-  <g fill="currentColor">
-    <text x="120" y="55" text-anchor="middle" font-weight="600">React + Apollo Client</text>
-    <text x="120" y="80" text-anchor="middle" opacity=".7">HttpLink ─ Query, Mutation</text>
-    <text x="120" y="100" text-anchor="middle" opacity=".7">GraphQLWsLink ─ Subscription</text>
-    <text x="520" y="55" text-anchor="middle" font-weight="600">Go + gqlgen</text>
-    <text x="520" y="80" text-anchor="middle" opacity=".7">/query  (HTTP POST)</text>
-    <text x="520" y="100" text-anchor="middle" opacity=".7">/subscriptions  (WebSocket)</text>
-    <text x="520" y="125" text-anchor="middle" opacity=".7">MySQL (gorm)</text>
-    <text x="520" y="175" text-anchor="middle" font-weight="600">Observer</text>
-    <text x="520" y="195" text-anchor="middle" opacity=".7">postId → 구독자 채널 집합</text>
-    <text x="320" y="60" text-anchor="middle" opacity=".8">POST /query</text>
-    <text x="320" y="110" text-anchor="middle" opacity=".8">WS /subscriptions</text>
-  </g>
-  <g stroke="currentColor" stroke-width="1.2" fill="none" marker-end="url(#a)">
-    <path d="M220 70 H420"/>
-    <path d="M420 100 H220"/>
-  </g>
-  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker></defs>
-</svg>
+```mermaid
+flowchart LR
+  subgraph client["React + Apollo Client"]
+    http["HttpLink"]
+    ws["GraphQLWsLink"]
+  end
+  subgraph server["Go + gqlgen"]
+    q["/query"]
+    s["/subscriptions"]
+    obs["Observer<br/>postId → 구독자 채널 집합"]
+    db[("MySQL")]
+  end
+  http -- "POST · Query, Mutation" --> q
+  ws -- "WebSocket · Subscription" --> s
+  q -- "createComment 저장" --> db
+  q -- "Publish(postId)" --> obs
+  obs -- "Subscribe(postId)" --> s
+```
 
 1. **이번 글**: gqlgen 서버에 WebSocket 전송을 붙이고, 1초마다 시각을 보내는 가장 단순한 구독으로 배관이 동작하는지 확인합니다.
 2. Apollo Client에서 HTTP와 WebSocket 링크를 나눠 연결합니다.
