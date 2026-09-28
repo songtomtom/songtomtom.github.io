@@ -1,0 +1,34 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Link from "@components/Link.astro";
+
+type Props = {
+  project: CollectionEntry<"projects">;
+  posts: CollectionEntry<"blog">[];
+  currentId: string;
+};
+
+const { project, posts, currentId } = Astro.props;
+const index = posts.findIndex((p) => p.id === currentId);
+---
+
+<aside class="not-prose rounded-lg border border-black/15 px-4 py-3 text-sm dark:border-white/20">
+  <p>
+    이 글은 <Link href={`/projects/${project.id}`}>{project.data.title}</Link> 프로젝트의
+    {index + 1}편입니다. <span class="text-neutral-500">전체 {posts.length}편</span>
+  </p>
+  <ol class="mt-2 space-y-0.5 pl-1">
+    {
+      posts.map((p, i) => (
+        <li class="flex items-baseline gap-2">
+          <span class="w-4 shrink-0 tabular-nums text-neutral-500">{i + 1}</span>
+          {p.id === currentId ? (
+            <span class="font-semibold text-black dark:text-white">{p.data.title}</span>
+          ) : (
+            <Link href={`/blog/${p.id}`}>{p.data.title}</Link>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</aside>

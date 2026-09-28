@@ -1,0 +1,31 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Container.astro";
+import ProjectCard from "@components/ProjectCard.astro";
+import { PROJECTS } from "@consts";
+import { getPosts, getProjects, postsOfProject } from "@lib/projects";
+
+const projects = await getProjects();
+const posts = await getPosts();
+---
+
+<Layout title={PROJECTS.TITLE} description={PROJECTS.DESCRIPTION}>
+  <Container>
+    <aside data-pagefind-ignore>
+      <div class="space-y-10">
+        <p class="animate text-sm text-neutral-600 dark:text-neutral-400">
+          {PROJECTS.DESCRIPTION}
+        </p>
+        <ul class="animate not-prose flex flex-col gap-4">
+          {
+            projects.map((project) => (
+              <li>
+                <ProjectCard project={project} postCount={postsOfProject(posts, project.id).length} />
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </aside>
+  </Container>
+</Layout>

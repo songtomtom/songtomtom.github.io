@@ -1,6 +1,6 @@
 # songtomtom.github.io
 
-Astro로 만든 기술 블로그. https://songtomtom.github.io
+Astro([Astro Micro](https://github.com/trevortylerlee/astro-micro) 테마)로 만든 기술 블로그. https://songtomtom.dev
 
 ## 개발
 
@@ -15,13 +15,14 @@ Node.js 22 이상이 필요합니다(`.nvmrc` 참고).
 
 ## 글 작성
 
-`src/content/blog/` 에 마크다운(`.md`) 또는 MDX(`.mdx`) 파일을 추가합니다.
+`src/content/blog/<slug>/index.md` 파일을 추가합니다. 프로젝트는 `src/content/projects/<id>/index.md`에 추가하고, 글 프론트매터에 `project: <id>`와 `order: N`을 적으면 프로젝트 페이지에 순서대로 묶입니다. 
 
 ```md
 ---
 title: '글 제목'
 description: '한 줄 설명'
-pubDate: '2026-09-28'
+date: '2026-09-28'
+tags: [tag1]
 ---
 
 본문
