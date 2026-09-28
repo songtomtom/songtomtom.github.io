@@ -20,10 +20,10 @@ export const PROFILE = {
 
 export const SKILLS: { group: string; items: string[] }[] = [
   { group: "언어", items: ["Go", "TypeScript", "Dart", "Python"] },
-  { group: "프론트·앱", items: ["React", "Flutter"] },
-  { group: "브라우저 API", items: ["Web USB", "Web Serial"] },
+  { group: "프론트엔드", items: ["React"] },
+  { group: "모바일", items: ["Flutter"] },
   { group: "백엔드", items: ["GraphQL", "gRPC", "Kafka", "MySQL"] },
-  { group: "인프라", items: ["Docker", "Kubernetes", "AWS EKS", "ArgoCD", "GitHub Actions", "Fastlane"] },
+  { group: "인프라", items: ["Docker", "Kubernetes"] },
 ];
 
 export const STRENGTHS: string[] = [
