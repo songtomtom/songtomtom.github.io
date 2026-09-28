@@ -15,8 +15,8 @@ const { entry } = Astro.props as Props;
 >
   <div class="flex flex-1 flex-col truncate">
     <div class="flex items-center gap-2">
-      <span class="truncate font-semibold">{entry.data.title}</span>
       <CategoryBadge category={entry.data.category} />
+      <span class="truncate font-semibold">{entry.data.title}</span>
     </div>
     <div class="text-sm">
       {entry.data.description}
