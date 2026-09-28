@@ -12,6 +12,6 @@ category: frontend
 저장소는 전환 전과 후를 둘 다 담고 있습니다.
 
 - `webpack` 태그: 전환 전. 하나의 `webpack.config.js`가 세 결과물을 만듭니다.
-- `main`: 전환 후. `vite.config.js` 하나가 es·cjs·umd 세 포맷과 playground 모드를 담당하고, `package.json`의 `exports` 맵이 소비자별 진입점을 정합니다.
+- `main`: 전환 후. `vite.config.mjs` 하나가 es·cjs·umd 세 포맷과 playground 모드를 담당하고, `package.json`의 `exports` 맵이 소비자별 진입점을 정합니다.
 
 1편은 설정 구조를 어떻게 합쳤는지, 2편은 옮기며 걸린 것들(셰이더 import, Buffer, CommonJS 의존성, 소스맵 경고)을 어떻게 풀었는지입니다.
