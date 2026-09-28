@@ -1,6 +1,6 @@
 # songtomtom.github.io
 
-Astro([Astro Micro](https://github.com/trevortylerlee/astro-micro) 테마)로 만든 기술 블로그. https://songtomtom.dev
+Astro([Astro Micro](https://github.com/trevortylerlee/astro-micro) 테마)로 만든 기술 블로그. https://songtomtom.github.io
 
 ## 개발
 

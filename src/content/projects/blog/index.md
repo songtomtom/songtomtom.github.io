@@ -1,9 +1,9 @@
 ---
-title: "songtomtom.dev"
+title: "songtomtom.github.io"
 description: "Astro로 만든 이 기술 블로그. GitHub Actions로 GitHub Pages에 배포합니다."
 date: "2026-09-28"
 repoURL: "https://github.com/songtomtom/songtomtom.github.io"
-demoURL: "https://songtomtom.dev"
+demoURL: "https://songtomtom.github.io"
 tech: ["Astro", "TypeScript", "Tailwind CSS", "GitHub Actions"]
 ---
 

@@ -12,7 +12,7 @@ export const PROFILE = {
   contacts: [
     { label: "Email", href: "mailto:celvincolvumn@gmail.com", text: "celvincolvumn@gmail.com" },
     { label: "GitHub", href: "https://github.com/songtomtom", text: "github.com/songtomtom" },
-    { label: "Blog", href: "https://songtomtom.dev", text: "songtomtom.dev" },
+    { label: "Blog", href: "https://songtomtom.github.io", text: "songtomtom.github.io" },
   ],
 };
 
