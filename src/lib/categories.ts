@@ -12,8 +12,8 @@ export const CATEGORIES: Record<Category, { label: string; badge: string; dot: s
   },
   backend: {
     label: "Backend",
-    badge: "border-transparent bg-emerald-600 text-white dark:bg-emerald-500",
-    dot: "bg-emerald-600 dark:bg-emerald-500",
+    badge: "border-transparent bg-rose-600 text-white dark:bg-rose-500",
+    dot: "bg-rose-600 dark:bg-rose-500",
   },
   infra: {
     label: "Infra",
