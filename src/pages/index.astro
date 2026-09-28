@@ -1,7 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/Container.astro";
-import { SITE, HOME, SOCIALS } from "@consts";
+import { HOME } from "@consts";
 import ArrowCard from "@components/ArrowCard.astro";
 import ProjectCard from "@components/ProjectCard.astro";
 import Link from "@components/Link.astro";
@@ -84,22 +84,19 @@ const projects = (await getProjects()).slice(0, SITE.NUM_PROJECTS_ON_HOMEPAGE);
             연락
           </h2>
           <article>
-            <p>궁금한 점이나 제안이 있으면 GitHub 또는 이메일로 연락 주세요.</p>
+            <p>궁금한 점이나 제안이 있으면 이메일이나 GitHub으로 연락 주세요.</p>
           </article>
-          <ul class="not-prose flex flex-wrap gap-2">
-            {
-              SOCIALS.map((SOCIAL) => (
-                <li class="flex gap-x-2 text-nowrap">
-                  <Link
-                    href={SOCIAL.HREF}
-                    external
-                    aria-label={`${SITE.TITLE} on ${SOCIAL.NAME}`}
-                  >
-                    {SOCIAL.NAME}
-                  </Link>
-                </li>
-              ))
-            }
+          <ul class="not-prose flex flex-wrap gap-x-6 gap-y-1 text-sm">
+            <li>
+              <span class="text-neutral-500">Email</span>{" "}
+              <Link href="mailto:celvincolvumn@gmail.com">celvincolvumn@gmail.com</Link>
+            </li>
+            <li>
+              <span class="text-neutral-500">GitHub</span>{" "}
+              <Link href="https://github.com/songtomtom" external>
+                github.com/songtomtom
+              </Link>
+            </li>
           </ul>
         </section>
       </div>
