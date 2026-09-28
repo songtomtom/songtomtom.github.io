@@ -4,32 +4,35 @@
 export const PROFILE = {
   name: "송준영",
   handle: "songtomtom",
-  headline: "10년 이상 웹 프론트엔드, 백엔드, 모바일 앱, 클라우드 인프라를 넘나들어 온 풀스택 개발자",
+  headline: "하드웨어 연동 웹과 대규모 현장 이벤트 시스템을 만들어 온 풀스택 개발자. 10년 이상 프론트엔드, 백엔드, 모바일, 인프라를 직접 다루며 지금은 소프트웨어팀 팀장으로 일합니다.",
   summary: [
     "소프트웨어팀 팀장으로 연 13만 명 규모의 국제 로봇·코딩 대회 플랫폼과 교육용 블록코딩 플랫폼을 이끌고, 사내 프론트엔드 표준과 개발 프로세스를 정의했습니다.",
     "이전에는 개발 리드·CTO로 인프라부터 앱, 백엔드까지 전 과정을 주도해 시드 투자 유치와 TIPS 선정을 달성했습니다.",
+    "표준과 프로세스를 먼저 세우고 그 위에 빠르게 쌓는 방식을 선호합니다. 디자인 시스템, 코드 컨벤션, PR 리뷰 같은 기반을 한 번 만들어 여러 프로젝트가 같은 속도로 나아가게 하는 일에 가장 보람을 느낍니다.",
   ],
   contacts: [
     { label: "Email", href: "mailto:celvincolvumn@gmail.com", text: "celvincolvumn@gmail.com" },
     { label: "GitHub", href: "https://github.com/songtomtom", text: "github.com/songtomtom" },
-    { label: "Blog", href: "https://songtomtom.github.io", text: "songtomtom.github.io" },
+    // 인쇄(PDF)에서만 표시. 웹에서는 자기 자신을 가리키므로 숨긴다.
+    { label: "Blog", href: "https://songtomtom.github.io", text: "songtomtom.github.io", printOnly: true },
   ],
 };
 
 export const SKILLS: { group: string; items: string[] }[] = [
   { group: "언어", items: ["Go", "TypeScript", "Dart", "Python"] },
-  { group: "프론트·앱", items: ["React", "Flutter", "Web USB / Web Serial"] },
-  { group: "백엔드", items: ["GraphQL", "gRPC", "Kafka", "MSA"] },
+  { group: "프론트·앱", items: ["React", "Flutter"] },
+  { group: "브라우저 API", items: ["Web USB", "Web Serial"] },
+  { group: "백엔드", items: ["GraphQL", "gRPC", "Kafka", "MySQL"] },
   { group: "인프라", items: ["Docker", "Kubernetes", "AWS EKS", "ArgoCD", "GitHub Actions", "Fastlane"] },
 ];
 
 export const STRENGTHS: string[] = [
-  "소프트웨어팀 리드와 개발 표준 수립",
-  "사내 시스템 기획과 데이터 모델 설계",
   "브라우저와 하드웨어를 연결하는 웹 개발 (Web USB·Web Serial)",
   "다국어 서비스와 대규모 현장 이벤트 실시간 시스템 운영",
-  "클라우드 네이티브 인프라와 CI/CD 구축",
+  "소프트웨어팀 리드와 개발 표준 수립",
+  "사내 시스템 기획과 데이터 모델 설계",
   "Go 기반 MSA 백엔드와 Flutter 크로스 플랫폼 앱 개발",
+  "클라우드 네이티브 인프라와 CI/CD 구축",
 ];
 
 import type { Category } from "@lib/categories";
