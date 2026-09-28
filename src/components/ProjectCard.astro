@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import CategoryBadge from "@components/CategoryBadge.astro";
 
 type Props = {
   project: CollectionEntry<"projects">;
@@ -7,7 +8,7 @@ type Props = {
 };
 
 const { project, postCount } = Astro.props;
-const { title, description, tech, date } = project.data;
+const { title, description, tech, date, category } = project.data;
 ---
 
 <a
@@ -17,6 +18,7 @@ const { title, description, tech, date } = project.data;
   <div class="flex flex-1 flex-col gap-0.5 truncate">
     <div class="flex flex-wrap items-baseline gap-x-2">
       <span class="font-semibold">{title}</span>
+      <CategoryBadge category={category} />
       <span class="text-xs text-neutral-500">{date.getFullYear()}</span>
     </div>
     <div class="text-sm">{description}</div>

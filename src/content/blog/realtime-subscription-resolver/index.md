@@ -5,6 +5,7 @@ date: "2025-01-10"
 project: gqlgen-apollo-subscriptions
 order: 3
 canonical: "https://medium.com/@songtomtom/%EC%8B%A4%EC%8B%9C%EA%B0%84-%EA%B5%AC%EB%8F%85-%EC%84%9C%EB%B9%84%EC%8A%A4-%EB%A6%AC%EC%A1%B8%EB%B2%84-%EB%A7%8C%EB%93%A4%EA%B8%B0-89a90b092ac7"
+category: backend
 tags:
   - go
   - gqlgen

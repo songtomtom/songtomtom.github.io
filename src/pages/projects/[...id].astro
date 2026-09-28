@@ -6,6 +6,7 @@ import BackToPrevious from "@components/BackToPrevious.astro";
 import Link from "@components/Link.astro";
 import FormattedDate from "@components/FormattedDate.astro";
 import Mermaid from "@components/Mermaid.astro";
+import CategoryBadge from "@components/CategoryBadge.astro";
 import { getPosts, getProjects, postsOfProject, type Project } from "@lib/projects";
 
 export async function getStaticPaths() {
@@ -20,7 +21,7 @@ type Props = Project;
 const project = Astro.props;
 const posts = postsOfProject(await getPosts(), project.id);
 const { Content } = await render(project);
-const { title, description, repoURL, demoURL, tech, date } = project.data;
+const { title, description, repoURL, demoURL, tech, date, category } = project.data;
 ---
 
 <Layout title={title} description={description}>
@@ -29,7 +30,8 @@ const { title, description, repoURL, demoURL, tech, date } = project.data;
       <BackToPrevious href="/projects">프로젝트 목록으로</BackToPrevious>
     </div>
     <div class="animate my-10 space-y-2">
-      <div class="text-sm text-neutral-500">
+      <div class="flex items-center gap-2 text-sm text-neutral-500">
+        <CategoryBadge category={category} />
         <FormattedDate date={date} />
       </div>
       <h1 class="text-3xl font-semibold text-black dark:text-white">{title}</h1>

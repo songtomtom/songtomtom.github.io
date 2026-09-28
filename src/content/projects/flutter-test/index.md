@@ -4,6 +4,7 @@ description: "Flutter 단위 테스트와 Mockito 의존성 모킹을 다루는 
 date: "2025-01-13"
 repoURL: "https://github.com/songtomtom/flutter-test"
 tech: ["Flutter", "Dart", "Mockito"]
+category: mobile
 ---
 
 ![](./cover.png)

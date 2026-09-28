@@ -5,6 +5,7 @@ date: "2025-01-13"
 project: flutter-test
 order: 1
 canonical: "https://medium.com/@songtomtom/flutter-%EB%8B%A8%EC%9C%84-%ED%85%8C%EC%8A%A4%ED%8A%B8-unit-test-%EB%A1%9C-%EC%BD%94%EB%93%9C%EC%9D%98-%EA%B8%B0%EB%B3%B8-%EB%8B%A8%EC%9C%84-%EA%B2%80%EC%A6%9D%ED%95%98%EA%B8%B0-1d3b399b3a79"
+category: mobile
 tags:
   - flutter
   - dart

@@ -5,6 +5,7 @@ date: "2025-01-10"
 project: gqlgen-apollo-subscriptions
 order: 4
 canonical: "https://medium.com/@songtomtom/apollo-client%EB%A1%9C-%EA%B5%AC%EB%8F%85-%EC%84%9C%EB%B9%84%EC%8A%A4-gui-%EB%A7%8C%EB%93%A4%EA%B8%B0-9e47985325d0"
+category: frontend
 tags:
   - react
   - apollo-client

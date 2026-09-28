@@ -5,6 +5,7 @@ date: "2025-01-13"
 project: graphql-mesh-gateway
 order: 1
 canonical: "https://medium.com/@songtomtom/mesh-gateway-%EA%B5%AC%EC%84%B1-%ED%8C%8C%EC%9D%BC-%EC%83%9D%EC%84%B1-94bc27200f13"
+category: backend
 tags:
   - graphql
   - graphql-mesh

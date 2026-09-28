@@ -1,0 +1,27 @@
+---
+// shadcn/ui Badge 와 같은 형태. 분야 색을 default variant 의 채움색으로 쓴다.
+import { CATEGORIES, type Category } from "@lib/categories";
+import { cn } from "@lib/utils";
+
+type Props = {
+  category?: Category;
+  class?: string;
+};
+
+const { category, class: className } = Astro.props;
+const info = category ? CATEGORIES[category] : undefined;
+---
+
+{
+  info && (
+    <span
+      class={cn(
+        "inline-flex w-fit shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-md border px-2 py-0.5 text-xs font-medium leading-4 transition-colors",
+        info.badge,
+        className,
+      )}
+    >
+      {info.label}
+    </span>
+  )
+}

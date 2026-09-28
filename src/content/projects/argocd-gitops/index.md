@@ -4,6 +4,7 @@ description: "Minikube에 Argo CD를 올리고 GitHub Actions와 연결해 푸�
 date: "2025-01-18"
 repoURL: "https://github.com/songtomtom/argocd-app-source"
 tech: ["Argo CD", "Kubernetes", "GitHub Actions", "Docker", "Python"]
+category: infra
 ---
 
 ![](./cover.gif)

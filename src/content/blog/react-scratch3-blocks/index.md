@@ -5,6 +5,7 @@ date: "2025-01-10"
 project: scratch-blocks
 order: 1
 canonical: "https://medium.com/@songtomtom/react-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%97%90-scratch3-%EB%B8%94%EB%9F%AD-%EB%9E%9C%EB%8D%94%EB%A7%81-%ED%95%98%EA%B8%B0-23e2d90777af"
+category: frontend
 tags:
   - react
   - scratch

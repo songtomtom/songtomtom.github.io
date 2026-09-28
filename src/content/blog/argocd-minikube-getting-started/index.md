@@ -5,6 +5,7 @@ date: "2025-01-18"
 project: argocd-gitops
 order: 1
 canonical: "https://medium.com/@songtomtom/minikube%EC%97%90%EC%84%9C-argo-cd-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-4ebd89d0241f"
+category: infra
 tags:
   - argocd
   - kubernetes

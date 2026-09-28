@@ -5,6 +5,7 @@ date: "2025-01-13"
 project: go-grpc
 order: 1
 canonical: "https://medium.com/@songtomtom/grpc-%EC%84%9C%EB%B2%84-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0-08d8b943bbe1"
+category: backend
 tags:
   - go
   - grpc

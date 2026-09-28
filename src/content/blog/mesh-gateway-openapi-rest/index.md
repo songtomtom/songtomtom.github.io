@@ -5,6 +5,7 @@ date: "2025-01-13"
 project: graphql-mesh-gateway
 order: 2
 canonical: "https://medium.com/@songtomtom/open-api-%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-rest-api-%EB%A5%BC-mesh-gateway-%EC%97%90-%EC%97%B0%EA%B2%B0-a705e3e04dbb"
+category: backend
 tags:
   - go
   - openapi

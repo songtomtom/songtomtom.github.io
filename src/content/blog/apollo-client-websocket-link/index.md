@@ -5,6 +5,7 @@ date: "2025-01-10"
 project: gqlgen-apollo-subscriptions
 order: 2
 canonical: "https://medium.com/@songtomtom/apollo-client-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8-websocket-link-%EC%97%B0%EA%B2%B0-f2aebc2376a5"
+category: frontend
 tags:
   - react
   - apollo-client

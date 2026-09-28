@@ -4,6 +4,7 @@ description: "Go gqlgen으로 GraphQL Subscription 서버를 만들고 Apollo Cl
 date: "2023-01-17"
 repoURL: "https://github.com/songtomtom/gqlgen-apollo-subscriptions"
 tech: ["Go", "gqlgen", "GraphQL", "WebSocket", "React", "Apollo Client"]
+category: backend
 ---
 
 ![](./cover.png)

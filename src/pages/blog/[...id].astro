@@ -10,6 +10,7 @@ import TableOfContents from "@components/TableOfContents.astro";
 import Giscus from "@components/Giscus.astro";
 import ProjectSeries from "@components/ProjectSeries.astro";
 import Mermaid from "@components/Mermaid.astro";
+import CategoryBadge from "@components/CategoryBadge.astro";
 import Link from "@components/Link.astro";
 import { getPosts, getProjects, postsOfProject } from "@lib/projects";
 
@@ -55,6 +56,7 @@ const { Content, headings } = await render(post);
     </div>
     <div class="my-10 space-y-1">
       <div class="animate flex items-center gap-1.5">
+        <CategoryBadge category={post.data.category} class="mr-1" />
         <div class="font-base text-sm">
           <FormattedDate date={post.data.date} />
         </div>

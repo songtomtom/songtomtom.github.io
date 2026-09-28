@@ -3,6 +3,7 @@ title: "블로그를 시작합니다"
 description: "Astro와 GitHub Pages로 기술 블로그를 만든 이유와 구성"
 date: "2026-09-28"
 project: blog
+category: frontend
 tags:
   - blog
   - astro

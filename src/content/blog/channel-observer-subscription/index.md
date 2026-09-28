@@ -5,6 +5,7 @@ date: "2025-01-10"
 project: gqlgen-apollo-subscriptions
 order: 5
 canonical: "https://medium.com/@songtomtom/channel-observer%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-%EA%B5%AC%EB%8F%85-%EC%84%9C%EB%B9%84%EC%8A%A4-%EA%B4%80%EB%A6%AC-0f00b4edea8b"
+category: backend
 tags:
   - go
   - gqlgen

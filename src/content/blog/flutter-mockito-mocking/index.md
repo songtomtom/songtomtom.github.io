@@ -5,6 +5,7 @@ date: "2025-01-13"
 project: flutter-test
 order: 2
 canonical: "https://medium.com/@songtomtom/mockito-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-%EC%9D%98%EC%A1%B4%EC%84%B1-%EB%AA%A8%ED%82%B9-fbc0def913d5"
+category: mobile
 tags:
   - flutter
   - dart

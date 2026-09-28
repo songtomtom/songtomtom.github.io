@@ -4,6 +4,7 @@ description: "Protobuf 정의부터 Go gRPC 서버와 클라이언트까지 최�
 date: "2023-01-25"
 repoURL: "https://github.com/songtomtom/go-grpc"
 tech: ["Go", "gRPC", "Protobuf"]
+category: backend
 ---
 
 ![](./cover.png)

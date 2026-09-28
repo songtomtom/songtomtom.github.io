@@ -4,6 +4,8 @@ import Layout from "@layouts/Layout.astro";
 import Container from "@components/Container.astro";
 import ArrowCard from "@components/ArrowCard.astro";
 import { BLOG } from "@consts";
+import { CATEGORIES, CATEGORY_ORDER } from "@lib/categories";
+import { cn } from "@lib/utils";
 
 const data = (await getCollection("blog"))
   .filter((post) => !post.data.draft)
@@ -29,17 +31,40 @@ const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a));
   <Container>
     <aside data-pagefind-ignore>
       <div class="space-y-10">
+        <nav class="animate flex flex-wrap gap-2 text-sm" aria-label="Category filter" id="category-filter">
+          <button
+            type="button"
+            data-category=""
+            aria-pressed="true"
+            class="inline-flex h-8 items-center rounded-md border border-black/15 px-3 text-sm font-medium transition-colors hover:bg-black/5 aria-pressed:bg-black aria-pressed:text-white dark:border-white/20 dark:hover:bg-white/10 dark:aria-pressed:bg-white dark:aria-pressed:text-black"
+          >
+            All
+          </button>
+          {
+            CATEGORY_ORDER.map((c) => (
+              <button
+                type="button"
+                data-category={c}
+                aria-pressed="false"
+                class="inline-flex h-8 items-center gap-1.5 rounded-md border border-black/15 px-3 text-sm font-medium transition-colors hover:bg-black/5 aria-pressed:bg-black aria-pressed:text-white dark:border-white/20 dark:hover:bg-white/10 dark:aria-pressed:bg-white dark:aria-pressed:text-black"
+              >
+                <span class={cn("size-2 rounded-full", CATEGORIES[c].dot)} />
+                {CATEGORIES[c].label}
+              </button>
+            ))
+          }
+        </nav>
         <div class="space-y-4">
           {
             years.map((year) => (
-              <section class="animate space-y-4">
+              <section class="animate space-y-4" data-year-section>
                 <div class="font-semibold text-black dark:text-white">
                   {year}
                 </div>
                 <div>
                   <ul class="not-prose flex flex-col gap-4">
                     {posts[year].map((post) => (
-                      <li>
+                      <li data-category={post.data.category ?? ""}>
                         <ArrowCard entry={post} />
                       </li>
                     ))}
@@ -53,3 +78,32 @@ const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a));
     </aside>
   </Container>
 </Layout>
+
+<script>
+  // 분야 필터. 선택한 분야의 글만 남기고, 글이 하나도 안 남는 연도 섹션은 숨긴다.
+  function setupFilter() {
+    const nav = document.getElementById("category-filter");
+    if (!nav) return;
+    const buttons = Array.from(nav.querySelectorAll<HTMLButtonElement>("button"));
+    const apply = (category: string) => {
+      buttons.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.category === category)));
+      document.querySelectorAll<HTMLElement>("li[data-category]").forEach((li) => {
+        li.hidden = category !== "" && li.dataset.category !== category;
+      });
+      document.querySelectorAll<HTMLElement>("[data-year-section]").forEach((sec) => {
+        sec.hidden = !sec.querySelector("li[data-category]:not([hidden])");
+      });
+      try {
+        localStorage.setItem("blog-category", category);
+      } catch {}
+    };
+    buttons.forEach((b) => b.addEventListener("click", () => apply(b.dataset.category ?? "")));
+    let saved = "";
+    try {
+      saved = localStorage.getItem("blog-category") ?? "";
+    } catch {}
+    if (saved && buttons.some((b) => b.dataset.category === saved)) apply(saved);
+  }
+  setupFilter();
+  document.addEventListener("astro:after-swap", setupFilter);
+</script>

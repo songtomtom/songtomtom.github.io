@@ -5,6 +5,7 @@ date: "2025-01-13"
 project: graphql-mesh-gateway
 order: 3
 canonical: "https://medium.com/@songtomtom/grpc-graphql-%EC%84%9C%EB%B2%84-mesh-gateway-%EC%97%B0%EA%B2%B0-65dbde40f4ec"
+category: backend
 tags:
   - go
   - grpc

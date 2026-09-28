@@ -5,6 +5,7 @@ date: "2025-01-18"
 project: argocd-gitops
 order: 2
 canonical: "https://medium.com/@songtomtom/github%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-gitops-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0-56006f0ce88c"
+category: infra
 tags:
   - argocd
   - github-actions
