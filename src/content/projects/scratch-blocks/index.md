@@ -6,4 +6,4 @@ repoURL: "https://github.com/songtomtom/scratch-blocks"
 tech: ["React", "Scratch", "Rush", "TypeScript"]
 ---
 
-스크래치의 블록 라이브러리만 분리해 React 프로젝트 안에서 렌더링하는 실험입니다. 이후 럭스로보와 에이럭스에서 블록코딩 플랫폼을 만들 때 같은 접근을 사용했습니다.
+스크래치의 블록 라이브러리만 분리해 React 프로젝트 안에서 렌더링하는 실험입니다. 블록 에디터만 필요한 제품에서 스크래치 전체(scratch-gui) 대신 렌더링 엔진만 가져오는 접근을 검증합니다.
