@@ -1,0 +1,19 @@
+:root {
+  color-scheme: light dark;
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #111111; --fg: #eaeaea; }
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: system-ui, -apple-system, "Apple SD Gothic Neo", sans-serif;
+}
+main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 64px 16px;
+}
