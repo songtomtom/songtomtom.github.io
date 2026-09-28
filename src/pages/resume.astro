@@ -4,8 +4,6 @@ import Container from "@components/Container.astro";
 import Link from "@components/Link.astro";
 import { RESUME } from "@consts";
 import { PROFILE, SKILLS, STRENGTHS, EXPERIENCES } from "../data/resume";
-import CategoryBadge from "@components/CategoryBadge.astro";
-import LinkButton from "@components/LinkButton.astro";
 
 import { getPosts, getProjects, postsOfProject } from "@lib/projects";
 
@@ -92,12 +90,12 @@ const projects = await getProjects();
                     </div>
                     <span class="text-sm tabular-nums text-neutral-500">{e.period}</span>
                   </div>
-                  <ul class="space-y-8">
+                  <ul class="space-y-10">
                     {
                       e.items.map((it) => (
                         <li>
                           <details class="group">
-                            <summary class="cursor-pointer list-none space-y-2 text-[15px] [&::-webkit-details-marker]:hidden">
+                            <summary class="cursor-pointer list-none space-y-2.5 text-[15px] [&::-webkit-details-marker]:hidden">
                               <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5">
                                 <span class="flex items-baseline gap-2 font-semibold text-black dark:text-white">
                                   <span class="inline-block w-2.5 text-[10px] text-neutral-400 transition-transform group-open:rotate-90 print:hidden">
@@ -109,24 +107,25 @@ const projects = await getProjects();
                               </div>
                               <p class="pl-[18px] leading-6 text-neutral-700 dark:text-neutral-300">{it.highlight}</p>
                               {
-                                (it.categories?.length || it.links?.length) && (
-                                  <div class="flex flex-wrap items-center gap-2 pl-[18px] pt-1">
-                                    {it.categories?.map((c) => <CategoryBadge category={c} />)}
-                                    {it.links?.map((l) => (
-                                      <LinkButton href={l.href}>{l.label}</LinkButton>
+                                it.links?.length && (
+                                  <p class="flex flex-wrap gap-x-4 pl-[18px] text-sm">
+                                    {it.links.map((l) => (
+                                      <Link href={l.href} external>
+                                        {l.label}
+                                      </Link>
                                     ))}
-                                  </div>
+                                  </p>
                                 )
                               }
                             </summary>
-                            <div class="mt-4 space-y-3 pl-[18px] text-sm leading-6 text-neutral-700 dark:text-neutral-300">
+                            <div class="mt-5 space-y-5 pl-[18px] text-[15px] leading-7 text-neutral-700 dark:text-neutral-300">
                               <p>{it.summary}</p>
-                              <ul class="list-disc space-y-1.5 pl-5">
+                              <ul class="list-disc space-y-2.5 pl-5">
                                 {it.tasks.map((t) => <li>{t}</li>)}
                               </ul>
                               {
                                 it.tech && (
-                                  <p class="text-xs">
+                                  <p class="text-sm">
                                     <span class="text-neutral-500">기술</span> {it.tech.join(" · ")}
                                   </p>
                                 )
@@ -148,14 +147,13 @@ const projects = await getProjects();
             <h2 class="text-lg font-semibold text-black dark:text-white">개인 프로젝트</h2>
             <Link href="/projects">모든 프로젝트 보기</Link>
           </div>
-          <ul class="space-y-6 text-[15px]">
+          <ul class="space-y-8 text-[15px]">
             {
               projects.map((p) => {
                 const count = postsOfProject(posts, p.id).length;
                 return (
                   <li class="space-y-2">
                     <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
-                      <CategoryBadge category={p.data.category} />
                       <Link href={`/projects/${p.id}`}>
                         <span class="font-medium text-black dark:text-white">{p.data.title}</span>
                       </Link>
@@ -163,10 +161,18 @@ const projects = await getProjects();
                       {count > 0 && <span class="text-xs text-neutral-500">글 {count}편</span>}
                     </div>
                     <p class="leading-6 text-neutral-700 dark:text-neutral-300">{p.data.description}</p>
-                    <div class="flex flex-wrap gap-2 pt-0.5">
-                      {p.data.repoURL && <LinkButton href={p.data.repoURL}>GitHub</LinkButton>}
-                      {p.data.demoURL && <LinkButton href={p.data.demoURL}>{new URL(p.data.demoURL).host}</LinkButton>}
-                    </div>
+                    <p class="flex flex-wrap gap-x-4 text-sm">
+                      {p.data.repoURL && (
+                        <Link href={p.data.repoURL} external>
+                          GitHub
+                        </Link>
+                      )}
+                      {p.data.demoURL && (
+                        <Link href={p.data.demoURL} external>
+                          {new URL(p.data.demoURL).host}
+                        </Link>
+                      )}
+                    </p>
                   </li>
                 );
               })
