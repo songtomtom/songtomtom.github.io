@@ -1,7 +1,7 @@
 ---
 title: "MySQL Operator에서 CloudNativePG로"
 description: "Kubernetes 위에서 MySQL Operator를 1년 운영하다 PostgreSQL(CloudNativePG)로 옮긴 과정. 전환의 계기가 된 pgvector 예제와 실제 운영 매니페스트를 정리합니다."
-date: "2026-09-28"
+date: "2026-09-28T14:00"
 repoURL: "https://github.com/songtomtom/mysql-to-postgres-on-kubernetes"
 tech: ["PostgreSQL", "pgvector", "Go", "ent", "Kubernetes", "CloudNativePG"]
 category: infra

@@ -1,7 +1,7 @@
 ---
 title: "Nx + pnpm 모노레포"
 description: "단일 Vite React 앱을 Nx와 pnpm workspace로 앱 2개, 라이브러리 3개로 쪼갠 과정. 추론 플러그인, tsconfig paths 하나로 Vite와 Nx를 맞추는 방법, 의존 방향 강제와 affected 기반 CI를 다룹니다."
-date: "2026-09-28"
+date: "2026-09-28T23:15"
 repoURL: "https://github.com/songtomtom/nx-vite-pnpm-monorepo"
 tech: ["Nx", "pnpm", "Vite", "React", "TypeScript"]
 category: frontend

@@ -1,7 +1,7 @@
 ---
 title: "Flutter 기능 단위 아키텍처"
 description: "작은 할 일 앱으로 Flutter를 기능 단위로 나누고, 상태를 sealed class와 Dart 3 switch 표현식으로 다루는 구조를 만듭니다."
-date: "2026-09-28"
+date: "2026-09-28T10:00"
 repoURL: "https://github.com/songtomtom/flutter-feature-architecture"
 tech: ["Flutter", "Dart 3", "Riverpod", "go_router", "freezed"]
 category: mobile

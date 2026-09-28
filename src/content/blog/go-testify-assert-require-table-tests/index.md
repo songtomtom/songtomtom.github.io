@@ -1,7 +1,7 @@
 ---
 title: "testify assert와 require, 테이블 테스트로 서비스 로직 검증하기"
 description: "표준 testing만 쓸 때 실패 메시지가 왜 부족한지, assert와 require를 어느 자리에 쓰는지 실제 실패 출력으로 비교하고, 시각을 주입한 서비스를 테이블 테스트와 t.Parallel로 검증합니다."
-date: "2026-09-28"
+date: "2026-09-28T12:00"
 project: go-testify-testing
 order: 1
 category: backend

@@ -1,7 +1,7 @@
 ---
 title: "단일 앱을 Nx 모노레포로 쪼개기"
 description: "Vite React 앱 하나를 pnpm workspace 위의 앱 2개, 라이브러리 3개로 나눴습니다. project.json 없이 추론 플러그인으로 타깃을 만들고, 라이브러리를 빌드 없이 소스째 참조하고, 의존 그래프가 비어 나오던 문제를 nx.json 한 줄로 푼 과정입니다."
-date: "2026-09-28"
+date: "2026-09-28T23:15"
 project: nx-vite-pnpm-monorepo
 order: 1
 category: frontend

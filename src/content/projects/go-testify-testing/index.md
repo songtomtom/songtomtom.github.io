@@ -1,7 +1,7 @@
 ---
 title: "Go testify 테스트"
 description: "작은 할 일 REST 서비스를 대상으로 testify의 assert, require, mock, suite를 어디에 왜 쓰는지, MySQL 통합 테스트를 testcontainers로 어떻게 돌리는지 정리합니다."
-date: "2026-09-28"
+date: "2026-09-28T12:00"
 repoURL: "https://github.com/songtomtom/go-testify-testing"
 tech: ["Go", "testify", "testcontainers", "MySQL"]
 category: backend

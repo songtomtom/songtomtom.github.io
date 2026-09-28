@@ -1,7 +1,7 @@
 ---
 title: "Flutter 폴더 구조, 레이어 대신 기능으로 나누기"
 description: "화면 하나를 고치려고 폴더 네 개를 오가는 문제에서 시작해, Flutter 앱을 기능 단위로 코로케이션하는 구조와 각 디렉터리의 경계, 그리고 처음 만들 때 저장소 설계에서 틀렸던 것을 정리합니다."
-date: "2026-09-28"
+date: "2026-09-28T10:00"
 project: flutter-feature-architecture
 order: 1
 category: mobile

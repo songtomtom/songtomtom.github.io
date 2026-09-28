@@ -1,7 +1,7 @@
 ---
 title: "webpack에서 Vite 라이브러리 모드로"
 description: "WebGL 스프라이트 렌더러 하나를 webpack 설정 세 개에서 Vite 라이브러리 모드 하나로 옮긴 과정. 세 포맷 출력, exports 맵, 셰이더 raw import, Buffer 폴리필, CommonJS 의존성 문제를 다룹니다."
-date: "2026-09-28"
+date: "2026-09-28T22:50"
 repoURL: "https://github.com/songtomtom/webpack-to-vite-library"
 tech: ["Vite", "webpack", "WebGL", "Rollup"]
 category: frontend

@@ -1,7 +1,7 @@
 ---
 title: "testify mock으로 저장소 인터페이스 모킹하기"
 description: "메모리 구현으로는 만들 수 없는 저장소 오류와 호출 여부를 testify/mock으로 검증합니다. mock을 손으로 쓰는 방법, On·Return·Run·MatchedBy의 역할, 그리고 Return에 함수를 넣었다가 겪은 panic을 정리합니다."
-date: "2026-09-28"
+date: "2026-09-28T12:10"
 project: go-testify-testing
 order: 2
 category: backend

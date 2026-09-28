@@ -1,7 +1,7 @@
 ---
 title: "Kubernetes에서 MySQL Operator 1년, 그리고 CloudNativePG로"
 description: "Oracle MySQL Operator로 InnoDBCluster를 1년 운영하며 OOM을 쫓은 기록입니다. 메모리가 왜 세 겹인지, Router와 GitOps 드리프트가 어떻게 문제를 키웠는지, 비용은 RDS와 어떻게 비교되는지, 그리고 CloudNativePG로 어떻게 옮기고 무엇이 달라졌는지 정리합니다."
-date: "2026-09-28"
+date: "2026-09-28T14:10"
 project: mysql-to-postgres-on-kubernetes
 order: 2
 category: infra

@@ -1,7 +1,7 @@
 ---
 title: "Riverpod, go_router, freezed 코드 생성을 한 프로젝트에서 돌리기"
 description: "세 가지 코드 생성기가 각각 무엇을 만들어 주는지 생성 파일을 열어 보고, build.yaml로 범위를 제한하는 이유, 생성 파일을 저장소에 넣는 판단, 그리고 버전 충돌을 어떻게 풀었는지 정리합니다."
-date: "2026-09-28"
+date: "2026-09-28T10:20"
 project: flutter-feature-architecture
 order: 3
 category: mobile

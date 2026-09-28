@@ -1,7 +1,7 @@
 ---
 title: "셰이더, Buffer, CommonJS: Vite로 옮기며 걸린 것들"
 description: "설정을 합치고 나서 남은 네 가지를 정리합니다. raw-loader 대신 ?raw로 셰이더를 읽으면서 소스맵 경고를 없애고, Buffer 폴리필 30KB를 btoa로 대체하고, CommonJS 전용 의존성이 세 포맷과 dev 서버에서 어떻게 처리되는지 보고, Vite 8의 Rolldown minifier에서 console을 제거하는 방법을 찾았습니다."
-date: "2026-09-28"
+date: "2026-09-28T23:05"
 project: webpack-to-vite-library
 order: 2
 category: frontend
