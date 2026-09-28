@@ -32,11 +32,15 @@ export const STRENGTHS: string[] = [
   "Go 기반 MSA 백엔드와 Flutter 크로스 플랫폼 앱 개발",
 ];
 
+import type { Category } from "@lib/categories";
+
 export type ExperienceLink = { label: string; href: string };
 
 export type ExperienceItem = {
   title: string;
   period?: string;
+  /** 이 항목에서 다룬 분야. 뱃지로 표시 */
+  categories?: Category[];
   /** 접힌 상태에서도 보이는 핵심 성과 한 줄 */
   highlight: string;
   summary: string;
@@ -60,6 +64,7 @@ export const EXPERIENCES: Experience[] = [
     items: [
       {
         title: "G-PRC 국제 로봇·코딩 대회 통합 플랫폼 개발",
+        categories: ["frontend", "backend", "mobile", "infra"],
         period: "2025.03 - 현재",
         highlight: "참가자 13만 명, 8개국 대회에 앱 접수·실시간 심사 중계 도입. 10개 저장소, PR 200건 이상 리뷰 기반 운영",
         summary:
@@ -80,6 +85,7 @@ export const EXPERIENCES: Experience[] = [
       },
       {
         title: "AluxCoding 교육용 블록코딩 플랫폼 개발",
+        categories: ["frontend", "backend"],
         period: "2025.03 - 현재",
         highlight: "설치 없이 브라우저에서 실물 보드에 펌웨어를 올리는 구조 구현. 자체 입력 컴포넌트 26종, 4개 언어",
         summary:
@@ -98,6 +104,7 @@ export const EXPERIENCES: Experience[] = [
       },
       {
         title: "Alux Product 생산·재고 관리 시스템 구축",
+        categories: ["frontend", "backend", "mobile"],
         period: "2026.06 - 현재",
         highlight: "생산·재고·구매·품질을 웹과 현장 앱으로 신규 구축. 3개월 PR 280건 이상, UI 규칙 단일 출처화",
         summary:
@@ -112,6 +119,7 @@ export const EXPERIENCES: Experience[] = [
       },
       {
         title: "ALUX Hub 사내 연락처·사업 연결 관리 시스템 기획 및 구축",
+        categories: ["backend"],
         period: "2026.06 - 현재",
         highlight: "연락처 1,150명·사업 50여 건을 엔티티 8종으로 통합 설계. 기획부터 로드맵까지 직접 작성",
         summary:
@@ -127,6 +135,7 @@ export const EXPERIENCES: Experience[] = [
       },
       {
         title: "AluxCrawl 공공 조달 공고 수집·알림 서비스 개발",
+        categories: ["frontend", "backend", "mobile"],
         period: "2026.01 - 2026.06",
         highlight: "사내 프론트엔드 표준과 디자인 시스템을 여기서 정의해 이후 두 프로젝트가 파생",
         summary:
@@ -148,6 +157,7 @@ export const EXPERIENCES: Experience[] = [
     items: [
       {
         title: "머머(murmur) 앱 개발 및 투자 유치",
+        categories: ["mobile"],
         period: "2024.04 - 2024.09",
         highlight: "Flutter MVP로 시드 투자 유치, 베타로 TIPS 선정",
         summary:
@@ -166,6 +176,7 @@ export const EXPERIENCES: Experience[] = [
       },
       {
         title: "OpenAI API 기반 LLM 애플리케이션 개발 및 자연어 처리 시스템 구축",
+        categories: ["backend"],
         period: "2024.04 - 2025.03",
         highlight: "LLM과 spaCy·NLTK를 결합한 하이브리드 NLP 시스템 설계",
         summary:
@@ -180,6 +191,7 @@ export const EXPERIENCES: Experience[] = [
       },
       {
         title: "React 기반 관리자 페이지 개발",
+        categories: ["frontend"],
         period: "2024.04 - 2025.03",
         highlight: "실시간 데이터 갱신과 시각화를 갖춘 관리자 대시보드 구축",
         summary: "관리자 대시보드 UI/UX를 설계하고 데이터 시각화, 실시간 데이터 업데이트, 반응형 디자인을 적용한 관리자 페이지를 개발했습니다.",
@@ -188,6 +200,7 @@ export const EXPERIENCES: Experience[] = [
       },
       {
         title: "MSA 기반 백엔드 서버 개발 및 운영",
+        categories: ["backend"],
         period: "2024.04 - 2025.03",
         highlight: "Go 마이크로서비스 10여 개를 gRPC·GraphQL로 설계·운영",
         summary: "Go로 10여 개의 마이크로서비스 기반 서버를 개발하고 운영했습니다.",
@@ -201,6 +214,7 @@ export const EXPERIENCES: Experience[] = [
       },
       {
         title: "AWS EKS 기반 클라우드 인프라 구축",
+        categories: ["infra"],
         period: "2024.04 - 2025.03",
         highlight: "EKS 클러스터, ArgoCD CI/CD, Istio, Prometheus까지 인프라 전 계층 구축",
         summary: "AWS EKS를 활용해 확장 가능하고 안정적인 클라우드 인프라를 구축했습니다.",
@@ -221,6 +235,7 @@ export const EXPERIENCES: Experience[] = [
     items: [
       {
         title: "코딩 교육, 실시간 화상 강의 LMS(MODI Planet) 개발",
+        categories: ["backend", "frontend"],
         period: "2022.06 - 2022.08",
         highlight: "MSA 기반 알림·채팅 서버와 실시간 화상 강의 기능 구현",
         summary: "React와 Go로 MODI Planet의 학습 관리 시스템을 개발했습니다. MSA 기반 백엔드와 프론트엔드 지원으로 실시간 화상 강의 플랫폼을 구축했습니다.",
@@ -230,6 +245,7 @@ export const EXPERIENCES: Experience[] = [
       },
       {
         title: "MODI와 브라우저 간 하드웨어 통신 라이브러리 개발",
+        categories: ["frontend"],
         period: "2021.08 - 2022.04",
         highlight: "Web USB로 설치 없이 브라우저와 하드웨어를 직접 통신하는 라이브러리 개발",
         summary: "Web USB로 별도 응용프로그램 설치 없이 브라우저에서 직접 하드웨어와 통신하는 라이브러리를 개발했습니다.",
@@ -238,6 +254,7 @@ export const EXPERIENCES: Experience[] = [
       },
       {
         title: "글로벌 코딩 IDE 스크래치 최적화 개발",
+        categories: ["frontend"],
         period: "2020.04 - 2020.05",
         highlight: "오픈소스 스크래치를 React·TypeScript로 재구성해 자사 IDE로 전환",
         summary: "오픈소스 스크래치 프로젝트를 분석·최적화해 자사 맞춤형 코딩 IDE를 개발했습니다.",
@@ -254,6 +271,7 @@ export const EXPERIENCES: Experience[] = [
     items: [
       {
         title: "우리차이나 통합 LMS 개발",
+        categories: ["frontend", "backend"],
         highlight: "AngularJS·Express 기반 LMS 구축, MySQL에서 MongoDB로 마이그레이션",
         summary: "AngularJS, Express, MongoDB로 우리차이나의 통합 학습 관리 시스템을 개발했습니다.",
         tasks: [
@@ -274,6 +292,7 @@ export const EXPERIENCES: Experience[] = [
     items: [
       {
         title: "원스탑코리아 웹사이트 리뉴얼",
+        categories: ["frontend", "backend"],
         period: "2017.10 - 2018.01",
         highlight: "번역 서비스 요청 프로세스를 간소화한 반응형 사이트로 전면 개편",
         summary: "PHP와 MySQL로 번역 서비스 전문 기업 원스탑코리아의 웹사이트를 전면 개선했습니다.",
@@ -290,6 +309,7 @@ export const EXPERIENCES: Experience[] = [
     items: [
       {
         title: "KT 모바일 백신 T가드 서버 개발 및 운영",
+        categories: ["backend"],
         highlight: "백신 엔진 서버 운영과 실시간 바이러스 DB 업데이트 시스템 구축",
         summary: "PHP와 MySQL로 KT 모바일 백신 서비스 T가드의 백신 엔진 서버를 개발하고 운영했습니다.",
         tasks: ["백신 엔진 서버 관리 및 최적화", "실시간 바이러스 데이터베이스 업데이트 시스템 구축", "서버 성능 모니터링 및 보안 강화"],
@@ -305,6 +325,7 @@ export const EXPERIENCES: Experience[] = [
     items: [
       {
         title: "통신사 인터넷 사용자 단말 판단 인증 시스템 운영",
+        categories: ["backend", "infra"],
         highlight: "KT·SKT·LGU+ 단말 인증 시스템 운영, ASP에서 Spring으로 마이그레이션",
         summary: "Spring과 MySQL로 KT, SKT, LGU+ 인터넷 사용자의 단말 판단 인증 시스템을 개발·운영했습니다.",
         tasks: [
@@ -318,6 +339,7 @@ export const EXPERIENCES: Experience[] = [
       },
       {
         title: "eWalker 유해사이트 차단 솔루션 개발",
+        categories: ["backend"],
         period: "2013.10 - 2013.11",
         highlight: "실시간 웹 필터링 엔진과 관리자 대시보드 개발",
         summary: "ASP.NET과 MS-SQL로 eWalker 시스템의 핵심 기능을 개발했습니다.",
@@ -326,6 +348,7 @@ export const EXPERIENCES: Experience[] = [
       },
       {
         title: "SKB 모바일 유해차단 시스템 B자녀 안심서비스 CMS 개발",
+        categories: ["backend"],
         period: "2014.05 - 2015.05",
         highlight: "보호자용 관리 인터페이스와 실시간 유해 콘텐츠 필터링 CMS 개발",
         summary: "ASP.NET과 MS-SQL로 SKB 자녀 안심서비스 CMS를 개발하고 유지보수했습니다.",

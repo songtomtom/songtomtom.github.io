@@ -4,6 +4,8 @@ import Container from "@components/Container.astro";
 import Link from "@components/Link.astro";
 import { RESUME } from "@consts";
 import { PROFILE, SKILLS, STRENGTHS, EXPERIENCES } from "../data/resume";
+import CategoryBadge from "@components/CategoryBadge.astro";
+import LinkButton from "@components/LinkButton.astro";
 
 import { getPosts, getProjects, postsOfProject } from "@lib/projects";
 
@@ -14,8 +16,8 @@ const projects = await getProjects();
 <Layout title={RESUME.TITLE} description={RESUME.DESCRIPTION}>
   <Container>
     <aside data-pagefind-ignore>
-      <div class="space-y-14">
-        <section class="animate space-y-5">
+      <div class="space-y-20">
+        <section class="animate space-y-6">
           <div class="space-y-1">
             <h1 class="text-2xl font-semibold text-black dark:text-white">
               {PROFILE.name}
@@ -23,7 +25,7 @@ const projects = await getProjects();
             </h1>
             <p class="text-black dark:text-white">{PROFILE.headline}</p>
           </div>
-          <div class="space-y-2 text-[15px] leading-relaxed">
+          <div class="space-y-3 text-[15px] leading-7">
             {PROFILE.summary.map((p) => <p>{p}</p>)}
           </div>
           <ul class="not-prose flex flex-wrap items-baseline gap-x-4 gap-y-1 text-sm">
@@ -51,7 +53,7 @@ const projects = await getProjects();
 
         <section class="animate space-y-4">
           <h2 class="text-lg font-semibold text-black dark:text-white">기술 스택</h2>
-          <dl class="grid grid-cols-[auto_1fr] gap-x-6 gap-y-1.5 text-sm">
+          <dl class="grid grid-cols-[auto_1fr] gap-x-8 gap-y-3 text-[15px]">
             {
               SKILLS.map((s) => (
                 <>
@@ -65,7 +67,7 @@ const projects = await getProjects();
 
         <section class="animate space-y-4">
           <h2 class="text-lg font-semibold text-black dark:text-white">주요 역량</h2>
-          <ul class="grid gap-x-8 gap-y-1.5 text-sm sm:grid-cols-2">
+          <ul class="grid gap-x-10 gap-y-3 text-[15px] leading-6 sm:grid-cols-2">
             {
               STRENGTHS.map((s) => (
                 <li class="flex gap-2">
@@ -77,27 +79,27 @@ const projects = await getProjects();
           </ul>
         </section>
 
-        <section class="animate space-y-8">
+        <section class="animate space-y-10">
           <h2 class="text-lg font-semibold text-black dark:text-white">경력</h2>
-          <ul class="space-y-10">
+          <ul class="space-y-16">
             {
               EXPERIENCES.map((e) => (
-                <li class="space-y-4">
-                  <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5">
-                    <div class="flex flex-wrap items-baseline gap-x-2">
-                      <span class="text-base font-semibold text-black dark:text-white">{e.company}</span>
+                <li class="space-y-6">
+                  <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-black/10 pb-3 dark:border-white/15">
+                    <div class="flex flex-wrap items-baseline gap-x-3">
+                      <span class="text-lg font-semibold text-black dark:text-white">{e.company}</span>
                       <span class="text-sm text-neutral-500">{e.role}</span>
                     </div>
                     <span class="text-sm tabular-nums text-neutral-500">{e.period}</span>
                   </div>
-                  <ul class="space-y-3 border-l border-black/10 pl-4 dark:border-white/15">
+                  <ul class="space-y-8">
                     {
                       e.items.map((it) => (
                         <li>
                           <details class="group">
-                            <summary class="cursor-pointer list-none space-y-0.5 text-sm [&::-webkit-details-marker]:hidden">
+                            <summary class="cursor-pointer list-none space-y-2 text-[15px] [&::-webkit-details-marker]:hidden">
                               <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5">
-                                <span class="flex items-baseline gap-1.5 font-medium text-black dark:text-white">
+                                <span class="flex items-baseline gap-2 font-semibold text-black dark:text-white">
                                   <span class="inline-block w-2.5 text-[10px] text-neutral-400 transition-transform group-open:rotate-90 print:hidden">
                                     ▶
                                   </span>
@@ -105,27 +107,28 @@ const projects = await getProjects();
                                 </span>
                                 {it.period && <span class="text-xs tabular-nums text-neutral-500">{it.period}</span>}
                               </div>
-                              <p class="pl-4 text-neutral-700 dark:text-neutral-300">{it.highlight}</p>
+                              <p class="pl-[18px] leading-6 text-neutral-700 dark:text-neutral-300">{it.highlight}</p>
+                              {
+                                (it.categories?.length || it.links?.length) && (
+                                  <div class="flex flex-wrap items-center gap-2 pl-[18px] pt-1">
+                                    {it.categories?.map((c) => <CategoryBadge category={c} />)}
+                                    {it.links?.map((l) => (
+                                      <LinkButton href={l.href}>{l.label}</LinkButton>
+                                    ))}
+                                  </div>
+                                )
+                              }
                             </summary>
-                            <div class="mt-2 space-y-2 pl-4 text-sm text-neutral-700 dark:text-neutral-300">
+                            <div class="mt-4 space-y-3 pl-[18px] text-sm leading-6 text-neutral-700 dark:text-neutral-300">
                               <p>{it.summary}</p>
-                              <ul class="list-disc space-y-0.5 pl-5">
+                              <ul class="list-disc space-y-1.5 pl-5">
                                 {it.tasks.map((t) => <li>{t}</li>)}
                               </ul>
                               {
-                                (it.tech || it.links) && (
-                                  <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 text-xs">
-                                    {it.tech && (
-                                      <span>
-                                        <span class="text-neutral-500">기술</span> {it.tech.join(" · ")}
-                                      </span>
-                                    )}
-                                    {it.links?.map((l) => (
-                                      <Link href={l.href} external>
-                                        {l.label}
-                                      </Link>
-                                    ))}
-                                  </div>
+                                it.tech && (
+                                  <p class="text-xs">
+                                    <span class="text-neutral-500">기술</span> {it.tech.join(" · ")}
+                                  </p>
                                 )
                               }
                             </div>
@@ -145,25 +148,25 @@ const projects = await getProjects();
             <h2 class="text-lg font-semibold text-black dark:text-white">개인 프로젝트</h2>
             <Link href="/projects">모든 프로젝트 보기</Link>
           </div>
-          <ul class="space-y-3 text-sm">
+          <ul class="space-y-6 text-[15px]">
             {
               projects.map((p) => {
                 const count = postsOfProject(posts, p.id).length;
                 return (
-                  <li class="space-y-0.5">
-                    <div class="flex flex-wrap items-baseline gap-x-2">
+                  <li class="space-y-2">
+                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                      <CategoryBadge category={p.data.category} />
                       <Link href={`/projects/${p.id}`}>
                         <span class="font-medium text-black dark:text-white">{p.data.title}</span>
                       </Link>
                       <span class="text-xs tabular-nums text-neutral-500">{p.data.date.getFullYear()}</span>
                       {count > 0 && <span class="text-xs text-neutral-500">글 {count}편</span>}
-                      {p.data.repoURL && (
-                        <Link href={p.data.repoURL} external>
-                          <span class="text-xs">저장소</span>
-                        </Link>
-                      )}
                     </div>
-                    <p class="text-neutral-700 dark:text-neutral-300">{p.data.description}</p>
+                    <p class="leading-6 text-neutral-700 dark:text-neutral-300">{p.data.description}</p>
+                    <div class="flex flex-wrap gap-2 pt-0.5">
+                      {p.data.repoURL && <LinkButton href={p.data.repoURL}>GitHub</LinkButton>}
+                      {p.data.demoURL && <LinkButton href={p.data.demoURL}>{new URL(p.data.demoURL).host}</LinkButton>}
+                    </div>
                   </li>
                 );
               })

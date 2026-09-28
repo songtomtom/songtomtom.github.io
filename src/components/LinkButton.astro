@@ -1,0 +1,32 @@
+---
+// 결과물(서비스, 저장소, 앱스토어)로 이동하는 작은 버튼. shadcn Button 의 outline · sm 형태.
+import { cn } from "@lib/utils";
+
+type Props = {
+  href: string;
+  class?: string;
+};
+
+const { href, class: className } = Astro.props;
+const external = /^https?:\/\//.test(href);
+---
+
+<a
+  href={href}
+  target={external ? "_blank" : undefined}
+  rel={external ? "noopener noreferrer" : undefined}
+  class={cn(
+    "inline-flex h-6 items-center gap-1 rounded-md border border-black/15 bg-white px-2 text-xs font-medium text-black no-underline shadow-xs transition-colors hover:bg-neutral-100 dark:border-white/20 dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700",
+    className,
+  )}
+>
+  <slot />
+  {
+    external && (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="size-3 fill-none stroke-current stroke-2" aria-hidden="true">
+        <path d="M7 17 17 7" />
+        <path d="M8 7h9v9" />
+      </svg>
+    )
+  }
+</a>
