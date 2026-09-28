@@ -36,13 +36,15 @@ MySQL을 손댄 커밋은 12월부터 5월까지 여섯 달 동안 45건입니�
 InnoDBCluster 운영의 대부분은 OOM Kill(exit code 137)과의 싸움이었습니다. 처음에는 `innodb_buffer_pool_size`만 보면 되는 줄 알았습니다. 파드 limit에서 buffer_pool을 빼면 나머지가 여유라고 생각한 것입니다. 실제로는 세 겹이었습니다.
 
 ```mermaid
-flowchart LR
+flowchart TB
   subgraph pod["MySQL 파드 RSS (limit 3.5Gi)"]
-    bp["1겹: innodb_buffer_pool<br/>768M"]
-    gr["2겹: Group Replication<br/>메시지 캐시 (기본 1GiB → 256M)"]
+    direction TB
+    bp["1겹: innodb_buffer_pool 768M"]
+    gr["2겹: Group Replication 메시지 캐시<br/>기본 1GiB → 256M 으로 제한"]
     arena["3겹: glibc arena 단편화<br/>free 됐지만 OS 미반환 ~800M"]
     etc["기타 오버헤드 ~500M"]
   end
+  bp --- gr --- arena --- etc
 ```
 
 **1겹, buffer_pool.** 데이터 캐시입니다. 2G로 시작해 OOM이 날 때마다 줄였습니다. 줄이면 OOM 빈도가 낮아지지만 캐시 적중률도 떨어집니다.
