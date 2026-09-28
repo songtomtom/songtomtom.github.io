@@ -11,9 +11,12 @@
     const blocks = document.querySelectorAll<HTMLElement>(SELECTOR + ", .mermaid-figure");
     if (blocks.length === 0) return;
 
-    // 번들에 넣지 않고 CDN 에서 동적으로 불러온다. 변수로 두어 타입 검사와 Vite 가 경로를 해석하지 않게 한다.
+    // 번들에 넣지 않고 CDN 에서 동적으로 불러온다.
+    // Vite 는 소스의 import() 를 변환하면서 개발 모드에서 URL 에 ?import 를 붙이는데,
+    // CDN 이 그 주소를 모듈로 주지 않아 실패한다. Function 으로 감싸 변환 대상에서 제외한다.
     const url = "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
-    const { default: mermaid } = await import(/* @vite-ignore */ url);
+    const load = new Function("u", "return import(u)") as (u: string) => Promise<{ default: any }>;
+    const { default: mermaid } = await load(url);
     const dark = document.documentElement.classList.contains("dark");
     mermaid.initialize({
       startOnLoad: false,
