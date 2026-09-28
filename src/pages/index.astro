@@ -23,13 +23,21 @@ const projects = (await getProjects()).slice(0, SITE.NUM_PROJECTS_ON_HOMEPAGE);
           <article class="space-y-4">
             <span>
               <p>
-                소프트웨어를 만들면서 부딪힌 문제와 그때의 선택을 기록합니다.
+                소프트웨어를 만들면서 부딪힌 문제와 그때의 선택을 기록합니다. 잘 된 것보다는
+                처음에 잘못 만들었다가 고친 것, 문서만 봐서는 몰랐던 것, 다음에 같은 일을 하면
+                다르게 할 것들을 주로 씁니다.
+              </p>
+              <p>
+                글은 따라 하면 그대로 동작하도록 실제 저장소의 코드를 기준으로 쓰고, 왜 그렇게
+                했는지와 어디까지가 한계인지를 함께 남깁니다. 연재물은 순서대로 읽을 수 있게
+                묶어 두었습니다.
               </p>
             </span>
             <span class="animate">
               <p>
                 코드가 있는 글은 <Link href="/projects">프로젝트</Link>로 묶여 있고, 경력은
-                <Link href="/resume">이력서</Link>에 정리해 두었습니다.
+                <Link href="/resume">이력서</Link>에 정리해 두었습니다. 궁금한 점은 아래 연락처로
+                보내 주세요.
               </p>
             </span>
           </article>
