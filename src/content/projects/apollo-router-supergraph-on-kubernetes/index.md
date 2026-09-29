@@ -14,4 +14,4 @@ category: infra
 - `overlays/init-compose`: 전환 전. init container가 rover로 compose해 emptyDir에 쓰고 라우터가 그 파일로 뜹니다.
 - `overlays/uplink`: 전환 후. init container와 볼륨을 `$patch: delete`로 지우고, publish CronJob을 더하고, 라우터는 Secret의 키로 Uplink에서 받습니다.
 
-1편은 전환 전 구조와 그것이 어디서 깨지는지를 재현한 실험, 2편은 이슈 네 개를 어떤 순서로 풀었고 왜 처음 계획(클러스터 안 ConfigMap)이 아니라 Uplink로 갔는지입니다.
+1편은 전환 전 구조와 그것이 어디서 깨지는지를 재현한 실험, 2편은 서브그래프 목록 단일화와 publish CronJob 분리, 3편은 처음 계획(클러스터 안 ConfigMap)이 3.5MB에서 막혀 Uplink로 간 이야기, 4편은 바꾸기 전에 서빙 스키마가 같다는 것을 증명한 방법입니다.
