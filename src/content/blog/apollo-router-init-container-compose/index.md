@@ -19,15 +19,12 @@ Apollo가 권하는 방식은 GraphOS입니다. 서브그래프 CI가 스키마�
 ## 구조
 
 ```mermaid
-flowchart LR
+flowchart TB
+    cm["ConfigMap supergraph.yaml<br/>(서브그래프 목록)"] --> init
     subgraph pod["apollo-router 파드"]
-        direction TB
-        init["init: schema-composer<br/>npm i -g @apollo/rover<br/>rover supergraph compose"]
-        vol[("emptyDir<br/>/shared/supergraph.graphql")]
-        router["router<br/>--supergraph /shared/..."]
-        init --> vol --> router
+        direction LR
+        init["init: schema-composer<br/>npm i -g @apollo/rover<br/>rover supergraph compose"] --> vol[("emptyDir<br/>supergraph.graphql")] --> router["router<br/>--supergraph"]
     end
-    cm["ConfigMap<br/>supergraph.yaml<br/>(서브그래프 목록)"] --> init
     init -. introspect .-> products["products"]
     init -. introspect .-> reviews["reviews"]
     router --> products
