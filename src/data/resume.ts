@@ -59,7 +59,12 @@ export type Experience = {
   items: ExperienceItem[];
 };
 
-export const EXPERIENCES: Experience[] = [
+// 각 경력의 프로젝트는 시작 시점 기준 최신순으로 정렬한다 (같은 달이면 적힌 순서 유지).
+const startOf = (period: string) => period.slice(0, 7);
+const sortItems = (list: Experience[]): Experience[] =>
+  list.map((e) => ({ ...e, items: [...e.items].sort((a, b) => startOf(b.period).localeCompare(startOf(a.period))) }));
+
+export const EXPERIENCES: Experience[] = sortItems([
   {
     company: "주식회사 에이럭스 (ALUX)",
     role: "소프트웨어팀 팀장",
@@ -360,4 +365,4 @@ export const EXPERIENCES: Experience[] = [
       },
     ],
   },
-];
+]);
