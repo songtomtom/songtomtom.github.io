@@ -84,7 +84,11 @@ export const EXPERIENCES: Experience[] = [
           "대회 규모: 2025년 제11회 코엑스 A홀, 참가자 13만 명 이상, 해외 8개국. 이 회차에 앱 기반 접수와 실시간 심사 중계 도입",
         ],
         tech: ["TypeScript", "React", "Flutter", "Go"],
-        links: [{ label: "g-prc.com", href: "https://g-prc.com" }],
+        links: [
+          { label: "g-prc.com", href: "https://g-prc.com" },
+          { label: "App Store", href: "https://apps.apple.com/kr/app/gprc/id6745237554" },
+          { label: "Google Play", href: "https://play.google.com/store/apps/details?id=com.alux.aluxcontest" },
+        ],
       },
       {
         title: "AluxCoding 교육용 블록코딩 플랫폼 개발",
