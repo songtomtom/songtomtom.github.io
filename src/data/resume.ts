@@ -60,9 +60,12 @@ export type Experience = {
 };
 
 // 각 경력의 프로젝트는 시작 시점 기준 최신순으로 정렬한다 (같은 달이면 적힌 순서 유지).
-const startOf = (period: string) => period.slice(0, 7);
+const startOf = (period: string | undefined, fallback: string) => (period ?? fallback).slice(0, 7);
 const sortItems = (list: Experience[]): Experience[] =>
-  list.map((e) => ({ ...e, items: [...e.items].sort((a, b) => startOf(b.period).localeCompare(startOf(a.period))) }));
+  list.map((e) => ({
+    ...e,
+    items: [...e.items].sort((a, b) => startOf(b.period, e.period).localeCompare(startOf(a.period, e.period))),
+  }));
 
 export const EXPERIENCES: Experience[] = sortItems([
   {
