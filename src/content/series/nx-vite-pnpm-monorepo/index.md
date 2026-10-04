@@ -5,7 +5,7 @@ date: "2026-09-28T23:15"
 repoURL: "https://github.com/songtomtom/nx-vite-pnpm-monorepo"
 tech: ["Nx", "pnpm", "Vite", "React", "TypeScript"]
 category: frontend
-cover: ./cover-b26446.png
+cover: ./cover-e6cda6.png
 ---
 
 한 폴더에서 자라던 React 앱에 두 번째 앱이 필요해졌습니다. 같은 도메인 로직과 UI를 써야 하는데 복사할 수는 없어서, 앱을 쪼개고 공유할 것을 라이브러리로 뺐습니다. 도구는 Nx와 pnpm workspace입니다.
