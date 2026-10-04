@@ -5,7 +5,7 @@ date: "2026-09-28T22:50"
 repoURL: "https://github.com/songtomtom/webpack-to-vite-library"
 tech: ["Vite", "webpack", "WebGL", "Rollup"]
 category: frontend
-cover: ./cover-f26b9c.png
+cover: ./cover-50dbad.png
 ---
 
 브라우저와 Node 양쪽에서 쓰는 WebGL 라이브러리를 webpack에서 Vite로 옮겼습니다. 원래는 web(UMD)·node(CommonJS)·playground 세 개의 webpack 설정이 하나의 파일에 들어 있었고, 셰이더 소스를 raw-loader로 읽고 Buffer 폴리필을 fallback으로 끼워 넣는 구조였습니다.
