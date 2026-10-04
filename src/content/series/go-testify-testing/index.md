@@ -5,6 +5,7 @@ date: "2026-09-28T12:00"
 repoURL: "https://github.com/songtomtom/go-testify-testing"
 tech: ["Go", "testify", "testcontainers", "MySQL"]
 category: backend
+cover: ./cover.png
 ---
 
 Go 표준 `testing` 패키지만으로도 테스트는 쓸 수 있지만, 실패 메시지가 빈약하고 모킹과 스위트를 매번 손으로 만들어야 합니다. 이 프로젝트는 할 일 REST 서비스 하나를 대상으로 testify의 네 패키지를 각각 어떤 문제에 쓰는지 보여 줍니다.

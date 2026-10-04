@@ -5,6 +5,7 @@ date: "2026-09-28T10:00"
 repoURL: "https://github.com/songtomtom/flutter-feature-architecture"
 tech: ["Flutter", "Dart 3", "Riverpod", "go_router", "freezed"]
 category: mobile
+cover: ./cover.png
 ---
 
 화면이 늘어날수록 Flutter 프로젝트는 폴더 구조와 상태 분기에서 먼저 무너집니다. 이 프로젝트는 할 일 목록, 상세, 설정 세 화면짜리 작은 앱으로 그 두 가지를 다루는 방식을 정리한 것입니다. 서버 없이 앱만으로 동작합니다.

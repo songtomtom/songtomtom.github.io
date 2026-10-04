@@ -5,6 +5,7 @@ date: "2026-09-29T20:00"
 repoURL: "https://github.com/songtomtom/apollo-router-supergraph-on-kubernetes"
 tech: ["Apollo Router", "GraphQL Federation", "Kubernetes", "Kustomize", "rover"]
 category: infra
+cover: ./cover.png
 ---
 
 여러 GraphQL 서브그래프를 Apollo Router 하나로 묶어 서빙할 때, 서브그래프 스키마를 합친 슈퍼그래프를 **누가, 언제** 만드느냐가 운영의 모양을 정합니다. 저는 처음에 스키마 레지스트리 없이 라우터 파드가 뜰 때마다 init container가 클러스터 안의 서브그래프를 직접 introspect해서 합치는 방식을 택했고, 1년을 그렇게 운영했습니다. 서브그래프가 4개에서 15개로 늘어나는 동안 이 결합이 어디서 아픈지 드러났고, publish를 CronJob으로 떼어내고 라우터는 Uplink에서 받는 구조로 하루 만에 옮겼습니다.
