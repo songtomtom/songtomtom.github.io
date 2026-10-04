@@ -2,7 +2,7 @@
 title: "바꾸기 전에 같은지 증명하기"
 description: "라우터가 슈퍼그래프를 받는 경로를 바꾸면서 서빙 스키마가 한 필드도 달라지지 않았음을 어떻게 확인했는지. 임시 라우터를 새 방식으로 띄워 introspection을 정규화해 diff하고, 비교 전에 GraphOS의 휴면 서브그래프를 정리하고, 롤아웃 규칙에서 안전성을 계산하고, 못 해 본 것을 못 해 봤다고 적은 과정입니다."
 date: "2026-09-29T23:00"
-project: apollo-router-supergraph-on-kubernetes
+series: apollo-router-supergraph-on-kubernetes
 order: 4
 category: infra
 tags:

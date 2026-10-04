@@ -2,7 +2,7 @@
 title: "GitHub를 활용한 GitOps 구현하기"
 description: "소스 저장소와 매니페스트 저장소를 분리하고 GitHub Actions가 이미지를 빌드해 매니페스트를 갱신하면 Argo CD가 자동 배포하는 파이프라인을 만듭니다. 저장소를 나누는 이유와 자동 동기화 옵션, 이 구성의 한계를 정리합니다."
 date: "2025-01-18"
-project: argocd-gitops
+series: argocd-gitops
 order: 2
 canonical: "https://medium.com/@songtomtom/github%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-gitops-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0-56006f0ce88c"
 category: infra

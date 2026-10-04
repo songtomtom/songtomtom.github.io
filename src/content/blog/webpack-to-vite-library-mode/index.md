@@ -2,7 +2,7 @@
 title: "webpack 설정 세 개를 Vite 라이브러리 모드 하나로"
 description: "브라우저용 UMD, Node용 CommonJS, 데모 페이지를 각각 만들던 webpack 설정 세 개를 Vite 설정 하나로 합쳤습니다. 라이브러리 모드의 formats·fileName·external이 무엇을 대신하는지, exports 맵을 어떻게 맞췄는지, 옮기고 나서 번들 크기가 왜 달라졌는지 정리합니다."
 date: "2026-09-28T22:50"
-project: webpack-to-vite-library
+series: webpack-to-vite-library
 order: 1
 category: frontend
 tags:

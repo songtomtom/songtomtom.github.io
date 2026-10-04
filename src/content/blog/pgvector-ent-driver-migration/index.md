@@ -2,7 +2,7 @@
 title: "벡터 검색 하나 때문에 시작된 PostgreSQL 전환"
 description: "문서 검색 봇에 임베딩 검색이 필요해지자 MySQL로는 답이 없었습니다. ent 설정에 Driver 필드 하나를 넣어 서비스 하나만 PostgreSQL로 보내고, pgvector 확장과 HNSW 인덱스를 ent 마이그레이션 사이에 끼워 넣은 과정, 그리고 옮기고 나서 손에 들어온 확장들을 정리합니다."
 date: "2026-09-28T14:00"
-project: mysql-to-postgres-on-kubernetes
+series: mysql-to-postgres-on-kubernetes
 order: 1
 category: backend
 tags:

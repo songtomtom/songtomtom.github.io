@@ -2,7 +2,7 @@
 title: "Mesh Gateway 구성 파일 생성"
 description: "REST, gRPC, GraphQL로 흩어진 서비스를 하나의 GraphQL 엔드포인트로 묶는 GraphQL Mesh를 소개하고, 세 소스를 선언하는 구성 파일과 빌드·실행 방식을 설명합니다."
 date: "2025-01-13"
-project: graphql-mesh-gateway
+series: graphql-mesh-gateway
 order: 1
 canonical: "https://medium.com/@songtomtom/mesh-gateway-%EA%B5%AC%EC%84%B1-%ED%8C%8C%EC%9D%BC-%EC%83%9D%EC%84%B1-94bc27200f13"
 category: backend

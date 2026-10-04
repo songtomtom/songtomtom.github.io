@@ -3,18 +3,18 @@ import type { CollectionEntry } from "astro:content";
 import Link from "@components/Link.astro";
 
 type Props = {
-  project: CollectionEntry<"projects">;
+  series: CollectionEntry<"series">;
   posts: CollectionEntry<"blog">[];
   currentId: string;
 };
 
-const { project, posts, currentId } = Astro.props;
+const { series, posts, currentId } = Astro.props;
 const index = posts.findIndex((p) => p.id === currentId);
 ---
 
 <aside class="not-prose rounded-lg border border-black/15 px-4 py-3 text-sm dark:border-white/20">
   <p>
-    이 글은 <Link href={`/projects/${project.id}`}>{project.data.title}</Link> 프로젝트의
+    이 글은 <Link href={`/series/${series.id}`}>{series.data.title}</Link> 시리즈의
     {index + 1}편입니다. <span class="text-neutral-500">전체 {posts.length}편</span>
   </p>
   <ol class="mt-2 space-y-0.5 pl-1">

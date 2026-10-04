@@ -2,7 +2,7 @@
 title: "Channel Observer를 사용하여 구독 서비스 관리"
 description: "뮤테이션과 구독 리졸버를 잇는 Observer를 Go 채널로 만듭니다. 처음 만든 버전의 세 가지 버그(동시 쓰기, 구독자 덮어쓰기, 블로킹 발행)를 고치고, 클라이언트는 subscribeToMore로 목록을 갱신합니다."
 date: "2025-01-10"
-project: gqlgen-apollo-subscriptions
+series: gqlgen-apollo-subscriptions
 order: 5
 canonical: "https://medium.com/@songtomtom/channel-observer%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-%EA%B5%AC%EB%8F%85-%EC%84%9C%EB%B9%84%EC%8A%A4-%EA%B4%80%EB%A6%AC-0f00b4edea8b"
 category: backend

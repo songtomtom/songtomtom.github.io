@@ -2,7 +2,7 @@
 title: "React 프로젝트에 Scratch3 블럭 랜더링 하기"
 description: "스크래치 3의 블록 렌더링 엔진인 scratch-blocks만 떼어내 React 앱 안에 그립니다. Rush 모노레포로 포크와 앱을 묶는 이유, inject 함수와 툴박스 XML의 역할, 그리고 실제 제품으로 가려면 무엇이 더 필요한지 정리합니다."
 date: "2025-01-10"
-project: scratch-blocks
+series: scratch-blocks
 order: 1
 canonical: "https://medium.com/@songtomtom/react-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%97%90-scratch3-%EB%B8%94%EB%9F%AD-%EB%9E%9C%EB%8D%94%EB%A7%81-%ED%95%98%EA%B8%B0-23e2d90777af"
 category: frontend

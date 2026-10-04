@@ -2,7 +2,7 @@
 title: "Mockito 라이브러리를 사용하여 의존성 모킹"
 description: "네트워크에 의존하는 함수를 테스트하기 위해 http.Client를 주입 가능하게 바꾸고 Mockito로 가짜 클라이언트를 만듭니다. 왜 코드 생성이 필요한지, when과 thenAnswer의 의미, 모킹을 남용하면 생기는 문제를 정리합니다."
 date: "2025-01-13"
-project: flutter-test
+series: flutter-test
 order: 2
 canonical: "https://medium.com/@songtomtom/mockito-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-%EC%9D%98%EC%A1%B4%EC%84%B1-%EB%AA%A8%ED%82%B9-fbc0def913d5"
 category: mobile

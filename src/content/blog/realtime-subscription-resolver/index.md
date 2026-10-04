@@ -2,7 +2,7 @@
 title: "실시간 구독 서비스 리졸버 만들기"
 description: "게시물과 댓글 스키마를 설계하고 MySQL과 gorm으로 저장하는 리졸버를 만듭니다. 리졸버 의존성을 어디서 만들어야 하는지, 왜 구독에도 저장소가 필요한지 설명합니다."
 date: "2025-01-10"
-project: gqlgen-apollo-subscriptions
+series: gqlgen-apollo-subscriptions
 order: 3
 canonical: "https://medium.com/@songtomtom/%EC%8B%A4%EC%8B%9C%EA%B0%84-%EA%B5%AC%EB%8F%85-%EC%84%9C%EB%B9%84%EC%8A%A4-%EB%A6%AC%EC%A1%B8%EB%B2%84-%EB%A7%8C%EB%93%A4%EA%B8%B0-89a90b092ac7"
 category: backend

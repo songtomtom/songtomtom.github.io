@@ -2,7 +2,7 @@
 title: "gqlgen 으로 구독(Subscriptions) 서버 만들기"
 description: "폴링 대신 GraphQL Subscription을 택한 이유, gqlgen에 WebSocket 전송을 붙이는 방법, 그리고 구독 리졸버가 채널과 컨텍스트로 어떻게 동작하는지 정리합니다."
 date: "2025-01-10"
-project: gqlgen-apollo-subscriptions
+series: gqlgen-apollo-subscriptions
 order: 1
 canonical: "https://medium.com/@songtomtom/gqlgen-%EC%9C%BC%EB%A1%9C-%EA%B5%AC%EB%8F%85-subscriptions-%EC%84%9C%EB%B2%84-%EB%A7%8C%EB%93%A4%EA%B8%B0-7603b9038da0"
 category: backend

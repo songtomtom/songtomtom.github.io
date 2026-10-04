@@ -2,7 +2,7 @@
 title: "Minikube에서 Argo CD 시작하기"
 description: "GitOps가 무엇을 바꾸는지, Argo CD가 그 안에서 어떤 역할인지 설명하고 Minikube에 Argo CD를 설치해 첫 애플리케이션을 배포합니다. Application 리소스, 동기화, 상태 개념을 정리합니다."
 date: "2025-01-18"
-project: argocd-gitops
+series: argocd-gitops
 order: 1
 canonical: "https://medium.com/@songtomtom/minikube%EC%97%90%EC%84%9C-argo-cd-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-4ebd89d0241f"
 category: infra

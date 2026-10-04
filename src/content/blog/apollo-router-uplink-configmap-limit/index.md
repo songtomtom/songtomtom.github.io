@@ -2,7 +2,7 @@
 title: "ConfigMap에 넣으려다 3.5MB에 막힌 이야기: Uplink로 전환"
 description: "슈퍼그래프를 클러스터 안 ConfigMap에 두고 hot reload로 갱신하려던 계획이 1MiB 한도에서 멈췄습니다. 이미 GraphOS에 publish하고 있었으니 라우터가 Uplink에서 받게 하는 것이 가장 짧은 길이었습니다. init container를 $patch: delete로 걷어내 revert 한 번으로 돌아갈 수 있게 한 overlay, 그리고 이 전환이 결제와 무관한 이유입니다."
 date: "2026-09-29T22:00"
-project: apollo-router-supergraph-on-kubernetes
+series: apollo-router-supergraph-on-kubernetes
 order: 3
 category: infra
 tags:

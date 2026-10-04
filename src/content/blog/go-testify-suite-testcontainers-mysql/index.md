@@ -2,7 +2,7 @@
 title: "testify suite와 testcontainers로 MySQL 통합 테스트하기"
 description: "MySQL 저장소 구현을 진짜 MySQL로 검증합니다. testcontainers-go로 컨테이너를 띄우고 suite로 수명을 관리하며, 메모리 구현과 MySQL 구현이 같은 계약 테스트를 통과하게 만드는 방법과 CI 구성을 정리합니다."
 date: "2026-09-28T12:20"
-project: go-testify-testing
+series: go-testify-testing
 order: 3
 category: backend
 tags:

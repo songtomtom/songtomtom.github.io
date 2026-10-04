@@ -3,13 +3,13 @@ import Layout from "@layouts/Layout.astro";
 import Container from "@components/Container.astro";
 import { SITE, HOME } from "@consts";
 import ArrowCard from "@components/ArrowCard.astro";
-import ProjectCard from "@components/ProjectCard.astro";
+import SeriesCard from "@components/SeriesCard.astro";
 import Link from "@components/Link.astro";
-import { getPosts, getProjects, postsOfProject } from "@lib/projects";
+import { getPosts, getSeries, postsOfSeries } from "@lib/projects";
 
 const allPosts = await getPosts();
 const blog = allPosts.slice(0, SITE.NUM_POSTS_ON_HOMEPAGE);
-const projects = (await getProjects()).slice(0, SITE.NUM_PROJECTS_ON_HOMEPAGE);
+const seriesList = (await getSeries()).slice(0, SITE.NUM_SERIES_ON_HOMEPAGE);
 ---
 
 <Layout title={HOME.TITLE} description={HOME.DESCRIPTION}>
@@ -35,7 +35,7 @@ const projects = (await getProjects()).slice(0, SITE.NUM_PROJECTS_ON_HOMEPAGE);
             </span>
             <span class="animate">
               <p>
-                코드가 있는 글은 <Link href="/projects">프로젝트</Link>로 묶여 있고, 경력은
+                코드가 있는 글은 <Link href="/series">시리즈</Link>로 묶여 있고, 경력은
                 <Link href="/resume">이력서</Link>에 정리해 두었습니다. 궁금한 점은 아래 연락처로
                 보내 주세요.
               </p>
@@ -64,15 +64,15 @@ const projects = (await getProjects()).slice(0, SITE.NUM_PROJECTS_ON_HOMEPAGE);
         <section class="animate space-y-6">
           <div class="flex flex-wrap items-center justify-between gap-y-2">
             <h2 class="font-semibold text-black dark:text-white">
-              프로젝트
+              시리즈
             </h2>
-            <Link href="/projects"> 모든 프로젝트 보기 </Link>
+            <Link href="/series"> 모든 시리즈 보기 </Link>
           </div>
           <ul class="not-prose flex flex-col gap-4">
             {
-              projects.map((project) => (
+              seriesList.map((series) => (
                 <li>
-                  <ProjectCard project={project} postCount={postsOfProject(allPosts, project.id).length} />
+                  <SeriesCard series={series} postCount={postsOfSeries(allPosts, series.id).length} />
                 </li>
               ))
             }

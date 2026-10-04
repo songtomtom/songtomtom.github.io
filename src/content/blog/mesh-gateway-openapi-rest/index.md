@@ -2,7 +2,7 @@
 title: "Open API 를 사용하여 REST API 를 Mesh Gateway 에 연결"
 description: "OpenAPI 정의에서 Go Gin 서버를 생성하고, 같은 정의 파일로 GraphQL Mesh가 REST를 GraphQL 스키마로 변환하게 합니다. 생성기가 만든 코드에서 고쳐야 했던 것과 변환 규칙을 정리합니다."
 date: "2025-01-13"
-project: graphql-mesh-gateway
+series: graphql-mesh-gateway
 order: 2
 canonical: "https://medium.com/@songtomtom/open-api-%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-rest-api-%EB%A5%BC-mesh-gateway-%EC%97%90-%EC%97%B0%EA%B2%B0-a705e3e04dbb"
 category: backend

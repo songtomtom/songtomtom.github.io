@@ -2,7 +2,7 @@
 title: "서브그래프 목록 하나로, publish는 CronJob으로"
 description: "init container 안에 두 벌로 적혀 있던 서브그래프 목록을 ConfigMap 하나로 모으고, 파드 기동에 묶여 있던 GraphOS publish를 rover 공식 이미지의 CronJob으로 떼어냈습니다. 라우터를 바꾸기 전에 이 둘을 먼저 한 이유와, 실패를 삼키던 스크립트를 Job 실패로 드러낸 방법입니다."
 date: "2026-09-29T21:00"
-project: apollo-router-supergraph-on-kubernetes
+series: apollo-router-supergraph-on-kubernetes
 order: 2
 category: infra
 tags:

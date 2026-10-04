@@ -2,7 +2,7 @@
 title: "Apollo Client 클라이언트 WebSocket Link 연결"
 description: "Apollo Client에서 HTTP 링크와 WebSocket 링크를 나누는 이유, split으로 작업 종류에 따라 링크를 고르는 방법, 그리고 graphql-ws 프로토콜 선택과 오리진 문제를 다룹니다."
 date: "2025-01-10"
-project: gqlgen-apollo-subscriptions
+series: gqlgen-apollo-subscriptions
 order: 2
 canonical: "https://medium.com/@songtomtom/apollo-client-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8-websocket-link-%EC%97%B0%EA%B2%B0-f2aebc2376a5"
 category: frontend

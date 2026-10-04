@@ -2,7 +2,7 @@
 title: "Flutter에서 싱글턴과 addPostFrameCallback을 금지한 이유"
 description: "싱글턴이 테스트를 오염시키는 것을 실제 테스트 결과로 보여 주고, addPostFrameCallback과 Future.microtask가 왜 레이스와 테스트 불가를 만드는지, 그 대신 상태를 듣고 반응하는 방식으로 어떻게 바꾸는지 정리합니다."
 date: "2026-09-28T10:30"
-project: flutter-feature-architecture
+series: flutter-feature-architecture
 order: 4
 category: mobile
 tags:

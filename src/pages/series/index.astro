@@ -1,0 +1,31 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Container.astro";
+import SeriesCard from "@components/SeriesCard.astro";
+import { SERIES } from "@consts";
+import { getPosts, getSeries, postsOfSeries } from "@lib/projects";
+
+const seriesList = await getSeries();
+const posts = await getPosts();
+---
+
+<Layout title={SERIES.TITLE} description={SERIES.DESCRIPTION}>
+  <Container>
+    <aside data-pagefind-ignore>
+      <div class="space-y-10">
+        <p class="animate text-sm text-neutral-600 dark:text-neutral-400">
+          {SERIES.DESCRIPTION}
+        </p>
+        <ul class="animate not-prose flex flex-col gap-4">
+          {
+            seriesList.map((series) => (
+              <li>
+                <SeriesCard series={series} postCount={postsOfSeries(posts, series.id).length} />
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </aside>
+  </Container>
+</Layout>

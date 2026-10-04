@@ -8,11 +8,11 @@ import BackToPrevious from "@components/BackToPrevious.astro";
 import PostNavigation from "@components/PostNavigation.astro";
 import TableOfContents from "@components/TableOfContents.astro";
 import Giscus from "@components/Giscus.astro";
-import ProjectSeries from "@components/ProjectSeries.astro";
+import SeriesNav from "@components/SeriesNav.astro";
 import Mermaid from "@components/Mermaid.astro";
 import CategoryBadge from "@components/CategoryBadge.astro";
 import Link from "@components/Link.astro";
-import { getPosts, getProjects, postsOfProject } from "@lib/projects";
+import { getPosts, getSeries, postsOfSeries } from "@lib/projects";
 
 export async function getStaticPaths() {
   const posts = (await getCollection("blog"))
@@ -28,15 +28,13 @@ type Props = CollectionEntry<"blog">;
 const post = Astro.props;
 const allPosts = await getPosts();
 
-// 프로젝트에 속한 글이면 프로젝트 안에서 이전·다음 편으로 이동하고,
+// 시리즈에 속한 글이면 시리즈 안에서 이전·다음 편으로 이동하고,
 // 아니면 전체 글의 최신순에서 이동합니다.
-const project = post.data.project
-  ? (await getProjects()).find((p) => p.id === post.data.project)
-  : undefined;
-const seriesPosts = project ? postsOfProject(allPosts, project.id) : [];
+const series = post.data.series ? (await getSeries()).find((p) => p.id === post.data.series) : undefined;
+const seriesPosts = series ? postsOfSeries(allPosts, series.id) : [];
 
 let prevPost, nextPost;
-if (project) {
+if (series) {
   const i = seriesPosts.findIndex((p) => p.id === post.id);
   prevPost = seriesPosts[i - 1];
   nextPost = seriesPosts[i + 1];
@@ -86,9 +84,9 @@ const { Content, headings } = await render(post);
       }
     </div>
     {
-      project && (
+      series && (
         <div class="animate mb-8">
-          <ProjectSeries project={project} posts={seriesPosts} currentId={post.id} />
+          <SeriesNav series={series} posts={seriesPosts} currentId={post.id} />
         </div>
       )
     }

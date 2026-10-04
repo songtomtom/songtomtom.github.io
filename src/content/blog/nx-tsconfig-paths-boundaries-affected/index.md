@@ -2,7 +2,7 @@
 title: "tsconfig paths 하나로 Vite와 Nx를 같이 맞추기"
 description: "라이브러리를 빌드하지 않고 paths로 소스째 참조하는 방식이 dev 서버, 프로덕션 빌드, 웹 워커, vitest 각각에서 어떻게 해석되는지 확인했습니다. 그리고 apps → libs 방향을 관습이 아니라 lint 에러로 만들고, CI를 affected로 바꾼 과정입니다."
 date: "2026-09-28T23:30"
-project: nx-vite-pnpm-monorepo
+series: nx-vite-pnpm-monorepo
 order: 2
 category: frontend
 tags:

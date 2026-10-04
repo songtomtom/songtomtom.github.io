@@ -2,7 +2,7 @@
 title: "레지스트리 없이 init container로 슈퍼그래프 합치기"
 description: "Apollo Router 파드가 뜰 때마다 init container가 클러스터 안의 서브그래프를 introspect해서 슈퍼그래프를 합치는 구조. 왜 이렇게 시작했고, 1년 운영하며 어디서 깨졌는지 서브그래프 두 개짜리 예제로 재현합니다. 서브그래프 하나가 죽으면 새 라우터가 못 뜨고, 파드마다 다른 스키마를 서빙하게 되는 두 가지 실험입니다."
 date: "2026-09-29T20:00"
-project: apollo-router-supergraph-on-kubernetes
+series: apollo-router-supergraph-on-kubernetes
 order: 1
 category: infra
 tags:

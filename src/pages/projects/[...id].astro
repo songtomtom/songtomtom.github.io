@@ -4,24 +4,23 @@ import Layout from "@layouts/Layout.astro";
 import Container from "@components/Container.astro";
 import BackToPrevious from "@components/BackToPrevious.astro";
 import Link from "@components/Link.astro";
-import FormattedDate from "@components/FormattedDate.astro";
 import Mermaid from "@components/Mermaid.astro";
 import CategoryBadge from "@components/CategoryBadge.astro";
-import { getPosts, getProjects, postsOfProject, type Project } from "@lib/projects";
+import { getProjects, type Project } from "@lib/projects";
 
 export async function getStaticPaths() {
   const projects = await getProjects();
-  return projects.map((project) => ({
+  return projects.map((project, i) => ({
     params: { id: project.id },
-    props: project,
+    props: { project, next: projects[i + 1] ?? projects[0] },
   }));
 }
-type Props = Project;
+type Props = { project: Project; next?: Project };
 
-const project = Astro.props;
-const posts = postsOfProject(await getPosts(), project.id);
+const { project, next } = Astro.props;
 const { Content } = await render(project);
-const { title, description, repoURL, demoURL, tech, date, category } = project.data;
+const { title, description, org, role, date, endDate, categories, tech, links, stats } = project.data;
+const ym = (d: Date) => `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, "0")}`;
 ---
 
 <Layout title={title} description={description}>
@@ -29,18 +28,36 @@ const { title, description, repoURL, demoURL, tech, date, category } = project.d
     <div class="animate">
       <BackToPrevious href="/projects">프로젝트 목록으로</BackToPrevious>
     </div>
-    <div class="animate my-10 space-y-2">
-      <div class="flex items-center gap-2 text-sm text-neutral-500">
-        <CategoryBadge category={category} />
-        <FormattedDate date={date} />
-      </div>
+    <div class="animate my-10 space-y-3">
+      {org && <p class="text-xs uppercase tracking-wider text-neutral-500">프로젝트 · {org}</p>}
       <h1 class="text-3xl font-semibold text-black dark:text-white">{title}</h1>
-      <p class="text-black dark:text-white">{description}</p>
-      <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 text-sm">
-        {repoURL && <Link href={repoURL} external>저장소</Link>}
-        {demoURL && <Link href={demoURL} external>데모</Link>}
-        {tech && tech.length > 0 && <span class="text-neutral-500">{tech.join(" · ")}</span>}
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-neutral-500">
+        <span class="flex gap-1">{categories?.map((c) => <CategoryBadge category={c} />)}</span>
+        <span class="tabular-nums">{ym(date)} – {endDate ? ym(endDate) : "현재"}</span>
+        {role && <span>{role}</span>}
       </div>
+      <p class="text-black dark:text-white">{description}</p>
+      {
+        links?.length && (
+          <p class="flex flex-wrap gap-x-4 text-sm">
+            {links.map((l) => (
+              <Link href={l.href} external>{l.label}</Link>
+            ))}
+          </p>
+        )
+      }
+      {
+        stats?.length && (
+          <dl class="not-prose mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
+            {stats.map((s) => (
+              <div class="border-t border-black/15 pt-2 dark:border-white/20">
+                <dd class="text-xl font-semibold tabular-nums text-black dark:text-white">{s.value}</dd>
+                <dt class="text-xs text-neutral-500">{s.label}</dt>
+              </div>
+            ))}
+          </dl>
+        )
+      }
     </div>
 
     <article class="animate">
@@ -49,29 +66,25 @@ const { title, description, repoURL, demoURL, tech, date, category } = project.d
     <Mermaid />
 
     {
-      posts.length > 0 && (
-        <section class="animate mt-16 space-y-4">
-          <h2 class="text-lg font-semibold text-black dark:text-white">
-            글 <span class="text-sm font-normal text-neutral-500">{posts.length}편</span>
-          </h2>
-          <ol class="not-prose space-y-2">
-            {posts.map((post, i) => (
-              <li>
-                <a
-                  href={`/blog/${post.id}`}
-                  class="group flex items-baseline gap-3 rounded-lg border border-black/15 px-4 py-3 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white"
-                >
-                  <span class="w-6 shrink-0 tabular-nums text-sm text-neutral-500">{post.data.order ?? i + 1}</span>
-                  <span class="flex flex-1 flex-col">
-                    <span class="font-semibold">{post.data.title}</span>
-                    <span class="text-sm">{post.data.description}</span>
-                  </span>
-                </a>
-              </li>
-            ))}
-          </ol>
-        </section>
+      tech?.length && (
+        <p class="animate mt-12 text-sm">
+          <span class="text-neutral-500">기술</span> {tech.join(" · ")}
+        </p>
       )
     }
+    {
+      next && next.id !== project.id && (
+        <nav class="animate mt-10 flex justify-between gap-4 border-t border-black/15 pt-5 text-sm dark:border-white/20">
+          <Link href="/resume">이력서로</Link>
+          <a href={`/projects/${next.id}`} class="text-right">
+            <span class="block text-xs text-neutral-500">다음 프로젝트</span>
+            <span class="underline underline-offset-2">{next.data.title} ›</span>
+          </a>
+        </nav>
+      )
+    }
+    <p class="animate mt-10 text-xs text-neutral-500">
+      숫자는 저장소에서 센 값입니다. 화면 캡처, 업무 절차, 권한 구조, 거래처·품목·사원 정보는 싣지 않습니다.
+    </p>
   </Container>
 </Layout>

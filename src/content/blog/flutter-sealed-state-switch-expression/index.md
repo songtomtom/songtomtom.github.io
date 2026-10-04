@@ -2,7 +2,7 @@
 title: "Dart 3 switch 표현식과 sealed class로 상태 관리하기"
 description: "state.when() 대신 Dart 3 switch 표현식을 쓰는 이유를 컴파일러가 실제로 잡아 주는 오류로 보여 주고, freezed sealed class로 화면 상태를 정의해 패턴 매칭과 가드로 분기하는 방법을 정리합니다."
 date: "2026-09-28T10:10"
-project: flutter-feature-architecture
+series: flutter-feature-architecture
 order: 2
 category: mobile
 tags:

@@ -2,7 +2,7 @@
 title: "gRPC 서버, 클라이언트 만들기"
 description: "Protobuf 정의에서 Go gRPC 서버와 클라이언트를 만드는 최소 구성입니다. 생성 코드가 무엇을 담고 있는지, 서버와 클라이언트의 각 줄이 무엇을 하는지, 실무로 갈 때 무엇이 더 필요한지 정리합니다."
 date: "2025-01-13"
-project: go-grpc
+series: go-grpc
 order: 1
 canonical: "https://medium.com/@songtomtom/grpc-%EC%84%9C%EB%B2%84-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0-08d8b943bbe1"
 category: backend

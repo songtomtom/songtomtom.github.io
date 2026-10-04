@@ -2,7 +2,7 @@
 title: "gRPC, GraphQL 서버 Mesh Gateway 연결"
 description: "Go gRPC 서버와 gqlgen GraphQL 서버를 만들어 Mesh Gateway에 붙이고 세 소스를 한 쿼리로 부릅니다. 생성 코드가 proto와 어긋나 생긴 UNIMPLEMENTED 오류와 게이트웨이 방식의 한계를 정리합니다."
 date: "2025-01-13"
-project: graphql-mesh-gateway
+series: graphql-mesh-gateway
 order: 3
 canonical: "https://medium.com/@songtomtom/grpc-graphql-%EC%84%9C%EB%B2%84-mesh-gateway-%EC%97%B0%EA%B2%B0-65dbde40f4ec"
 category: backend

@@ -117,9 +117,10 @@ import profile from "../assets/profile.jpg";
                               </div>
                               <p class="pl-[18px] leading-6 text-neutral-700 dark:text-neutral-300">{it.highlight}</p>
                               {
-                                it.links?.length && (
+                                (it.links?.length || it.project) && (
                                   <p class="flex flex-wrap gap-x-4 pl-[18px] text-sm">
-                                    {it.links.map((l) => (
+                                    {it.project && <Link href={`/projects/${it.project}`}>프로젝트 자세히 보기</Link>}
+                                    {it.links?.map((l) => (
                                       <Link href={l.href} external>
                                         {l.label}
                                       </Link>

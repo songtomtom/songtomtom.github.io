@@ -1,12 +1,12 @@
 ---
 name: writing-blog-post
-description: Use when asked to add, write, or expand a blog post, series, or project on this Astro blog (src/content/blog, src/content/projects), or to create the example code repository that a post cites.
+description: Use when asked to add, write, or expand a blog post, series on this Astro blog (src/content/blog, src/content/series), a project case page (src/content/projects), or to create the example code repository that a post cites.
 ---
 
 # 블로그 글·프로젝트 만들기
 
 ## Overview
-글은 저장소의 실제 코드를 인용하고, 코드 저장소와 글이 서로를 링크한다. 순서는 **코드 → 검증 → 푸시 → 글 → 검증 → 푸시 → 배포 확인**이다.
+글은 저장소의 실제 코드를 인용하고, 코드 저장소와 글이 서로를 링크한다. 저장소 README의 글 링크는 `/blog/<id>`, 시리즈 링크는 `/series/<id>`. 순서는 **코드 → 검증 → 푸시 → 글 → 검증 → 푸시 → 배포 확인**이다.
 
 ## 저장소가 말해 주지 않는 것
 - **Node 24가 필요하다.** 기본 셸의 node는 v20이라 Astro가 거부한다. 매 명령 앞에:
@@ -26,7 +26,7 @@ description: Use when asked to add, write, or expand a blog post, series, or pro
 - 뼈대: 문제 정의와 만들 것 → 단계마다 "왜" → 동작 원리 섹션 → 한계와 다음 편 → Reference.
 - 1인칭 "-습니다"체. "처음에 이렇게 했다가 고쳤다"는 실제 과정을 쓴다. 코드는 저장소 파일을 그대로 인용하고 앞에 `` `path/file` `` 한 줄.
 - 그림은 ```mermaid 블록. 시리즈 1편에 전체 구조도.
-- 프론트매터: `category`, `project`, `order` 필수. `date`는 작성일이고 시리즈 순서는 `order`가 정한다. 글 디렉터리명이 URL이므로 kebab-case 영문. 기존 글과 `src/content/projects/*/index.md`를 그대로 따른다.
+- 프론트매터: `category`, `series`, `order` 필수. `date`는 작성일이고 시리즈 순서는 `order`가 정한다. 글 디렉터리명이 URL이므로 kebab-case 영문. 기존 글과 `src/content/series/*/index.md`를 그대로 따른다. "프로젝트"(`src/content/projects`)는 사내·개인 시스템의 기술 결정을 정리한 케이스 페이지이고 이력서 항목의 `project` 필드로 연결한다. 화면 캡처·업무 절차·권한·거래처명은 싣지 않는다.
 - 프로젝트 `cover.png`는 선택. 없으면 넣지 않고 구조도는 Mermaid로 그린다.
 - 커밋 메시지는 한국어 한 줄 제목, 끝에 Co-Authored-By 줄. `.claude/`는 커밋한다.
 - **회사, 회사 제품, 사내 시스템 언급 금지.** 순수 기술만. 회사 경력은 이력서 페이지의 몫이다.
