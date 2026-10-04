@@ -78,6 +78,7 @@ export const EXPERIENCES: Experience[] = sortItems([
     items: [
       {
         title: "G-PRC 국제 로봇·코딩 대회 통합 플랫폼 개발",
+        project: "gprc",
         categories: ["frontend", "backend", "mobile", "infra"],
         period: "2025.03 - 현재",
         highlight: "참가자 13만 명, 8개국 대회에 앱 접수·실시간 심사 중계 도입. 10개 저장소, PR 200건 이상 리뷰 기반 운영",
