@@ -5,7 +5,7 @@ date: "2026-09-28T14:00"
 repoURL: "https://github.com/songtomtom/mysql-to-postgres-on-kubernetes"
 tech: ["PostgreSQL", "pgvector", "Go", "ent", "Kubernetes", "CloudNativePG"]
 category: infra
-cover: ./cover.png
+cover: ./cover-53bcc7.png
 ---
 
 Oracle MySQL Operator로 InnoDBCluster를 1년 운영했습니다. 그 사이 OOM을 쫓는 커밋이 수십 개 쌓였고, 어느 날 벡터 검색이 필요한 서비스 하나가 PostgreSQL로 먼저 넘어갔습니다. 옮겨 보니 확장과 운영 양쪽이 편해서 여섯 달에 걸쳐 전부 옮겼고 MySQL 클러스터는 제거했습니다.
