@@ -104,6 +104,7 @@ export const EXPERIENCES: Experience[] = sortItems([
       },
       {
         title: "AluxLabs 블록코딩 플랫폼: Scratch 전면 마이그레이션 및 자체 실행 엔진 개발",
+        project: "aluxlabs",
         categories: ["frontend", "backend"],
         period: "2025.03 - 현재",
         highlight: "Scratch 3를 React·Blockly 12로 전면 재구축하고 scratch-vm 없이 7만 줄 규모의 자체 런타임을 설계. 16개월, PR 900건 이상",
@@ -139,6 +140,7 @@ export const EXPERIENCES: Experience[] = sortItems([
       },
       {
         title: "ALUX Hub 사내 연락처·사업 연결 관리 시스템 기획 및 구축",
+        project: "alux-hub",
         categories: ["backend"],
         period: "2026.06 - 현재",
         highlight: "연락처 1,150명·사업 50여 건을 엔티티 8종으로 통합 설계. 기획부터 로드맵까지 직접 작성",
@@ -154,7 +156,8 @@ export const EXPERIENCES: Experience[] = sortItems([
         ],
       },
       {
-        title: "ALUX Flow 로봇 코딩 앱 개발 (블록 → C 코드 → 보드 업로드)",
+        title: "Flow 로봇 코딩 앱 개발 (블록 → C 코드 → 보드 업로드)",
+        project: "alux-flow",
         categories: ["mobile", "frontend"],
         period: "2026.01 - 현재",
         highlight: "Flutter와 Blockly WebView 하이브리드로 5개 플랫폼 지원. 초기 아키텍처·CI·스토어 배포 구축, Play Store 출시",
@@ -172,6 +175,7 @@ export const EXPERIENCES: Experience[] = sortItems([
       },
       {
         title: "AluxCrawl 공공 조달 공고 수집·알림 서비스 개발",
+        project: "aluxcrawl",
         categories: ["frontend", "backend", "mobile"],
         period: "2026.01 - 2026.06",
         highlight: "사내 프론트엔드 표준과 디자인 시스템을 여기서 정의해 이후 두 프로젝트가 파생",
@@ -187,6 +191,7 @@ export const EXPERIENCES: Experience[] = sortItems([
       },
       {
         title: "AluxCoding 제품 브랜드 사이트 구축",
+        project: "aluxcoding",
         categories: ["frontend"],
         period: "2025.12 - 현재",
         highlight: "4개 언어 제품 소개·상세·문의 사이트. 블록코딩 체험 데모를 사이트 안에 내장",
