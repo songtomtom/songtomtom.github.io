@@ -6,6 +6,7 @@ import BackToPrevious from "@components/BackToPrevious.astro";
 import Link from "@components/Link.astro";
 import Mermaid from "@components/Mermaid.astro";
 import CategoryBadge from "@components/CategoryBadge.astro";
+import { Image } from "astro:assets";
 import { getProjects, type Project } from "@lib/projects";
 
 export async function getStaticPaths() {
@@ -19,7 +20,7 @@ type Props = { project: Project; next?: Project };
 
 const { project, next } = Astro.props;
 const { Content } = await render(project);
-const { title, description, org, role, date, endDate, categories, tech, links, stats } = project.data;
+const { title, description, org, role, date, endDate, categories, tech, links, stats, cover } = project.data;
 const ym = (d: Date) => `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, "0")}`;
 ---
 
@@ -60,6 +61,7 @@ const ym = (d: Date) => `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(
       }
     </div>
 
+    {cover && <Image src={cover} alt="" width={1400} class="animate mb-10 w-full rounded-lg border border-black/10 dark:border-white/10" />}
     <article class="animate">
       <Content />
     </article>

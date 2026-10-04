@@ -13,7 +13,7 @@ const projects = await getProjects();
     <aside data-pagefind-ignore>
       <div class="space-y-10">
         <p class="animate text-sm text-neutral-600 dark:text-neutral-400">{PROJECTS.DESCRIPTION}</p>
-        <ul class="animate not-prose flex flex-col gap-4">
+        <ul class="animate not-prose grid gap-4 sm:grid-cols-2">
           {projects.map((project) => <li><ProjectCard project={project} /></li>)}
         </ul>
       </div>

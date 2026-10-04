@@ -1,6 +1,7 @@
 import { defineCollection } from "astro:content";
 import { z } from "astro/zod";
 import { glob } from "astro/loaders";
+import type { ImageFunction } from "astro:content";
 
 /** 글과 프로젝트의 분야. 뱃지 색과 필터에 쓴다. */
 const category = z.enum(["frontend", "backend", "infra", "mobile"]);
@@ -26,10 +27,12 @@ const blog = defineCollection({
 /** 시리즈: 공개 저장소 하나와 그 저장소를 다룬 연재 글 묶음 */
 const series = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/series" }),
-  schema: z.object({
+  schema: ({ image }: { image: ImageFunction }) => z.object({
     title: z.string(),
     description: z.string(),
     date: z.coerce.date(),
+    /** 목록 썸네일과 상세 상단에 쓰는 커버. 없으면 분야 색 자리표시자 */
+    cover: image().optional(),
     draft: z.boolean().optional(),
     repoURL: z.url().optional(),
     demoURL: z.url().optional(),
@@ -41,9 +44,11 @@ const series = defineCollection({
 /** 프로젝트: 사내·개인 프로젝트의 기술 결정을 정리한 케이스. 이력서 항목에서 연결한다 */
 const projects = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/projects" }),
-  schema: z.object({
+  schema: ({ image }: { image: ImageFunction }) => z.object({
     title: z.string(),
     description: z.string(),
+    /** 목록 카드와 상세 상단의 커버. 화면 캡처는 수치를 가린 것만 */
+    cover: image().optional(),
     /** 시작 연월. 정렬 기준 */
     date: z.coerce.date(),
     /** 끝 연월. 없으면 진행 중 */

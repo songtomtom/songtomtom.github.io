@@ -1,0 +1,15 @@
+---
+/** 기술 스택을 작은 회색 칩으로. 색은 쓰지 않는다 */
+type Props = { tech?: string[]; class?: string };
+const { tech, class: cls = "" } = Astro.props;
+---
+
+{
+  tech && tech.length > 0 && (
+    <ul class={`not-prose flex flex-wrap gap-1 ${cls}`}>
+      {tech.map((t) => (
+        <li class="rounded bg-neutral-100 px-1.5 py-0.5 font-mono text-[10.5px] leading-none text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300">{t}</li>
+      ))}
+    </ul>
+  )
+}

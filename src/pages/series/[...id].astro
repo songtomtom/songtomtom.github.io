@@ -7,6 +7,7 @@ import Link from "@components/Link.astro";
 import FormattedDate from "@components/FormattedDate.astro";
 import Mermaid from "@components/Mermaid.astro";
 import CategoryBadge from "@components/CategoryBadge.astro";
+import { Image } from "astro:assets";
 import { getPosts, getSeries, postsOfSeries, type Series } from "@lib/projects";
 
 export async function getStaticPaths() {
@@ -21,7 +22,7 @@ type Props = Series;
 const series = Astro.props;
 const posts = postsOfSeries(await getPosts(), series.id);
 const { Content } = await render(series);
-const { title, description, repoURL, demoURL, tech, date, category } = series.data;
+const { title, description, repoURL, demoURL, tech, date, category, cover } = series.data;
 ---
 
 <Layout title={title} description={description}>
@@ -43,6 +44,7 @@ const { title, description, repoURL, demoURL, tech, date, category } = series.da
       </div>
     </div>
 
+    {cover && <Image src={cover} alt="" width={1400} class="animate mb-10 w-full rounded-lg border border-black/10 dark:border-white/10" />}
     <article class="animate">
       <Content />
     </article>

@@ -5,9 +5,8 @@ date: "2023-01-17"
 repoURL: "https://github.com/songtomtom/gqlgen-apollo-subscriptions"
 tech: ["Go", "gqlgen", "GraphQL", "WebSocket", "React", "Apollo Client"]
 category: backend
+cover: ./cover.png
 ---
-
-![](./cover.png)
 
 GraphQL Subscription으로 서버에서 클라이언트로 이벤트를 실시간 스트리밍하는 예제입니다. 서버는 Go와 gqlgen, 클라이언트는 React와 Apollo Client로 구성했고, 댓글이 추가되면 같은 게시물을 구독 중인 모든 클라이언트에 즉시 전달되는 흐름을 5편에 걸쳐 만듭니다.
 

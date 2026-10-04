@@ -5,9 +5,8 @@ date: "2025-01-18"
 repoURL: "https://github.com/songtomtom/argocd-app-source"
 tech: ["Argo CD", "Kubernetes", "GitHub Actions", "Docker", "Python"]
 category: infra
+cover: ./cover.gif
 ---
-
-![](./cover.gif)
 
 애플리케이션 소스와 Kubernetes 매니페스트를 저장소 두 개로 분리한 GitOps 구성입니다.
 

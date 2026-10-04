@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import CategoryBadge from "@components/CategoryBadge.astro";
+import CoverThumb from "@components/CoverThumb.astro";
+import TechChips from "@components/TechChips.astro";
 
 type Props = {
   series: CollectionEntry<"series">;
@@ -8,40 +9,26 @@ type Props = {
 };
 
 const { series, postCount } = Astro.props;
-const { title, description, tech, date, category } = series.data;
+const { title, description, tech, date, category, cover } = series.data;
 ---
 
 <a
   href={`/series/${series.id}`}
-  class="not-prose group relative flex flex-nowrap rounded-lg border border-black/15 px-4 py-3 pr-10 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"
+  class="not-prose group relative grid grid-cols-[5.5rem_1fr] items-center gap-3 rounded-lg border border-black/15 p-2.5 pr-9 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black sm:grid-cols-[7.5rem_1fr] sm:gap-4 dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"
 >
-  <div class="flex flex-1 flex-col gap-0.5 truncate">
+  <CoverThumb cover={cover} category={category} width={320} class="rounded" />
+  <div class="flex min-w-0 flex-col gap-0.5">
     <div class="flex flex-wrap items-baseline gap-x-2">
-      <CategoryBadge category={category} />
       <span class="font-semibold">{title}</span>
-      <span class="text-xs text-neutral-500">{date.getFullYear()}</span>
+      <span class="text-xs text-neutral-500">
+        {date.getFullYear()}{postCount > 0 && ` · 글 ${postCount}편`}
+      </span>
     </div>
     <div class="text-sm">{description}</div>
-    <div class="flex flex-wrap gap-x-3 text-xs text-neutral-500">
-      {postCount > 0 && <span>글 {postCount}편</span>}
-      {tech && tech.length > 0 && <span>{tech.join(" · ")}</span>}
-    </div>
+    <TechChips tech={tech} class="mt-1" />
   </div>
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    class="absolute right-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"
-  >
-    <line
-      x1="5"
-      y1="12"
-      x2="19"
-      y2="12"
-      class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"
-    ></line>
-    <polyline
-      points="12 5 19 12 12 19"
-      class="-translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"
-    ></polyline>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="absolute right-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2">
+    <line x1="5" y1="12" x2="19" y2="12" class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100 group-focus-visible:translate-x-0 group-focus-visible:scale-x-100"></line>
+    <polyline points="12 5 19 12 12 19" class="-translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-focus-visible:translate-x-0"></polyline>
   </svg>
 </a>

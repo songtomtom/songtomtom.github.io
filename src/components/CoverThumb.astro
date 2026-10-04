@@ -1,0 +1,28 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import { CATEGORIES, type Category } from "@lib/categories";
+
+/** 커버가 있으면 이미지, 없으면 분야 색 자리표시자. 부모가 크기를 정한다 */
+type Props = { cover?: ImageMetadata; category?: Category; alt?: string; width: number; class?: string };
+const { cover, category, alt = "", width, class: cls = "" } = Astro.props;
+const label = category ? CATEGORIES[category].label : "";
+const ph: Record<Category, string> = {
+  frontend: "from-blue-600/15 to-blue-600/30 text-blue-800 dark:from-blue-400/15 dark:to-blue-400/30 dark:text-blue-200",
+  backend: "from-red-600/15 to-red-600/30 text-red-800 dark:from-red-400/15 dark:to-red-400/30 dark:text-red-200",
+  infra: "from-violet-600/15 to-violet-600/30 text-violet-800 dark:from-violet-400/15 dark:to-violet-400/30 dark:text-violet-200",
+  mobile: "from-green-600/15 to-green-600/30 text-green-800 dark:from-green-400/15 dark:to-green-400/30 dark:text-green-200",
+};
+---
+
+{
+  cover ? (
+    <Image src={cover} alt={alt} width={width} class={`aspect-video w-full object-cover ${cls}`} />
+  ) : (
+    <div
+      class={`flex aspect-video w-full items-center justify-center bg-gradient-to-br text-[11px] font-semibold tracking-wider ${category ? ph[category] : "from-neutral-200 to-neutral-300 text-neutral-600 dark:from-neutral-800 dark:to-neutral-700 dark:text-neutral-300"} ${cls}`}
+    >
+      {label}
+    </div>
+  )
+}
