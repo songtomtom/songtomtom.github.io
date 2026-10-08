@@ -134,13 +134,24 @@ import profile from "../assets/profile.jpg";
                               <ul class="list-disc space-y-2.5 pl-5">
                                 {it.tasks.map((t) => <li>{t}</li>)}
                               </ul>
-                              {
-                                it.tech && (
-                                  <p class="text-sm">
-                                    <span class="text-neutral-500">기술</span> {it.tech.join(" · ")}
-                                  </p>
-                                )
-                              }
+                              <dl class="space-y-1 text-sm">
+                                {
+                                  it.role && (
+                                    <div class="flex gap-2">
+                                      <dt class="shrink-0 text-neutral-500">역할</dt>
+                                      <dd>{it.role}</dd>
+                                    </div>
+                                  )
+                                }
+                                {
+                                  it.tech && (
+                                    <div class="flex gap-2">
+                                      <dt class="shrink-0 text-neutral-500">기술</dt>
+                                      <dd>{it.tech.join(" · ")}</dd>
+                                    </div>
+                                  )
+                                }
+                              </dl>
                             </div>
                           </details>
                         </li>

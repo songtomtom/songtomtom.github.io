@@ -4,10 +4,10 @@
 export const PROFILE = {
   name: "송준영",
   handle: "songtomtom",
-  headline: "플랫폼을 처음부터 다시 세워 본 개발 리더. 10년 넘게 프론트엔드, 백엔드, 모바일, 인프라를 직접 다뤘고, 지금은 소프트웨어팀 팀장으로 전사 생산·물류 시스템을 설계하며 팀의 표준과 프로세스를 세웁니다.",
+  headline: "10년 넘게 프론트엔드, 백엔드, 모바일, 인프라를 다뤘고, 지금은 소프트웨어팀 팀장으로 팀의 표준과 프로세스를 세웁니다.",
   summary: [
-    "소프트웨어팀 팀장으로 전사가 쓰는 생산·재고·구매·품질 시스템을 ERP 양방향 연동까지 넉 달 만에 세웠고, 연 13만 명 규모의 국제 로봇·코딩 대회 플랫폼과 교육용 블록코딩 플랫폼을 이끌며 사내 프론트엔드 표준과 개발 프로세스를 정의했습니다.",
-    "이전에는 개발 리드·CTO로 인프라부터 앱, 백엔드까지 전 과정을 주도해 시드 투자 유치와 TIPS 선정을 달성했습니다.",
+    "지금은 전사 MES(생산·재고·구매·품질·외주)를 Go 마이크로서비스 8개와 웹·현장 앱으로 넉 달 만에 구축하고 기존 ERP와 양방향으로 연동해 운영하고 있습니다. 백엔드와 웹의 대부분을 직접 작성했고, 지금까지 만든 것 중 가장 어려운 시스템입니다. 그 밖에 연 13만 명 규모의 국제 대회 플랫폼과 교육용 블록코딩 플랫폼을 팀장으로 이끌었습니다.",
+    "이전에는 개발 리드·CTO로 인프라부터 앱, 백엔드까지 전 과정을 주도해 시드 투자 유치와 TIPS 선정(정부 R&D 5억 원)을 달성했습니다.",
     "표준과 프로세스를 먼저 세우고 그 위에 빠르게 쌓는 방식을 선호합니다. 디자인 시스템, 코드 컨벤션, PR 리뷰 같은 기반을 한 번 만들어 여러 프로젝트가 같은 속도로 나아가게 하는 일에 가장 보람을 느낍니다.",
   ],
   contacts: [
@@ -27,8 +27,8 @@ export const SKILLS: { group: string; items: string[] }[] = [
 ];
 
 export const STRENGTHS: string[] = [
+  "전사 MES 설계와 구축, ERP 양방향 연동",
   "소프트웨어팀 리드와 개발 표준 수립",
-  "전사 업무 시스템(생산·재고·ERP 연동) 설계와 구축",
   "레거시 플랫폼의 전면 재구축과 자체 엔진 설계",
   "다국어 서비스와 대규모 현장 이벤트 실시간 시스템 운영",
   "사내 시스템 기획과 데이터 모델 설계",
@@ -49,6 +49,8 @@ export type ExperienceItem = {
   highlight: string;
   summary: string;
   tasks: string[];
+  /** 이 항목에서 내가 맡은 몫 */
+  role?: string;
   tech?: string[];
   links?: ExperienceLink[];
   /** 프로젝트 페이지 id (src/content/projects/<id>). 있으면 "자세히 보기" 링크 */
@@ -85,16 +87,12 @@ export const EXPERIENCES: Experience[] = sortItems([
         summary:
           "로봇·드론·코딩 3개 분야, 6개 종목으로 열리는 국제 대회의 참가 신청부터 지역 예선·글로벌 결선 운영, 현장 실시간 중계, 시상식, 경품 추첨까지 대회 전 주기를 다루는 다국어 플랫폼을 구축했습니다. 총 10개 저장소로 구성되어 있으며, 공식 사이트 저장소 기준 PR 200건 이상을 PR 리뷰 기반 팀 개발 프로세스로 운영했습니다.",
         tasks: [
-          "대회 공식 사이트(일정·규정·역대기록·참가신청·심판 신청) 및 통합 관리자 대시보드 개발",
-          "참가자·현장 운영용 모바일 앱: 오프라인 데이터 관리, QR 스캔, 전자서명",
-          "현장 라이브 중계 앱: 종목별 중계 화면, 실시간 스트리밍",
-          "진행상황 전광판, 시상식 실시간 연출 화면, 럭키드로우 추첨 화면",
-          "본선 참가자 신원 확인 및 개인정보·초상권 동의서 디지털 서명",
-          "6개 언어(ko·en·ja·ms·zh-CN·zh-HK) 약관 및 다국어 라우팅 체계 구축",
-          "유료 참가 신청 결제 흐름, 소셜 로그인, 사용자 행동 분석 지표 설계",
-          "기존 웹의 전면 재구축 마이그레이션 계획 수립 및 주도",
-          "대회 규모: 2025년 제11회 코엑스 A홀, 참가자 13만 명 이상, 해외 8개국. 이 회차에 앱 기반 접수와 실시간 심사 중계 도입",
+          "대회 공식 사이트(일정·규정·역대기록·참가신청·심판 신청)와 통합 관리자 대시보드, 6개 언어 라우팅과 유료 참가 결제 흐름",
+          "참가자·현장 운영 앱: 오프라인 큐 동기화, QR 스캔, 동의서 전자서명, 명찰 라벨 출력",
+          "현장 라이브 중계 앱과 전광판·시상식·럭키드로우 화면을 Redis Pub/Sub 기반 GraphQL 구독으로 실시간 갱신",
+          "2025년 제11회 대회(코엑스, 참가자 13만 명 이상, 8개국)에 앱 접수와 실시간 심사 중계를 도입. 기존 웹 전면 재구축 계획 수립·주도",
         ],
+        role: "아키텍처, 현장 앱·중계 앱·관리자 웹 주도, 사이트·서버 리뷰",
         tech: ["TypeScript", "React", "Flutter", "Go"],
         links: [
           { label: "g-prc.com", href: "https://g-prc.com" },
@@ -111,31 +109,31 @@ export const EXPERIENCES: Experience[] = sortItems([
         summary:
           "Scratch 3 기반이던 초·중등 코딩 교육 플랫폼을 React·TypeScript·Blockly 12로 전면 마이그레이션하고, scratch-vm을 걷어낸 자체 실행 엔진을 만들었습니다. AI 블록, GraphQL 백엔드, 자사 하드웨어 제품군과의 결합을 원본 Scratch 구조로는 감당할 수 없다고 판단해 내린 결정이었고, 이후 콘텐츠·하드웨어 확장의 기반이 됐습니다. CodeTinker, Connect, Technic, 코딩드론, 코딩라이더, VINU 등 자사 하드웨어를 지원합니다.",
         tasks: [
-          "자체 실행 엔진 설계: 블록 실행·스케줄러·모니터·프로파일러를 갖춘 런타임, 무거운 작업(SB3 로드, Vision AI 추론)은 Web Worker로 분리",
-          "블록 에디터를 scratch-blocks에서 Blockly 12로 교체. Scratch 스타일 렌더러·테마·연속 툴박스·커스텀 필드 26종을 독립 라이브러리로 분리",
-          "Vision AI 블록(얼굴·손·자세·사물 인식, 이미지 분류)을 TensorFlow.js·MediaPipe로 구현, Google Teachable Machine 모델 연동",
-          "브라우저에서 설치 없이 실물 보드에 펌웨어 업로드(AVR·nRF), BLE·Web Serial·로컬 브리지 세 경로의 하드웨어 통신 계층",
-          "자사 하드웨어 확장 블록 20여 종과 미션형 콘텐츠용 관리자 앱",
-          "Nx 모노레포(앱 3개, 라이브러리 18개)로 전환, webpack → Vite, GraphQL 코드 생성, 단위·E2E·타입·린트 검사 표준화",
-          "오픈소스 포크 부분과 자체 개발 부분의 라이선스 이중 관리 체계 정비",
+          "자체 실행 엔진: 블록 실행·스케줄러·모니터·프로파일러를 갖춘 런타임. SB3 로드와 Vision AI 추론은 Web Worker로 분리",
+          "블록 에디터를 scratch-blocks에서 Blockly 12로 교체. 렌더러·테마·툴박스·커스텀 필드 26종을 독립 라이브러리로",
+          "Vision AI 블록(TensorFlow.js·MediaPipe), 브라우저 펌웨어 업로드(AVR·nRF), BLE·Web Serial·로컬 브리지 세 경로의 하드웨어 통신",
+          "Nx 모노레포(앱 3개, 라이브러리 18개) 전환, webpack → Vite, 자사 하드웨어 확장 블록 20여 종",
         ],
+        role: "마이그레이션 방향과 엔진 설계 주도, 워커·하드웨어·AI 계층 구현",
         tech: ["TypeScript", "React", "Blockly", "TensorFlow.js", "Web Serial", "Web Bluetooth", "Nx", "GraphQL"],
       },
       {
-        title: "Alux Product 전사 생산·물류 관리 시스템 구축 (ERP 양방향 연동)",
+        title: "Alux Product 전사 MES 구축: 생산·재고·구매·품질·외주와 ERP 양방향 연동",
         project: "alux-product",
         categories: ["frontend", "backend", "mobile"],
         period: "2026.06 - 현재",
-        highlight: "생산·재고·구매·품질·외주를 Go 마이크로서비스 8개와 웹·현장 앱으로 넉 달 만에 신규 구축. 기존 ERP와 양방향 동기화, 웹 PR 390건·백엔드 커밋 2,000건 이상 직접 작성",
+        highlight: "엑셀과 ERP 수기 입력으로 돌아가던 생산·물류 전체를 MES 하나로. Go 서비스 8개·ent 스키마 233개·웹 141화면·현장 앱을 넉 달 만에 세우고 ERP와 양방향 동기화. 백엔드 90%·웹 81%를 직접 작성",
         summary:
           "엑셀과 ERP 수기 입력에 의존하던 전사 생산·물류 업무를 하나의 시스템으로 옮겼습니다. 생산지시·실적, LOT 단위 재고 입출고, 구매·외주 발주와 마감, 품질(검사·부적합·격리), 프로젝트까지 다루며, 기존 ERP와 품목·BOM·전표를 양방향으로 동기화해 현장은 이 시스템만 쓰고 회계는 ERP에 그대로 남게 했습니다. 도메인 복잡도와 ERP 정합성 때문에 지금까지 만든 것 중 가장 어려운 시스템이었고, 백엔드·웹의 대부분을 직접 작성했습니다.",
         tasks: [
-          "백엔드: 재고·생산·구매·품질·프로젝트·ERP·알림·사용자 8개 Go 서비스를 GraphQL Federation으로 묶고 ent 스키마 233개로 도메인 모델링",
-          "ERP 양방향 연동: 품목·BOM·거래처·공정 가져오기 CronJob 8종, 생산지시·외주발주·매출마감 전표 역동기화를 5단계로 도입. 취소·삭제 안전망과 멱등키로 재전송 결함 방지",
-          "웹(141 라우트): 대시보드, MRP, LOT 추적, 공정 일괄 적용, 승인·감사 이력, 인쇄용 리포트. 스프레드시트형 편집 테이블과 조회 테이블을 분리하고 컬럼 데이터 종류가 표시를 결정하는 원칙으로 UI 단일 출처화",
-          "현장 앱(Flutter): QR 스캔 입출고, 라벨 프린터 연동, 부품 릴 적재 위치 추적, 현재고 드릴다운 집계",
-          "타이포그래피·색상·테이블 규칙을 문서화하고 예외는 이유와 함께 관리. 이슈–PR 추적 체계로 웹 PR 390건, 앱 PR 47건 운영",
+          "도메인 설계: 재고·생산·구매·품질·프로젝트·ERP·알림·사용자 8개 Go 서비스를 GraphQL Federation으로 묶고 ent 스키마 233개로 모델링. 서비스가 자기 테이블만 소유하도록 경계를 그음",
+          "ERP 양방향 연동: 품목·BOM·거래처·공정은 ERP에서 가져오고(CronJob 8종), 생산지시·외주발주·매출마감 전표는 MES에서 ERP로 역동기화. 5단계로 나눠 각 단계를 dev에서 실측한 뒤 운영 적용",
+          "정합성: ERP 취소·삭제 API가 문서와 다르게 동작하는 것을 실제 호출로 캡처해 맞추고, 취소 뒤 재전송이 삭제된 전표번호를 되살리던 결함을 멱등키 세대 관리로 차단",
+          "웹(141 라우트): 대시보드, MRP, LOT 추적, 공정 일괄 적용, 승인·감사 이력, 인쇄 리포트. 컬럼 데이터 종류가 표시를 결정하는 규칙으로 UI를 단일 출처화해 날짜 필드 49곳을 한 커밋에 교체",
+          "현장 앱(Flutter): QR 스캔 입출고, 라벨 프린터 연동, 부품 릴 적재 위치 추적, 현재고 드릴다운. 입력은 현장에서 한 번, 사무실과 ERP는 결과만 받는 구조",
+          "출시: 재고 → 구매 → 생산·품질 → ERP 연동 순으로 도메인 하나씩 열어 앞 단계의 실데이터로 다음 단계 스키마를 검증. 이슈–PR 추적으로 웹 PR 390건, 앱 PR 47건 운영",
         ],
+        role: "도메인 설계, ERP 연동 설계, 백엔드·웹 구현(백엔드 90%·웹 81%)",
         tech: ["Go", "GraphQL Federation", "ent", "PostgreSQL", "TypeScript", "React", "Flutter"],
       },
       {
@@ -154,6 +152,8 @@ export const EXPERIENCES: Experience[] = sortItems([
           "회사명 표기 불일치 정규화, 누락된 사업 연결 백필 등 데이터 정합성 선결 과제를 사전 식별",
           "5단계 단계별 도입 로드맵 수립 후 경영진 검토 절차로 연결",
         ],
+        role: "기획, 데이터 모델 설계, 프론트·백엔드 구현 전부",
+        tech: ["Go", "GraphQL", "PostgreSQL", "TypeScript", "React"],
       },
       {
         title: "Flow 로봇 코딩 앱 개발 (블록 → C 코드 → 보드 업로드)",
@@ -170,6 +170,7 @@ export const EXPERIENCES: Experience[] = sortItems([
           "Fastlane·GitHub Actions CI/CD, Firebase App Distribution, Play Store 배포 파이프라인 구축",
           "feature 단위 코로케이션, Riverpod·freezed·Dart 3 switch 표현식 기반 상태 관리 규칙 정립",
         ],
+        role: "초기 아키텍처, Flutter↔Blockly 브리지, CI/CD·스토어 배포",
         tech: ["Flutter", "Dart", "Blockly", "TypeScript", "GraphQL", "USB Serial"],
         links: [{ label: "Google Play", href: "https://play.google.com/store/apps/details?id=com.aluxrobot.flow" }],
       },
@@ -187,6 +188,7 @@ export const EXPERIENCES: Experience[] = sortItems([
           "사내 프론트엔드 표준을 이 프로젝트에서 정의. 디자인 시스템과 인증 구조를 ALUX Hub·Alux Product가 그대로 파생해 사용",
           "서비스별 테마 컬러 체계를 정해 사내 서비스군을 시각적으로 구분",
         ],
+        role: "프론트·백엔드 구현 전부, 사내 프론트엔드 표준 정의",
         tech: ["TypeScript", "React", "Flutter", "Python"],
       },
       {
@@ -203,6 +205,7 @@ export const EXPERIENCES: Experience[] = sortItems([
           "AluxLabs 블록 에디터를 축소 내장한 체험 데모 컴포넌트",
           "GraphQL 연동, 태블릿·데스크톱 목업 컴포넌트로 제품 화면 소개",
         ],
+        role: "사이트 구조 설계, 제품 페이지·블록 데모 구현",
         tech: ["TypeScript", "React", "Vite", "GraphQL"],
         links: [{ label: "aluxcoding.com", href: "https://www.aluxcoding.com/ko" }],
       },
@@ -217,9 +220,9 @@ export const EXPERIENCES: Experience[] = sortItems([
         title: "머머(murmur) 앱 개발 및 투자 유치",
         categories: ["mobile", "backend", "infra"],
         period: "2024.04 - 2025.03",
-        highlight: "Flutter MVP로 시드 투자, 베타로 TIPS 선정. 앱부터 Go 마이크로서비스·EKS 인프라까지 혼자 구축",
+        highlight: "Flutter MVP로 시드 투자 유치, 베타로 TIPS 선정(정부 R&D 5억 원 확보). 앱부터 Go 마이크로서비스·EKS 인프라까지 혼자 구축",
         summary:
-          "Flutter로 머머(murmur) 앱의 MVP를 개발해 시드 투자 유치에 성공했고, 베타 버전으로 TIPS 프로그램에 선정됐습니다. 앱과 함께 Go 마이크로서비스 백엔드, AWS EKS 인프라, 운영용 관리자 대시보드까지 직접 구축해 운영했습니다.",
+          "Flutter로 머머(murmur) 앱의 MVP를 개발해 시드 투자 유치에 성공했고, 베타 버전으로 TIPS 프로그램에 선정되어 정부 R&D 자금 5억 원을 확보했습니다. 앱과 함께 Go 마이크로서비스 백엔드, AWS EKS 인프라, 운영용 관리자 대시보드까지 직접 구축해 운영했습니다.",
         tasks: [
           "Flutter 크로스 플랫폼 앱: go_router 라우팅, Provider 상태 관리, MVP → 베타 고도화",
           "Go 마이크로서비스 10여 개를 gRPC 내부 통신·GraphQL 외부 API로 구성",
@@ -227,6 +230,7 @@ export const EXPERIENCES: Experience[] = sortItems([
           "운영 데이터를 보는 React 관리자 대시보드(실시간 갱신)",
           "투자 유치를 위한 기술 프레젠테이션",
         ],
+        role: "CTO, 앱·백엔드·인프라·관리자 구현 전부",
         tech: ["Flutter", "Dart", "Go", "gRPC", "GraphQL", "Kubernetes", "ArgoCD"],
         links: [
           { label: "App Store", href: "https://apps.apple.com/kr/app/id6504162784" },
@@ -246,6 +250,7 @@ export const EXPERIENCES: Experience[] = sortItems([
           "NLTK를 활용한 토큰화, 품사 태깅, 구문 분석",
           "LLM과 전통적 NLP 기술을 결합한 하이브리드 시스템 설계",
         ],
+        role: "설계·구현 전부",
         tech: ["OpenAI API", "Python", "spaCy", "NLTK"],
       },
     ],
@@ -261,7 +266,8 @@ export const EXPERIENCES: Experience[] = sortItems([
         period: "2022.06 - 2022.08",
         highlight: "MSA 기반 알림·채팅 서버와 실시간 화상 강의 기능 구현",
         summary: "React와 Go로 MODI Planet의 학습 관리 시스템을 개발했습니다. MSA 기반 백엔드와 프론트엔드 지원으로 실시간 화상 강의 플랫폼을 구축했습니다.",
-        tasks: ["MSA 기반 알림 및 채팅 서버 개발", "프론트엔드 퍼블리싱 및 컴포넌트 개발 지원", "실시간 화상 강의 기능 구현"],
+        tasks: ["MSA 기반 알림 및 채팅 서버 개발", "React 프론트엔드 공통 컴포넌트 개발", "실시간 화상 강의 기능 구현"],
+        role: "웹 파트장, 프론트·백엔드 구현",
         tech: ["React", "Go"],
         links: [{ label: "modiplanet.com", href: "https://modiplanet.com" }],
       },
@@ -272,6 +278,7 @@ export const EXPERIENCES: Experience[] = sortItems([
         highlight: "Web USB로 설치 없이 브라우저와 하드웨어를 직접 통신하는 라이브러리 개발",
         summary: "Web USB로 별도 응용프로그램 설치 없이 브라우저에서 직접 하드웨어와 통신하는 라이브러리를 개발했습니다.",
         tasks: ["Web USB API를 이용한 브라우저-하드웨어 통신 구현", "크로스 플랫폼 호환성 확보", "라이브러리 성능 최적화 및 안정성 테스트"],
+        role: "설계·구현 전부",
         tech: ["Web USB", "TypeScript"],
       },
       {
@@ -281,6 +288,7 @@ export const EXPERIENCES: Experience[] = sortItems([
         highlight: "오픈소스 스크래치를 React·TypeScript로 재구성해 자사 IDE로 전환",
         summary: "오픈소스 스크래치 프로젝트를 분석·최적화해 자사 맞춤형 코딩 IDE를 개발했습니다.",
         tasks: ["스크래치 소스 코드 분석", "자사 최적화 라이브러리 분리 작업", "React와 TypeScript를 이용한 프로젝트 재구성"],
+        role: "분석·모듈화 구현",
         tech: ["React", "TypeScript"],
         links: [{ label: "modiplanet.com/moditor", href: "https://modiplanet.com/moditor" }],
       },
@@ -297,11 +305,12 @@ export const EXPERIENCES: Experience[] = sortItems([
         highlight: "AngularJS·Express 기반 LMS 구축, MySQL에서 MongoDB로 마이그레이션",
         summary: "AngularJS, Express, MongoDB로 우리차이나의 통합 학습 관리 시스템을 개발했습니다.",
         tasks: [
-          "AngularJS를 이용한 반응형 프론트엔드 개발",
+          "AngularJS 프론트엔드와 Express REST API 개발",
           "Express 기반 RESTful API 설계 및 구현",
           "MySQL에서 MongoDB로의 데이터베이스 마이그레이션",
           "시스템 배포 및 운영 관리",
         ],
+        role: "프론트·백엔드 구현, 배포·운영",
         tech: ["AngularJS", "Express", "MongoDB"],
         links: [{ label: "urichina.com", href: "https://www.urichina.com" }],
       },
@@ -316,9 +325,10 @@ export const EXPERIENCES: Experience[] = sortItems([
         title: "원스탑코리아 웹사이트 리뉴얼",
         categories: ["frontend", "backend"],
         period: "2017.10 - 2018.01",
-        highlight: "번역 서비스 요청 프로세스를 간소화한 반응형 사이트로 전면 개편",
+        highlight: "번역 요청 접수 흐름을 다시 설계해 PHP·MySQL로 전면 재구축",
         summary: "PHP와 MySQL로 번역 서비스 전문 기업 원스탑코리아의 웹사이트를 전면 개선했습니다.",
-        tasks: ["PHP 동적 웹페이지 개발 및 MySQL 데이터베이스 설계", "반응형 웹 디자인 구현", "번역 서비스 요청 프로세스 간소화 및 성능 최적화"],
+        tasks: ["PHP 동적 웹페이지 개발 및 MySQL 데이터베이스 설계", "요청 접수·견적 흐름 재설계", "번역 서비스 요청 프로세스 간소화 및 성능 최적화"],
+        role: "설계·구현 전부",
         tech: ["PHP", "MySQL"],
         links: [{ label: "1stopkorea.co.kr", href: "http://1stopkorea.co.kr" }],
       },
@@ -335,6 +345,7 @@ export const EXPERIENCES: Experience[] = sortItems([
         highlight: "백신 엔진 서버 운영과 실시간 바이러스 DB 업데이트 시스템 구축",
         summary: "PHP와 MySQL로 KT 모바일 백신 서비스 T가드의 백신 엔진 서버를 개발하고 운영했습니다.",
         tasks: ["백신 엔진 서버 관리 및 최적화", "실시간 바이러스 데이터베이스 업데이트 시스템 구축", "서버 성능 모니터링 및 보안 강화"],
+        role: "서버 개발·운영",
         tech: ["PHP", "MySQL"],
         links: [{ label: "inetcop.org/antivirus", href: "https://www.inetcop.org/antivirus" }],
       },
@@ -356,6 +367,7 @@ export const EXPERIENCES: Experience[] = sortItems([
           "ASP에서 Spring으로 시스템 마이그레이션, MS-SQL에서 MySQL로 데이터베이스 마이그레이션",
           "서비스 모니터링 및 장애 대응 시스템 구축",
         ],
+        role: "서버 개발·운영, 마이그레이션",
         tech: ["Spring", "MySQL"],
         links: [{ label: "soosanint.com", href: "https://www.soosanint.com/contents.php?con_id=service1" }],
       },
@@ -366,6 +378,7 @@ export const EXPERIENCES: Experience[] = sortItems([
         highlight: "실시간 웹 필터링 엔진과 관리자 대시보드 개발",
         summary: "ASP.NET과 MS-SQL로 eWalker 시스템의 핵심 기능을 개발했습니다.",
         tasks: ["유해 웹사이트 데이터베이스 구축 및 관리", "실시간 웹 필터링 엔진 개발", "사용자 맞춤형 차단 설정 및 관리자 대시보드 개발"],
+        role: "백엔드 구현",
         tech: ["ASP.NET", "MS-SQL"],
       },
       {
@@ -375,6 +388,7 @@ export const EXPERIENCES: Experience[] = sortItems([
         highlight: "보호자용 관리 인터페이스와 실시간 유해 콘텐츠 필터링 CMS 개발",
         summary: "ASP.NET과 MS-SQL로 SKB 자녀 안심서비스 CMS를 개발하고 유지보수했습니다.",
         tasks: ["유해 정보 사이트 및 앱 차단 기능 구현", "보호자용 관리 인터페이스 개발", "실시간 유해 콘텐츠 필터링 시스템 구축", "사용 통계 및 리포트 기능 개발"],
+        role: "백엔드 구현·유지보수",
         tech: ["ASP.NET", "MS-SQL"],
       },
     ],
