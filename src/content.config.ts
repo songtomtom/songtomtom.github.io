@@ -4,7 +4,7 @@ import { glob } from "astro/loaders";
 import type { ImageFunction } from "astro:content";
 
 /** 글과 프로젝트의 분야. 뱃지 색과 필터에 쓴다. */
-const category = z.enum(["frontend", "backend", "infra", "mobile"]);
+const category = z.enum(["frontend", "backend", "infra", "mobile", "ai"]);
 
 const blog = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/blog" }),

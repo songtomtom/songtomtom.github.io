@@ -5,10 +5,12 @@ export const PROFILE = {
   name: "송준영",
   handle: "songtomtom",
   headline: "10년 넘게 프론트엔드, 백엔드, 모바일, 인프라를 다뤘고, 지금은 소프트웨어팀 팀장으로 팀의 표준과 프로세스를 세웁니다.",
+  /** 지향하는 역할. 헤드라인 아래 한 줄 */
+  aim: "현장 도메인을 시스템으로 옮기는 일(Forward Deployed)과 팀의 AI 개발 환경을 설계하는 일(Harness)을 지향합니다.",
   summary: [
-    "지금은 전사 MES(생산·재고·구매·품질·외주)를 Go 마이크로서비스 8개와 웹·현장 앱으로 넉 달 만에 구축하고 기존 ERP와 양방향으로 연동해 운영하고 있습니다. 백엔드와 웹의 대부분을 직접 작성했고, 지금까지 만든 것 중 가장 어려운 시스템입니다. 그 밖에 연 13만 명 규모의 국제 대회 플랫폼과 교육용 블록코딩 플랫폼을 팀장으로 이끌었습니다.",
-    "이전에는 개발 리드·CTO로 인프라부터 앱, 백엔드까지 전 과정을 주도해 시드 투자 유치와 TIPS 선정(정부 R&D 5억 원)을 달성했습니다.",
-    "표준과 프로세스를 먼저 세우고 그 위에 빠르게 쌓는 방식을 선호합니다. 디자인 시스템, 코드 컨벤션, PR 리뷰 같은 기반을 한 번 만들어 여러 프로젝트가 같은 속도로 나아가게 하는 일에 가장 보람을 느낍니다.",
+    "문제 정의. 엑셀과 ERP 수기 입력으로 돌아가던 전사 생산·물류 업무를 Go 마이크로서비스 8개와 웹·현장 앱으로 넉 달 만에 MES 하나로 옮기고 기존 ERP와 양방향으로 연동했습니다. 백엔드와 웹의 대부분을 직접 작성했고, 지금까지 만든 것 중 가장 어려운 시스템입니다. 연락처·사업 관리 시스템은 기획서부터 데이터 모델까지 직접 썼습니다.",
+    "환경 설계. 사내 프론트엔드 표준과 디자인 시스템, Nx 모노레포, CI/CD를 세워 여러 프로젝트가 같은 속도로 가게 했습니다. 2026년부터는 Claude Code 하네스(Skills·서브에이전트·Hooks)를 설계해 4개 저장소에 적용했고, 기획자도 같은 저장소에서 에이전트로 스펙을 쓰게 했습니다. 이전 회사에서는 CTO로 앱·백엔드·EKS 인프라를 혼자 세워 시드 투자와 TIPS 선정(정부 R&D 5억 원)을 달성했습니다.",
+    "검증. ERP API를 실제 호출로 캡처해 문서와 다른 동작을 고정했고, 연 13만 명 규모 국제 대회 플랫폼은 10개 저장소를 리뷰 기반 PR로 운영합니다. 기술 블로그의 글은 예제 저장소에서 실제로 실행한 결과만 인용합니다.",
   ],
   contacts: [
     { label: "Email", href: "mailto:celvincolvumn@gmail.com", text: "celvincolvumn@gmail.com" },
@@ -26,14 +28,39 @@ export const SKILLS: { group: string; items: string[] }[] = [
   { group: "인프라", items: ["Docker", "Kubernetes"] },
 ];
 
-export const STRENGTHS: string[] = [
-  "전사 MES 설계와 구축, ERP 양방향 연동",
-  "소프트웨어팀 리드와 개발 표준 수립",
-  "레거시 플랫폼의 전면 재구축과 자체 엔진 설계",
-  "다국어 서비스와 대규모 현장 이벤트 실시간 시스템 운영",
-  "사내 시스템 기획과 데이터 모델 설계",
-  "Go 기반 MSA 백엔드와 Flutter 크로스 플랫폼 앱 개발",
-  "클라우드 네이티브 인프라와 CI/CD 구축",
+export type Pillar = { title: string; lead: string; items: { text: string; project?: string; series?: string }[] };
+
+/** 일하는 방식 세 축. 각 항목은 경력의 근거를 가리킨다 */
+export const PILLARS: Pillar[] = [
+  {
+    title: "문제 정의",
+    lead: "현장의 일을 시스템 경계로 옮깁니다",
+    items: [
+      { text: "엑셀·ERP 수기 업무를 MES 하나로, ERP와 양방향 연동", project: "alux-product" },
+      { text: "연락처·사업 관리 시스템을 기획서부터 데이터 모델까지", project: "alux-hub" },
+      { text: "Scratch 플랫폼을 자체 실행 엔진으로 전면 재구축", project: "aluxlabs" },
+    ],
+  },
+  {
+    title: "환경 설계",
+    lead: "사람과 에이전트가 같은 규칙으로 일하게 합니다",
+    items: [
+      // 시리즈(coding-agent-harness)가 생기면 series: 로 링크
+      { text: "Claude Code 하네스를 설계해 4개 저장소에 적용, 기획자까지 확장" },
+      { text: "사내 프론트엔드 표준과 디자인 시스템을 정의해 두 시스템이 파생", project: "aluxcrawl" },
+      { text: "Nx 모노레포, CI/CD, EKS·ArgoCD 인프라를 직접 구축" },
+    ],
+  },
+  {
+    title: "검증",
+    lead: "실제로 확인한 것만 믿습니다",
+    items: [
+      { text: "ERP API를 실제 호출로 캡처해 문서와 다른 동작을 고정", project: "alux-product" },
+      { text: "10개 저장소 PR 200건을 리뷰 기반으로 운영", project: "gprc" },
+      { text: "하네스 효과를 고정 작업 10개 자동 채점으로 측정, 품질 차이 없음도 그대로 기록", project: "alux-product" },
+      { text: "블로그 글은 예제 저장소에서 실행한 결과만 인용" },
+    ],
+  },
 ];
 
 import type { Category } from "@lib/categories";
@@ -78,6 +105,23 @@ export const EXPERIENCES: Experience[] = sortItems([
     role: "소프트웨어팀 팀장",
     period: "2025.03 - 재직중",
     items: [
+      {
+        title: "팀 AI 개발 환경(Claude Code 하네스) 설계와 배포",
+        categories: ["ai"],
+        period: "2026.03 - 현재",
+        highlight: "규칙 문서를 행동 규칙만 남기고(Flutter 앱 204→68줄, MES 웹 616→86줄) 절차는 Skills, 결정은 기록 파일, 금지는 Hooks로 분리. 고정 작업 10개 자동 채점으로 측정해 같은 작업 비용 −48%, 품질 동일. 5개 저장소, 기획자용 Skills까지",
+        summary:
+          "개인 단위로 쓰던 AI 코딩 도구를 팀 단위 표준으로 옮겼습니다. 길어진 CLAUDE.md가 지켜지지 않는 문제를 \"규칙은 짧게, 지식은 Skill로, 금지는 Hook으로\" 원칙으로 풀었고, Flutter 앱과 블록코딩 플랫폼에 먼저 적용한 뒤 팀원이 같은 구조를 서버에 옮기고 기획자용 Skills로 확장했습니다. 효과 측정 체계는 아직 없어서 다음 과제로 남겨 두었습니다.",
+        tasks: [
+          "Flutter 앱: CLAUDE.md 204줄 → 68줄, Skills 6종(feature 스캐폴딩·코드 생성·4개 언어 i18n·lint·리뷰·위젯), 금지 패턴을 코드 작성 시점에 막는 PreToolUse Hook과 포맷·분석 PostToolUse Hook, 서브에이전트 3종(읽기 전용 리뷰어·Blockly 탐색기·디버거)",
+          "블록코딩 플랫폼: CLAUDE.md를 행동 규칙 63줄로 재작성, 블록·확장·컴포넌트 추가와 PR 전 검수를 Skills 8종으로, 블록·GUI·하드웨어·VM 도메인별 전문 에이전트 5종",
+          "브랜드 사이트: 기획자가 같은 저장소에서 Figma 분석·스펙 작성·섹션 분리를 하는 planning Skills 6종과 개발용 Skills 5종. 비개발 직군이 에이전트로 산출물을 내는 첫 사례",
+          "팀 세미나(Skills·MCP)로 전파. 팀원이 같은 구조를 Go 서버에 Step 1~5로 적용(Hooks 5종, 에이전트 5종, 컨텍스트 압축 뒤 규칙 재주입 PreCompact Hook)하고 이후 각 저장소에서 Skills를 늘려 감",
+          "MES 웹(2026.10): 616줄로 자란 규칙 문서를 행동 규칙 86줄 + Skills 6 + 결정 기록 52건 + Hooks 4 + 에이전트 3으로 분리. 고정 작업 10개를 헤드리스로 돌려 tsc·lint·테스트·규칙 위반·비용을 자동 채점하는 평가 세트를 만들고 전후 비교(비용 $4.55→$2.35, 통과 9/10→8/10, 규칙 위반 0→0). 에이전트가 셸로 파일을 고쳐 Write/Edit Hook을 우회하는 것을 측정으로 발견해 변경 줄 검사 층을 추가",
+        ],
+        role: "원칙과 구조 설계, Flutter 앱·블록코딩 플랫폼·브랜드 사이트·MES 웹 하네스 구현, 평가 세트 설계, 팀 세미나",
+        tech: ["Claude Code", "Skills", "Subagents", "Hooks", "MCP"],
+      },
       {
         title: "G-PRC 국제 로봇·코딩 대회 통합 플랫폼 개발",
         project: "gprc",
@@ -239,7 +283,7 @@ export const EXPERIENCES: Experience[] = sortItems([
       },
       {
         title: "OpenAI API 기반 LLM 애플리케이션 개발 및 자연어 처리 시스템 구축",
-        categories: ["backend"],
+        categories: ["ai", "backend"],
         period: "2024.04 - 2025.03",
         highlight: "LLM과 spaCy·NLTK를 결합한 하이브리드 NLP 시스템 설계",
         summary:
