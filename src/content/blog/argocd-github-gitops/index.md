@@ -40,7 +40,7 @@ sequenceDiagram
 - **이력이 깨끗합니다.** 매니페스트 저장소의 git log가 곧 배포 이력이 됩니다. 소스 커밋과 섞이지 않으니 "언제 무엇이 배포됐나"를 바로 읽을 수 있습니다.
 - **여러 앱을 모을 수 있습니다.** 서비스가 늘어나면 매니페스트 저장소 하나에 여러 앱의 환경별 설정을 모아 두는 편이 Argo CD에서 관리하기 쉽습니다.
 
-그래서 두 개를 만듭니다.
+그래서 두 개를 만듭니다. 저는 저장소를 나누는 쪽을 기본값으로 둡니다. 한 저장소에 두고 경로 필터로 루프를 막는 구성도 돌아가지만, 그 필터가 왜 있는지 모르는 사람이 지우는 순간 CI가 자기 자신을 호출하기 시작합니다.
 
 - [argocd-app-source](https://github.com/songtomtom/argocd-app-source): 애플리케이션 코드, Dockerfile, CI 워크플로
 - [argocd-app-manifests](https://github.com/songtomtom/argocd-app-manifests): Deployment와 Argo CD Application

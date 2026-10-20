@@ -205,7 +205,7 @@ playground에서 Books REST API가 GraphQL 스키마로 바뀐 것을 볼 수 �
 
 ![](./DUD7B_6KEmIbSlDL7pRWJQ.png)
 
-`AppController_listBooks` 같은 이름은 NestJS 컨트롤러에서 자동 생성된 `operationId`가 그대로 드러난 것입니다. 실제로 쓸 때는 정의 파일의 `operationId`를 `listBooks`처럼 다듬거나, Mesh의 `rename` 변환으로 필드 이름을 바꿉니다. 게이트웨이의 스키마는 클라이언트가 보는 공개 API이므로 이름을 방치하면 안 됩니다.
+`AppController_listBooks` 같은 이름은 NestJS 컨트롤러에서 자동 생성된 `operationId`가 그대로 드러난 것입니다. 실제로 쓸 때는 정의 파일의 `operationId`를 `listBooks`처럼 다듬거나, Mesh의 `rename` 변환으로 필드 이름을 바꿉니다. 게이트웨이의 스키마는 클라이언트가 보는 공개 API이므로 이름을 방치하면 안 됩니다. 저는 게이트웨이 스키마의 이름은 서버 코드가 아니라 그걸 쓰는 쪽이 정해야 한다고 봅니다. 서버의 `operationId`를 그대로 노출하면 백엔드 구조가 공개 API에 새어 나옵니다.
 
 ## 배운 것
 

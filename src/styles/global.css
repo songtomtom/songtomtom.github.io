@@ -8,8 +8,8 @@
   /* 본문은 세리프. 라틴은 Iowan Old Style(맥 내장) → Palatino → Georgia, 한글은 Noto Serif KR */
   --font-sans: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia,
     'Noto Serif KR', serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  /* 날짜·라벨·버튼 같은 작은 UI 글자는 산세리프 */
-  --font-ui: Geist Sans, ui-sans-serif, -apple-system, system-ui, 'Apple SD Gothic Neo', sans-serif;
+  /* 날짜·라벨·버튼도 본문과 같은 세리프. 처음엔 leerob.com처럼 산세리프로 나눴지만 한글에서는 섞임이 더 눈에 띄어 통일했다 */
+  --font-ui: var(--font-sans);
   --color-ink: #282828;
   --color-ink-2: #504945;
   --color-ink-3: #676767;
