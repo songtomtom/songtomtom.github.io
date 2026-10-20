@@ -1,12 +1,10 @@
 ---
 title: "규칙 문서는 길어질수록 안 지켜진다"
 description: "코딩 에이전트의 프로젝트 규칙 파일(CLAUDE.md)이 규칙·절차·결정 이유로 뒤섞여 자라는 문제를 세 층으로 나눠 풀고, 같은 작업 5개를 전후로 돌려 쟀습니다. 작은 저장소에서는 비용이 줄지 않았고, 대신 다른 것이 바뀌었습니다."
-date: "2026-10-12T02:00"
+date: "2026-09-23T09:10"
 series: coding-agent-harness
 order: 1
-category: ai
 tags:
-  - claude-code
   - harness
   - skills
   - evaluation

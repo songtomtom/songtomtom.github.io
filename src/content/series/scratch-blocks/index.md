@@ -1,7 +1,7 @@
 ---
 title: "React에서 Scratch3 블록 렌더링"
 description: "Rush 모노레포에서 scratch-blocks를 React 앱에 주입해 블록 코딩 워크스페이스를 렌더링합니다."
-date: "2023-02-08"
+date: "2025-01-30"
 repoURL: "https://github.com/songtomtom/scratch-blocks"
 tech: ["React", "Scratch", "Rush", "TypeScript"]
 category: frontend

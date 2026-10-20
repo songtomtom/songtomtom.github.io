@@ -14,7 +14,6 @@ const blog = defineCollection({
     date: z.coerce.date(),
     draft: z.boolean().optional(),
     tags: z.array(z.string()).optional(),
-    category: category.optional(),
     /** 이 글이 속한 시리즈 id (src/content/series/<id>) */
     series: z.string().optional(),
     /** 시리즈 안에서의 순서. 연재물의 편 번호 */

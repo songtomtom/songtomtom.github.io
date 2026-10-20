@@ -1,7 +1,7 @@
 ---
 title: "GraphQL Mesh Gateway"
 description: "REST, gRPC, GraphQL 서비스를 GraphQL Mesh로 하나의 게이트웨이에 통합합니다."
-date: "2023-01-28"
+date: "2025-02-14"
 repoURL: "https://github.com/songtomtom/graphql-mesh-gateway"
 tech: ["GraphQL Mesh", "Go", "gRPC", "gqlgen", "OpenAPI"]
 category: backend

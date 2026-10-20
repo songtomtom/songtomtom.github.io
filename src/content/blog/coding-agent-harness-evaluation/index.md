@@ -1,12 +1,10 @@
 ---
 title: "하네스가 맞는지 증명하기"
 description: "규칙 분리, Skill, Hook, 서브에이전트를 쌓을 때마다 같은 작업 9개를 다시 돌려 통과율·규칙 위반·비용·턴·도구 사용을 쟀습니다. 평가 세트의 설계, 채점기가 틀렸던 세 번, 그리고 층별 표를 그대로 보입니다. 품질은 거의 안 변했고, 그게 이 세트가 말해 주는 것입니다."
-date: "2026-10-12T06:00"
+date: "2026-10-08T10:10"
 series: coding-agent-harness
 order: 5
-category: ai
 tags:
-  - claude-code
   - evaluation
   - harness
 ---

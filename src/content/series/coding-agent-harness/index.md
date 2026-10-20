@@ -1,7 +1,7 @@
 ---
 title: "코딩 에이전트 하네스"
 description: "Claude Code 같은 코딩 에이전트가 프로젝트 규칙 안에서만 움직이게 하는 환경을 한 층씩 쌓고, 층마다 같은 작업을 다시 돌려 효과를 숫자로 잽니다. 규칙 문서 분리, Skills, Hooks, 서브에이전트, 평가 세트까지."
-date: "2026-10-12T02:00"
+date: "2026-09-23"
 repoURL: "https://github.com/songtomtom/coding-agent-harness"
 tech: ["Claude Code", "Nx", "TypeScript", "Vitest"]
 category: ai

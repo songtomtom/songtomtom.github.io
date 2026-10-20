@@ -4,6 +4,11 @@ import Container from "@components/Container.astro";
 import Link from "@components/Link.astro";
 import { RESUME } from "@consts";
 import { PROFILE, SKILLS, PILLARS, EXPERIENCES } from "../data/resume";
+import { getProjects } from "@lib/projects";
+
+/** 공개된 케이스만 링크한다. draft인 케이스는 이력서 본문 텍스트만 남긴다 */
+const published = new Set((await getProjects()).map((p) => p.id));
+const caseHref = (id?: string) => (id && published.has(id) ? `/projects/${id}` : undefined);
 
 import { Image } from "astro:assets";
 import profile from "../assets/profile.jpg";
@@ -32,9 +37,9 @@ import profile from "../assets/profile.jpg";
             <Image
               src={profile}
               alt={`${PROFILE.name} 프로필 사진`}
-              width={384}
+              width={640}
               densities={[1, 2]}
-              class="hidden w-40 shrink-0 rounded-lg sm:block sm:w-48"
+              class="hidden w-56 shrink-0 rounded-lg sm:block sm:w-72 lg:w-80"
             />
           </div>
           <ul class="not-prose flex flex-wrap items-baseline gap-x-4 gap-y-1 text-sm">
@@ -52,7 +57,7 @@ import profile from "../assets/profile.jpg";
               <button
                 type="button"
                 id="print-resume"
-                class="rounded-md border border-black/15 px-2 py-0.5 text-xs text-neutral-600 transition-colors hover:bg-black/5 dark:border-white/20 dark:text-neutral-300 dark:hover:bg-white/10"
+                class="font-ui text-sm text-current underline decoration-black/30 underline-offset-[3px] transition-colors hover:text-black hover:decoration-black/50 dark:decoration-white/30 dark:hover:text-white dark:hover:decoration-white/50"
               >
                 PDF로 저장
               </button>
@@ -61,11 +66,11 @@ import profile from "../assets/profile.jpg";
         </section>
 
         <section class="animate space-y-4">
-          <h2 class="text-lg font-semibold text-black dark:text-white">일하는 방식</h2>
+          <h2 class="text-[1.45rem] font-semibold tracking-tight text-[#282828] dark:text-[#f0ece4]">일하는 방식</h2>
           <div class="grid gap-6 sm:grid-cols-3">
             {
               PILLARS.map((p) => (
-                <div class="space-y-3 rounded-lg border border-black/10 p-4 dark:border-white/15">
+                <div class="space-y-3 border-t border-black/10 pt-4 dark:border-white/10">
                   <div class="space-y-0.5">
                     <h3 class="font-semibold text-black dark:text-white">{p.title}</h3>
                     <p class="text-sm text-neutral-500">{p.lead}</p>
@@ -76,10 +81,10 @@ import profile from "../assets/profile.jpg";
                         <span class="text-neutral-400 select-none">–</span>
                         <span>
                           {it.text}
-                          {(it.project || it.series) && (
+                          {(caseHref(it.project) || it.series) && (
                             <>
                               {" "}
-                              <Link href={it.project ? `/projects/${it.project}` : `/series/${it.series}`}>→</Link>
+                              <Link href={caseHref(it.project) ?? `/series/${it.series}`}>→</Link>
                             </>
                           )}
                         </span>
@@ -93,7 +98,7 @@ import profile from "../assets/profile.jpg";
         </section>
 
         <section class="animate space-y-4">
-          <h2 class="text-lg font-semibold text-black dark:text-white">기술 스택</h2>
+          <h2 class="text-[1.45rem] font-semibold tracking-tight text-[#282828] dark:text-[#f0ece4]">기술 스택</h2>
           <dl class="grid grid-cols-[auto_1fr] gap-x-8 gap-y-3 text-[15px]">
             {
               SKILLS.map((s) => (
@@ -108,14 +113,14 @@ import profile from "../assets/profile.jpg";
 
 
         <section class="animate space-y-10">
-          <h2 class="text-lg font-semibold text-black dark:text-white">경력</h2>
+          <h2 class="text-[1.45rem] font-semibold tracking-tight text-[#282828] dark:text-[#f0ece4]">경력</h2>
           <ul class="space-y-16">
             {
               EXPERIENCES.map((e) => (
                 <li class="space-y-6">
                   <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-black/10 pb-3 dark:border-white/15">
                     <div class="flex flex-wrap items-baseline gap-x-3">
-                      <span class="text-lg font-semibold text-black dark:text-white">{e.company}</span>
+                      <span class="text-[1.45rem] font-semibold tracking-tight text-[#282828] dark:text-[#f0ece4]">{e.company}</span>
                       <span class="text-sm text-neutral-500">{e.role}</span>
                     </div>
                     <span class="text-sm tabular-nums text-neutral-500">{e.period}</span>
@@ -137,9 +142,9 @@ import profile from "../assets/profile.jpg";
                               </div>
                               <p class="pl-[18px] leading-6 text-neutral-700 dark:text-neutral-300">{it.highlight}</p>
                               {
-                                (it.links?.length || it.project) && (
+                                (it.links?.length || caseHref(it.project)) && (
                                   <p class="flex flex-wrap gap-x-4 pl-[18px] text-sm">
-                                    {it.project && <Link href={`/projects/${it.project}`}>프로젝트 자세히 보기</Link>}
+                                    {caseHref(it.project) && <Link href={caseHref(it.project)!}>프로젝트 자세히 보기</Link>}
                                     {it.links?.map((l) => (
                                       <Link href={l.href} external>
                                         {l.label}

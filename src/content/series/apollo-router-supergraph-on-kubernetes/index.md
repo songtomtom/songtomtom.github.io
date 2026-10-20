@@ -1,7 +1,7 @@
 ---
 title: "Apollo Router 슈퍼그래프, 어디서 합칠 것인가"
 description: "스키마 레지스트리 없이 라우터 파드의 init container가 서브그래프를 합치는 방식으로 1년을 운영하고, publish CronJob과 GraphOS Uplink로 결합을 풀어낸 과정. 두 방식을 같은 base 위의 overlay 두 개로 재현합니다."
-date: "2026-09-29T20:00"
+date: "2026-09-09"
 repoURL: "https://github.com/songtomtom/apollo-router-supergraph-on-kubernetes"
 tech: ["Apollo Router", "GraphQL Federation", "Kubernetes", "Kustomize", "rover"]
 category: infra

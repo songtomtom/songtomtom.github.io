@@ -1,12 +1,10 @@
 ---
 title: "절차형 Skill: 승인 게이트와 안전 규칙"
 description: "지식을 옮기는 Skill을 넘어, 범위 질문 → 테스트 케이스 → 승인 → 실행 → 리포트 순서를 강제하는 브라우저 수동 테스트 Skill을 만들었습니다. 같은 요청 세 가지를 Skill 전후로 돌려 게이트 준수를 쟀더니, 없을 때 에이전트는 외부 호스트에 그냥 실행하려 했습니다."
-date: "2026-10-12T03:00"
+date: "2026-09-26T15:10"
 series: coding-agent-harness
 order: 2
-category: ai
 tags:
-  - claude-code
   - skills
   - playwright
   - harness

@@ -6,6 +6,8 @@ import { PROJECTS } from "@consts";
 import { getProjects } from "@lib/projects";
 
 const projects = await getProjects();
+// 공개 케이스가 하나도 없으면 목록 대신 홈으로 보낸다
+if (projects.length === 0) return Astro.redirect("/");
 ---
 
 <Layout title={PROJECTS.TITLE} description={PROJECTS.DESCRIPTION}>

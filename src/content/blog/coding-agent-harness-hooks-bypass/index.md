@@ -1,12 +1,10 @@
 ---
 title: "Hook은 어떻게 우회되는가"
 description: "글로 적은 금지를 Claude Code Hook으로 실행 경로에 옮겼더니 차단이 0건이었습니다. 규칙을 잘 지켜서가 아니라 에이전트가 편집 도구 대신 셸로 파일을 고쳐 Hook이 발동하지 않은 것이었습니다. 쓰기 도구와 무관하게 잡는 두 번째 층을 더하고 다시 쟀습니다."
-date: "2026-10-12T04:00"
+date: "2026-09-29T14:30"
 series: coding-agent-harness
 order: 3
-category: ai
 tags:
-  - claude-code
   - hooks
   - harness
   - evaluation

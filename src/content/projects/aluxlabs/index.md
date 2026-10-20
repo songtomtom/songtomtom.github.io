@@ -2,6 +2,7 @@
 title: "블록코딩 플랫폼: Scratch 전면 마이그레이션과 자체 실행 엔진"
 description: "Scratch 3 기반 교육 플랫폼을 React·Blockly 12로 다시 세우고, scratch-vm 없이 7만 줄 규모의 런타임을 설계했습니다. Vision AI 블록, 브라우저 펌웨어 업로드, 세 갈래 하드웨어 통신이 그 위에 올라갑니다."
 cover: ./cover-4e2f40.png
+draft: true
 date: "2025-03-01"
 org: "주식회사 에이럭스"
 role: "소프트웨어팀 팀장 · 마이그레이션과 엔진 설계 주도"

@@ -1,58 +1,105 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/Container.astro";
-import { SITE, HOME } from "@consts";
 import ArrowCard from "@components/ArrowCard.astro";
-import SeriesCard from "@components/SeriesCard.astro";
 import Link from "@components/Link.astro";
-import { getPosts, getSeries, postsOfSeries } from "@lib/projects";
+import { Image } from "astro:assets";
+import { HOME } from "@consts";
+import { getPosts, getSeries } from "@lib/projects";
+import whales from "../assets/home-whales.jpg";
 
 const allPosts = await getPosts();
-const blog = allPosts.slice(0, SITE.NUM_POSTS_ON_HOMEPAGE);
-const seriesList = (await getSeries()).slice(0, SITE.NUM_SERIES_ON_HOMEPAGE);
+const recent = allPosts.slice(0, 12);
+const seriesList = await getSeries();
 ---
 
-<Layout title={HOME.TITLE} description={HOME.DESCRIPTION}>
-  <Container>
-    <aside data-pagefind-ignore>
-      <h1 class="font-semibold text-black dark:text-white">
-        안녕하세요, songtomtom입니다.
-      </h1>
-      <div class="space-y-16">
-        <section>
-          <article class="space-y-4">
-            <span>
-              <p>
-                소프트웨어를 만들면서 부딪힌 문제와 그때의 선택을 기록합니다. 잘 된 것보다는
-                처음에 잘못 만들었다가 고친 것, 문서만 봐서는 몰랐던 것, 다음에 같은 일을 하면
-                다르게 할 것들을 주로 씁니다.
-              </p>
-              <p>
-                글은 따라 하면 그대로 동작하도록 실제 저장소의 코드를 기준으로 쓰고, 왜 그렇게
-                했는지와 어디까지가 한계인지를 함께 남깁니다. 연재물은 순서대로 읽을 수 있게
-                묶어 두었습니다.
-              </p>
-            </span>
-            <span class="animate">
-              <p>
-                코드가 있는 글은 <Link href="/series">시리즈</Link>로 묶여 있고, 경력은
-                <Link href="/resume">이력서</Link>에 정리해 두었습니다. 궁금한 점은 아래 연락처로
-                보내 주세요.
-              </p>
-            </span>
+<Layout title={HOME.TITLE} description={HOME.DESCRIPTION} wide>
+  <Container wide>
+    <div class="grid items-start gap-12 lg:grid-cols-[minmax(0,1.6fr)_minmax(340px,1fr)]" data-pagefind-ignore>
+      <div class="min-w-0 max-w-[620px]">
+        <h1 class="animate mb-8 text-[2.4rem] font-semibold leading-[1.15] tracking-tight text-[#282828] dark:text-[#f0ece4]">
+          <a href="https://github.com/songtomtom" target="_blank" rel="noopener noreferrer" class="transition-opacity hover:opacity-70">
+            <span class="relative top-[0.015em] text-[1.1em]">@</span>songtomtom
+          </a>
+        </h1>
+
+        <section class="animate" aria-label="소개">
+          <div class="font-ui mb-5 flex items-baseline justify-between border-b border-black/10 pb-2 text-sm text-[#676767] dark:border-white/10 dark:text-[#8a867e]">
+            <span>소개</span>
+            <div class="flex gap-4" id="bio-toggle" aria-label="소개 길이">
+              <button type="button" data-bio="short" aria-pressed="true" class="relative py-0.5 transition-colors hover:text-[#282828] aria-pressed:text-[#282828] aria-pressed:after:absolute aria-pressed:after:inset-x-0 aria-pressed:after:-bottom-[0.62rem] aria-pressed:after:h-px aria-pressed:after:bg-current dark:hover:text-[#e2ded6] dark:aria-pressed:text-[#e2ded6]">기본</button>
+              <button type="button" data-bio="long" aria-pressed="false" class="relative py-0.5 transition-colors hover:text-[#282828] aria-pressed:text-[#282828] aria-pressed:after:absolute aria-pressed:after:inset-x-0 aria-pressed:after:-bottom-[0.62rem] aria-pressed:after:h-px aria-pressed:after:bg-current dark:hover:text-[#e2ded6] dark:aria-pressed:text-[#e2ded6]">길게</button>
+            </div>
+          </div>
+          <article id="bio-short" class="pb-0">
+            <p>
+              송준영입니다. 프론트엔드, 백엔드, 모바일, 인프라를 가리지 않고 만들어 왔고, 새 도구가 나오면 먼저 써 보고
+              어디까지 믿어도 되는지 재는 편입니다. 여기에는 그렇게 써 보고 알게 된 것, 처음 가설과 달랐던 것, 다음에
+              같은 일을 하면 다르게 할 것을 적습니다.
+            </p>
+            <p>
+              글은 전부 <Link href="/series">공개 저장소</Link>에서 실제로 돌려 본 결과만 씁니다. 숫자는 재서 적고,
+              안 된 것은 안 됐다고 적습니다. 요즘은 코딩 에이전트에게 일을 맡기는 환경을 설계하고 그 효과를 재고
+              있습니다.
+            </p>
+          </article>
+          <article id="bio-long" class="pb-0" hidden>
+            <p>
+              송준영입니다. 프론트엔드, 백엔드, 모바일, 인프라를 가리지 않고 만들어 왔고, 새 도구가 나오면 먼저 써 보고
+              어디까지 믿어도 되는지 재는 편입니다. 여기에는 그렇게 써 보고 알게 된 것, 처음 가설과 달랐던 것, 다음에
+              같은 일을 하면 다르게 할 것을 적습니다.
+            </p>
+            <p>
+              다루는 폭. Go와 TypeScript로 서버와 웹을, Flutter로 앱을, Kubernetes로 인프라를 세웁니다. 한 사람이
+              처음부터 끝까지 만들 수 있다는 게 강점이고, 그래서 경계에서 생기는 문제, 즉 API 계약, 배포, 데이터
+              정합성을 가장 많이 다뤘습니다.
+            </p>
+            <p>
+              새로운 것. 모르는 기술은 작은 예제 저장소를 먼저 만들어 돌려 보고, 그 과정을
+              <Link href="/series">시리즈</Link>로 남깁니다. GraphQL Federation, CloudNativePG, Argo CD, 코딩 에이전트
+              하네스가 전부 그렇게 시작했습니다.
+            </p>
+            <p>
+              어떻게 쓰는지. 글에 나오는 코드와 수치는 예제 저장소에서 가져옵니다. 되돌린 결정은 지우지 않고 "처음엔
+              이렇게 했다가"로 남깁니다. 잘 된 이야기는 어디에나 있지만, 어디서 막혔고 왜 되돌렸는지는 그때 적어 두지
+              않으면 사라지기 때문입니다.
+            </p>
+            <p>
+              요즘. 코딩 에이전트가 프로젝트 규칙을 지키게 만드는 환경을 한 층씩 쌓고, 층을 올릴 때마다 같은 작업을
+              다시 돌려 전후를 잽니다. Kubernetes 위에서 GraphQL 슈퍼그래프를 어디서 합칠지도 계속 만지고 있습니다.
+            </p>
+            <p>
+              경력은 <Link href="/resume">이력서</Link>에 있고, 연락은
+              <Link href="https://github.com/songtomtom" external>GitHub</Link>이나
+              <Link href="mailto:celvincolvumn@gmail.com">이메일</Link>로 주세요.
+            </p>
           </article>
         </section>
 
-        <section class="animate space-y-6">
-          <div class="flex flex-wrap items-center justify-between gap-y-2">
-            <h2 class="font-semibold text-black dark:text-white">
-              최근 글
-            </h2>
-            <Link href="/blog"> 모든 글 보기 </Link>
+        <section class="animate mt-14" aria-labelledby="series-heading">
+          <div class="flex items-baseline justify-between">
+            <h2 id="series-heading" class="text-[1.45rem] font-semibold tracking-tight text-[#282828] dark:text-[#f0ece4]">시리즈</h2>
+            <Link href="/series"><span class="font-ui text-sm">전부 보기</span></Link>
           </div>
-          <ul class="not-prose flex flex-col gap-4">
+          <ul class="mt-3 list-square columns-1 gap-x-10 pl-[1.1em] marker:text-[#676767]/70 sm:columns-2 dark:marker:text-[#8a867e]/70">
             {
-              blog.map((post) => (
+              seriesList.map((s) => (
+                <li class="mb-1 break-inside-avoid pl-[0.15em]">
+                  <Link href={`/series/${s.id}`}>{s.data.title}</Link>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <section class="animate mt-14" aria-labelledby="posts-heading">
+          <div class="flex items-baseline justify-between">
+            <h2 id="posts-heading" class="text-[1.45rem] font-semibold tracking-tight text-[#282828] dark:text-[#f0ece4]">글</h2>
+            <Link href="/blog"><span class="font-ui text-sm">{allPosts.length}편 전부 보기</span></Link>
+          </div>
+          <ul class="row-list mt-3">
+            {
+              recent.map((post) => (
                 <li>
                   <ArrowCard entry={post} />
                 </li>
@@ -60,46 +107,30 @@ const seriesList = (await getSeries()).slice(0, SITE.NUM_SERIES_ON_HOMEPAGE);
             }
           </ul>
         </section>
-
-        <section class="animate space-y-6">
-          <div class="flex flex-wrap items-center justify-between gap-y-2">
-            <h2 class="font-semibold text-black dark:text-white">
-              시리즈
-            </h2>
-            <Link href="/series"> 모든 시리즈 보기 </Link>
-          </div>
-          <ul class="not-prose flex flex-col gap-4">
-            {
-              seriesList.map((series) => (
-                <li>
-                  <SeriesCard series={series} postCount={postsOfSeries(allPosts, series.id).length} />
-                </li>
-              ))
-            }
-          </ul>
-        </section>
-
-        <section class="animate space-y-4">
-          <h2 class="font-semibold text-black dark:text-white">
-            연락
-          </h2>
-          <article>
-            <p>궁금한 점이나 제안이 있으면 이메일이나 GitHub으로 연락 주세요.</p>
-          </article>
-          <ul class="not-prose flex flex-wrap gap-x-6 gap-y-1 text-sm">
-            <li>
-              <span class="text-neutral-500">Email</span>{" "}
-              <Link href="mailto:celvincolvumn@gmail.com">celvincolvumn@gmail.com</Link>
-            </li>
-            <li>
-              <span class="text-neutral-500">GitHub</span>{" "}
-              <Link href="https://github.com/songtomtom" external>
-                github.com/songtomtom
-              </Link>
-            </li>
-          </ul>
-        </section>
       </div>
-    </aside>
+
+      <aside class="animate sticky top-24 hidden h-[calc(100vh-7.5rem)] min-h-[520px] overflow-hidden rounded-[10px] border border-black/10 bg-white lg:block dark:border-white/10" aria-hidden="true">
+        <Image src={whales} alt="" width={900} class="h-full w-full object-cover" loading="eager" />
+      </aside>
+    </div>
   </Container>
 </Layout>
+
+<script>
+  // 소개 길이 토글. 기본/길게
+  function setupBio() {
+    const wrap = document.getElementById("bio-toggle");
+    if (!wrap) return;
+    const buttons = Array.from(wrap.querySelectorAll<HTMLButtonElement>("button[data-bio]"));
+    const show = (which: string) => {
+      buttons.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.bio === which)));
+      const s = document.getElementById("bio-short");
+      const l = document.getElementById("bio-long");
+      if (s) s.hidden = which !== "short";
+      if (l) l.hidden = which !== "long";
+    };
+    buttons.forEach((b) => b.addEventListener("click", () => show(b.dataset.bio ?? "short")));
+  }
+  setupBio();
+  document.addEventListener("astro:after-swap", setupBio);
+</script>

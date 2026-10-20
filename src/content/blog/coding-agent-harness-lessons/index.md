@@ -1,12 +1,10 @@
 ---
 title: "616줄에서 배운 것: 하네스를 세우는 순서"
 description: "규칙 문서가 두 달 만에 616줄이 된 저장소와, 그것을 작게 재현한 예제 저장소에서 다섯 층을 쌓고 재 본 시리즈의 결론입니다. 무엇이 효과가 있었고 무엇이 없었는지, 다음에 세운다면 어떤 순서로 할지를 정리합니다."
-date: "2026-10-12T07:00"
+date: "2026-10-12T21:30"
 series: coding-agent-harness
 order: 6
-category: ai
 tags:
-  - claude-code
   - harness
   - evaluation
 ---

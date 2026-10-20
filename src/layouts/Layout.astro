@@ -8,9 +8,11 @@ import { SITE } from "@consts";
 type Props = {
   title: string;
   description: string;
+  /** 홈처럼 오른쪽 그림 칸이 있는 페이지. 헤더·푸터 폭을 함께 넓힌다 */
+  wide?: boolean;
 };
 
-const { title, description } = Astro.props;
+const { title, description, wide = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -27,11 +29,11 @@ const { title, description } = Astro.props;
         }
       </style>
     </noscript>
-    <Header />
+    <Header wide={wide} />
     <main>
       <slot />
     </main>
-    <Footer />
+    <Footer wide={wide} />
     <Pagefind />
   </body>
 </html>

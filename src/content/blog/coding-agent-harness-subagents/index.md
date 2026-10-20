@@ -1,12 +1,10 @@
 ---
 title: "역할이 다른 일은 다른 에이전트가"
 description: "리뷰어는 코드를 고치면 안 되고, 결정 조회는 코드를 읽을 필요가 없습니다. 읽기 전용 리뷰어와 결정 조회 서브에이전트를 두고 위반 3개를 심은 커밋을 리뷰시켰더니, 정의만으로는 호출되지 않았고 이름을 부르자 약속한 형식으로 답했습니다. 서브에이전트가 사는 것과 못 사는 것을 정리합니다."
-date: "2026-10-12T05:00"
+date: "2026-10-04T20:30"
 series: coding-agent-harness
 order: 4
-category: ai
 tags:
-  - claude-code
   - subagents
   - harness
   - code-review

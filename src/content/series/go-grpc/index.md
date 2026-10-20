@@ -1,7 +1,7 @@
 ---
 title: "Go gRPC 시작하기"
 description: "Protobuf 정의부터 Go gRPC 서버와 클라이언트까지 최소 구성 예제입니다."
-date: "2023-01-25"
+date: "2025-02-10"
 repoURL: "https://github.com/songtomtom/go-grpc"
 tech: ["Go", "gRPC", "Protobuf"]
 category: backend

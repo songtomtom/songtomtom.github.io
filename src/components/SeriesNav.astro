@@ -1,4 +1,5 @@
 ---
+// 글 상단의 시리즈 안내. 상자 대신 얇은 위아래 선으로 구분한다.
 import type { CollectionEntry } from "astro:content";
 import Link from "@components/Link.astro";
 
@@ -12,18 +13,18 @@ const { series, posts, currentId } = Astro.props;
 const index = posts.findIndex((p) => p.id === currentId);
 ---
 
-<aside class="not-prose rounded-lg border border-black/15 px-4 py-3 text-sm dark:border-white/20">
+<aside class="not-prose border-y border-black/10 py-6 text-sm leading-7 dark:border-white/10">
   <p>
     이 글은 <Link href={`/series/${series.id}`}>{series.data.title}</Link> 시리즈의
-    {index + 1}편입니다. <span class="text-neutral-500">전체 {posts.length}편</span>
+    {index + 1}편입니다. <span class="row-meta">전체 {posts.length}편</span>
   </p>
-  <ol class="mt-2 space-y-0.5 pl-1">
+  <ol class="mt-4 space-y-1">
     {
       posts.map((p, i) => (
         <li class="flex items-baseline gap-2">
-          <span class="w-4 shrink-0 tabular-nums text-neutral-500">{i + 1}</span>
+          <span class="row-meta w-4 shrink-0">{i + 1}</span>
           {p.id === currentId ? (
-            <span class="font-semibold text-black dark:text-white">{p.data.title}</span>
+            <span class="font-semibold text-[#282828] dark:text-[#f0ece4]">{p.data.title}</span>
           ) : (
             <Link href={`/blog/${p.id}`}>{p.data.title}</Link>
           )}

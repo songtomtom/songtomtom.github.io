@@ -5,8 +5,15 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-sans: Geist Sans, ui-sans-serif, system-ui, sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  /* 본문은 세리프. 라틴은 Iowan Old Style(맥 내장) → Palatino → Georgia, 한글은 Noto Serif KR */
+  --font-sans: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia,
+    'Noto Serif KR', serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  /* 날짜·라벨·버튼 같은 작은 UI 글자는 산세리프 */
+  --font-ui: Geist Sans, ui-sans-serif, -apple-system, system-ui, 'Apple SD Gothic Neo', sans-serif;
+  --color-ink: #282828;
+  --color-ink-2: #504945;
+  --color-ink-3: #676767;
+  --color-paper: #ffffff;
   --font-mono: Geist Mono, ui-monospace, SFMono-Regular, Menlo, Monaco,
     Consolas, 'Liberation Mono', 'Courier New', monospace;
 }
@@ -48,13 +55,16 @@
   body {
     @apply font-sans antialiased;
     @apply flex flex-col;
-    @apply bg-neutral-100 dark:bg-neutral-900;
-    @apply text-black/75 dark:text-white/75;
+    @apply bg-white dark:bg-[#111111];
+    @apply text-[#282828] dark:text-[#d8d4cc];
+    font-size: 17px;
+    line-height: 1.6;
+    word-break: keep-all;
   }
 
   header {
     @apply fixed left-0 right-0 top-0 z-50 py-6;
-    @apply bg-neutral-100/90 dark:bg-neutral-900/90;
+    @apply bg-white/90 dark:bg-[#111111]/90;
     @apply backdrop-blur-md;
   }
 
@@ -68,8 +78,32 @@
 
   article {
     @apply prose prose-neutral max-w-full dark:prose-invert prose-img:mx-auto prose-img:my-auto;
-    @apply prose-headings:font-semibold;
-    @apply prose-headings:text-black dark:prose-headings:text-white;
+    @apply prose-headings:font-semibold prose-headings:tracking-tight;
+    @apply prose-headings:text-[#282828] dark:prose-headings:text-[#f0ece4];
+    @apply prose-p:text-pretty;
+  }
+
+  /* 작은 UI 글자: 날짜, 라벨, 필터 버튼 */
+  .font-ui {
+    font-family: var(--font-ui);
+    letter-spacing: 0;
+  }
+
+  /* leerob 식 목록: 제목 왼쪽, 메타 오른쪽, 얇은 선으로 구분. 목록에 마우스를 올리면 나머지 행이 살짝 흐려진다 */
+  .row-list {
+    @apply border-t border-black/10 dark:border-white/10;
+  }
+  .row-list:hover .row {
+    opacity: 0.8;
+  }
+  .row-list:hover .row:hover {
+    opacity: 1;
+  }
+  .row {
+    @apply border-b border-black/10 py-3 no-underline transition-opacity duration-300 ease-in-out dark:border-white/10;
+  }
+  .row-meta {
+    @apply font-ui whitespace-nowrap text-sm tabular-nums text-[#676767] dark:text-[#8a867e];
   }
 }
 

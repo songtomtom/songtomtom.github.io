@@ -13,10 +13,11 @@ const posts = await getPosts();
   <Container>
     <aside data-pagefind-ignore>
       <div class="space-y-10">
-        <p class="animate text-sm text-neutral-600 dark:text-neutral-400">
-          {SERIES.DESCRIPTION}
-        </p>
-        <ul class="animate not-prose flex flex-col gap-4">
+        <div class="animate space-y-2">
+          <h1 class="text-[1.45rem] font-semibold tracking-tight text-[#282828] dark:text-[#f0ece4]">{SERIES.TITLE}</h1>
+          <p class="text-[#676767] dark:text-[#8a867e]">{SERIES.DESCRIPTION}</p>
+        </div>
+        <ul class="animate row-list">
           {
             seriesList.map((series) => (
               <li>

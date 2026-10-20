@@ -2,10 +2,12 @@
 import Container from "@components/Container.astro";
 import { SITE } from "@consts";
 import BackToTop from "@components/BackToTop.astro";
+type Props = { wide?: boolean };
+const { wide = false } = Astro.props;
 ---
 
-<footer class="animate">
-  <Container>
+<footer class="animate font-ui">
+  <Container wide={wide}>
     <div class="relative">
       <div class="absolute -top-12 right-0">
         <BackToTop />

@@ -1,5 +1,9 @@
 ---
-// 본문 컨테이너. 코드 블록이 많은 글을 고려해 768px(3xl) 로 둔다. 이 값을 바꾸면 사이트 전체 폭이 바뀐다.
+// 본문 컨테이너. 사이트 전체 폭은 1120px 로 통일한다(홈·글·시리즈·이력서 모두 같은 폭).
+// narrow: 글 본문처럼 읽는 폭이 중요한 곳만 768px 로 좁힌다. 헤더·푸터는 항상 1120px.
+import { cn } from "@lib/utils";
+type Props = { narrow?: boolean; wide?: boolean };
+const { narrow = false } = Astro.props;
 ---
 
-<div class="mx-auto max-w-3xl px-4"><slot /></div>
+<div class={cn("mx-auto px-4", narrow ? "max-w-3xl" : "max-w-[1120px]")}><slot /></div>

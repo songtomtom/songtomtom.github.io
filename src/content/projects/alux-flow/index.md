@@ -2,6 +2,7 @@
 title: "로봇 코딩 앱: 블록에서 C 코드, 보드 업로드까지"
 description: "Blockly로 조립한 블록을 C 코드로 바꿔 서버에서 컴파일하고 USB로 보드에 올리는 Flutter 앱. Flutter와 Blockly를 WebView 다리 하나로 잇고 다섯 플랫폼을 한 코드로 유지한 결정입니다."
 cover: ./cover-f66d3d.png
+draft: true
 date: "2026-01-19"
 org: "주식회사 에이럭스"
 role: "초기 아키텍처 · CI/CD · 스토어 배포"

@@ -10,7 +10,6 @@ import TableOfContents from "@components/TableOfContents.astro";
 import Giscus from "@components/Giscus.astro";
 import SeriesNav from "@components/SeriesNav.astro";
 import Mermaid from "@components/Mermaid.astro";
-import CategoryBadge from "@components/CategoryBadge.astro";
 import Link from "@components/Link.astro";
 import { getPosts, getSeries, postsOfSeries } from "@lib/projects";
 
@@ -52,9 +51,8 @@ const { Content, headings } = await render(post);
     <div class="animate">
       <BackToPrevious href="/blog">글 목록으로</BackToPrevious>
     </div>
-    <div class="my-10 space-y-1">
+    <div class="mb-14 mt-12 space-y-3">
       <div class="animate flex items-center gap-1.5">
-        <CategoryBadge category={post.data.category} class="mr-1" />
         <div class="font-base text-sm">
           <FormattedDate date={post.data.date} />
         </div>
@@ -65,19 +63,17 @@ const { Content, headings } = await render(post);
           </div>
         )}        
       </div>
-      <h1 class="animate text-3xl font-semibold text-black dark:text-white">
+      <h1 class="animate text-3xl font-semibold leading-snug tracking-tight text-[#282828] dark:text-[#f0ece4]">
         {post.data.title}
       </h1>
       {
         post.data.tags && post.data.tags?.length > 0 ? (
-          <div class="animate flex gap-2 pt-1">
-            {post.data.tags.map((tag) => (
-              <a
-                href={`/tags/${tag}`}
-                class="rounded-sm border border-black/15 px-2 py-1 text-sm transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"
-              >
-                {tag}
-              </a>
+          <div class="animate font-ui flex flex-wrap gap-x-2 pt-2 text-sm text-[#676767] dark:text-[#8a867e]">
+            {post.data.tags.map((tag, i) => (
+              <>
+                {i > 0 && <span aria-hidden="true">·</span>}
+                <Link href={`/tags/${tag}`}>{tag}</Link>
+              </>
             ))}
           </div>
         ) : null
@@ -85,12 +81,12 @@ const { Content, headings } = await render(post);
     </div>
     {
       series && (
-        <div class="animate mb-8">
+        <div class="animate mb-12">
           <SeriesNav series={series} posts={seriesPosts} currentId={post.id} />
         </div>
       )
     }
-    {headings.length > 0 && <TableOfContents headings={headings} />}
+    {headings.length > 0 && <div class="mb-14"><TableOfContents headings={headings} /></div>}
     <article class="animate">
       <Content />
       {

@@ -1,7 +1,7 @@
 ---
 title: "Argo CD GitOps 파이프라인"
 description: "Minikube에 Argo CD를 올리고 GitHub Actions와 연결해 푸시만으로 배포되는 GitOps 파이프라인을 만듭니다."
-date: "2025-01-18"
+date: "2025-02-25"
 repoURL: "https://github.com/songtomtom/argocd-app-source"
 tech: ["Argo CD", "Kubernetes", "GitHub Actions", "Docker", "Python"]
 category: infra

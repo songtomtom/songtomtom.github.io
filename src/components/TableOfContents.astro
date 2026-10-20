@@ -27,16 +27,12 @@ function buildToc(headings: Heading[]) {
 }
 ---
 
-<details
-  open
-  class="animate group rounded-lg border border-black/15 dark:border-white/20"
->
-  <summary
-    class="cursor-pointer rounded-t-lg px-3 py-1.5 font-medium transition-colors group-open:bg-black/5 hover:bg-black/5 dark:group-open:bg-white/5 hover:dark:bg-white/5"
-    >목차</summary
-  >
+<details open class="animate group border-b border-black/10 pb-6 dark:border-white/10">
+  <summary class="font-ui cursor-pointer list-none text-sm text-[#676767] transition-colors hover:text-[#282828] dark:text-[#8a867e] dark:hover:text-[#e2ded6]">
+    <span class="mr-1 inline-block transition-transform group-open:rotate-90">▶</span>목차
+  </summary>
   <nav>
-    <ul class="py-3">
+    <ul class="mt-4">
       {toc.map((heading) => <TableOfContentsHeading heading={heading} />)}
     </ul>
   </nav>

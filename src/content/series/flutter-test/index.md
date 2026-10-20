@@ -1,7 +1,7 @@
 ---
 title: "Flutter 테스트 연습"
 description: "Flutter 단위 테스트와 Mockito 의존성 모킹을 다루는 예제 프로젝트입니다."
-date: "2025-01-13"
+date: "2025-02-03"
 repoURL: "https://github.com/songtomtom/flutter-test"
 tech: ["Flutter", "Dart", "Mockito"]
 category: mobile
