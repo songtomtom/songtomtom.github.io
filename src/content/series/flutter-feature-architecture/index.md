@@ -4,7 +4,6 @@ description: "작은 할 일 앱으로 Flutter를 기능 단위로 나누고, �
 date: "2026-07-22"
 repoURL: "https://github.com/songtomtom/flutter-feature-architecture"
 tech: ["Flutter", "Dart 3", "Riverpod", "go_router", "freezed"]
-category: mobile
 cover: ./cover-d8a30f.png
 ---
 

@@ -4,7 +4,6 @@ description: "작은 할 일 REST 서비스를 대상으로 testify의 assert, r
 date: "2026-08-06"
 repoURL: "https://github.com/songtomtom/go-testify-testing"
 tech: ["Go", "testify", "testcontainers", "MySQL"]
-category: backend
 cover: ./cover-b3a734.png
 ---
 

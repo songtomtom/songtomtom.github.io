@@ -4,7 +4,6 @@ description: "Rush 모노레포에서 scratch-blocks를 React 앱에 주입해 �
 date: "2025-01-30"
 repoURL: "https://github.com/songtomtom/scratch-blocks"
 tech: ["React", "Scratch", "Rush", "TypeScript"]
-category: frontend
 cover: ./cover-ff158e.png
 ---
 

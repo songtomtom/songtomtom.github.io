@@ -4,7 +4,6 @@ description: "스키마 레지스트리 없이 라우터 파드의 init containe
 date: "2026-09-09"
 repoURL: "https://github.com/songtomtom/apollo-router-supergraph-on-kubernetes"
 tech: ["Apollo Router", "GraphQL Federation", "Kubernetes", "Kustomize", "rover"]
-category: infra
 cover: ./cover-316fe6.png
 ---
 

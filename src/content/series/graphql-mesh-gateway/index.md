@@ -4,7 +4,6 @@ description: "REST, gRPC, GraphQL 서비스를 GraphQL Mesh로 하나의 게이�
 date: "2025-02-14"
 repoURL: "https://github.com/songtomtom/graphql-mesh-gateway"
 tech: ["GraphQL Mesh", "Go", "gRPC", "gqlgen", "OpenAPI"]
-category: backend
 cover: ./cover.png
 ---
 

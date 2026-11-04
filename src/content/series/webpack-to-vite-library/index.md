@@ -4,7 +4,6 @@ description: "WebGL 스프라이트 렌더러 하나를 webpack 설정 세 개�
 date: "2026-08-24"
 repoURL: "https://github.com/songtomtom/webpack-to-vite-library"
 tech: ["Vite", "webpack", "WebGL", "Rollup"]
-category: frontend
 cover: ./cover-68fcef.png
 ---
 

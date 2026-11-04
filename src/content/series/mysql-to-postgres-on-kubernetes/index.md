@@ -4,7 +4,6 @@ description: "Kubernetes 위에서 MySQL Operator를 1년 운영하다 PostgreSQ
 date: "2026-08-17"
 repoURL: "https://github.com/songtomtom/mysql-to-postgres-on-kubernetes"
 tech: ["PostgreSQL", "pgvector", "Go", "ent", "Kubernetes", "CloudNativePG"]
-category: infra
 cover: ./cover-6f0e97.png
 ---
 

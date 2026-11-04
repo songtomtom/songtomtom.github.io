@@ -6,7 +6,6 @@ import BackToPrevious from "@components/BackToPrevious.astro";
 import Link from "@components/Link.astro";
 import FormattedDate from "@components/FormattedDate.astro";
 import Mermaid from "@components/Mermaid.astro";
-import CategoryBadge from "@components/CategoryBadge.astro";
 import { Image } from "astro:assets";
 import { getPosts, getSeries, postsOfSeries, type Series } from "@lib/projects";
 
@@ -22,7 +21,7 @@ type Props = Series;
 const series = Astro.props;
 const posts = postsOfSeries(await getPosts(), series.id);
 const { Content } = await render(series);
-const { title, description, repoURL, demoURL, tech, date, category, cover } = series.data;
+const { title, description, repoURL, demoURL, tech, date, cover } = series.data;
 ---
 
 <Layout title={title} description={description}>
@@ -31,8 +30,7 @@ const { title, description, repoURL, demoURL, tech, date, category, cover } = se
       <BackToPrevious href="/series">시리즈 목록으로</BackToPrevious>
     </div>
     <div class="animate my-10 space-y-2">
-      <div class="flex items-center gap-2 text-sm text-neutral-500">
-        <CategoryBadge category={category} />
+      <div class="row-meta">
         <FormattedDate date={date} />
       </div>
       <h1 class="text-3xl font-semibold text-black dark:text-white">{title}</h1>

@@ -4,7 +4,6 @@ description: "단일 Vite React 앱을 Nx와 pnpm workspace로 앱 2개, 라이�
 date: "2026-09-03"
 repoURL: "https://github.com/songtomtom/nx-vite-pnpm-monorepo"
 tech: ["Nx", "pnpm", "Vite", "React", "TypeScript"]
-category: frontend
 cover: ./cover-e6cda6.png
 ---
 

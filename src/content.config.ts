@@ -36,7 +36,6 @@ const series = defineCollection({
     repoURL: z.url().optional(),
     demoURL: z.url().optional(),
     tech: z.array(z.string()).optional(),
-    category: category.optional(),
   }),
 });
 

@@ -4,7 +4,6 @@ description: "Claude Code 같은 코딩 에이전트가 프로젝트 규칙 안�
 date: "2026-09-23"
 repoURL: "https://github.com/songtomtom/coding-agent-harness"
 tech: ["Claude Code", "Nx", "TypeScript", "Vitest"]
-category: ai
 ---
 
 코딩 에이전트를 쓰다 보면 프로젝트 규칙 파일이 자랍니다. 지키라고 적은 것, 만드는 절차, 그렇게 정한 이유, 예외가 한 파일에 쌓이고, 길어질수록 에이전트는 그중 일부만 따릅니다. 이 시리즈는 그 파일을 어떻게 나누고, 글로 적은 금지를 어떻게 실행 경로로 옮기고, 역할이 다른 일을 어떻게 다른 에이전트에 맡기는지를 다룹니다.
