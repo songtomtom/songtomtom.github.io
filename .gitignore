@@ -24,3 +24,6 @@ pnpm-debug.log*
 
 # pagefind dev output
 public/pagefind/
+
+# 상세 이력서 (공개 저장소에 올리지 않음)
+private/

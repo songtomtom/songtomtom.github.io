@@ -75,7 +75,7 @@ const ym = (d: Date) => `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(
     {
       next && next.id !== project.id && (
         <nav class="animate mt-10 flex justify-between gap-4 border-t border-black/15 pt-5 text-sm dark:border-white/20">
-          <Link href="/resume">이력서로</Link>
+          <Link href="/career">경력으로</Link>
           <a href={`/projects/${next.id}`} class="text-right">
             <span class="block text-xs text-neutral-500">다음 프로젝트</span>
             <span class="underline underline-offset-2">{next.data.title} ›</span>

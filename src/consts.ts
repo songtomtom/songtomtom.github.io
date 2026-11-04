@@ -27,8 +27,8 @@ export const PROJECTS: Metadata = {
   DESCRIPTION: "회사와 개인에서 만든 시스템의 기술 결정을 정리합니다. 화면과 업무 절차는 싣지 않고 구조와 이유만 담습니다.",
 };
 
-export const RESUME: Metadata = {
-  TITLE: "이력서",
+export const CAREER_PAGE: Metadata = {
+  TITLE: "경력",
   DESCRIPTION: "송준영(songtomtom)의 경력과 기술 스택",
 };
 
